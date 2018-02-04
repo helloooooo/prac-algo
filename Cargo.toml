@@ -1,0 +1,14 @@
+[package]
+name = "alogo"
+version = "0.1.0"
+authors = ["NaokiSatou <yomicerisier@gmail.com>"]
+
+[[bin]]
+name = "Ants"
+
+[[bin]]
+name = "recursion"
+
+[[bin]]
+name = "Partialsum"
+[dependencies]
