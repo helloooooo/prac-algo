@@ -11,4 +11,8 @@ name = "recursion"
 
 [[bin]]
 name = "Partialsum"
+[[bin]]
+name = "Lake"
+[[bin]]
+name = "Maze"
 [dependencies]
