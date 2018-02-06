@@ -1,3 +1,4 @@
+//深さ優先探索
 struct Input {
     n: i32,
     k: i32,

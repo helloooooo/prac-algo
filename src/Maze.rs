@@ -1,3 +1,4 @@
+// 幅優先探索のサンプル
 const N:usize = 10;
 const M:usize = 10;
 const INF: i32 = 1000000;
