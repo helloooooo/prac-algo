@@ -17,4 +17,20 @@ name = "Lake"
 name = "Maze"
 [[bin]]
 name = "coin"
+[[bin]]
+name = "abc77a"
+[[bin]]
+name = "abc77b"
+[[bin]]
+name = "abc77c"
+[[bin]]
+name = "test"
+[[bin]]
+name = "abc76a"
+[[bin]]
+name = "abc76b"
+[[bin]]
+name = "abc76c"
+
+
 [dependencies]
