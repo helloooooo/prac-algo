@@ -35,4 +35,6 @@ name = "abc76c"
 name = "abc75a"
 [[bin]]
 name = "abc75b"
+[[bin]]
+name = "abc75c"
 [dependencies]
