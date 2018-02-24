@@ -56,6 +56,12 @@ name = "abc80b"
 [[bin]]
 name = "abc80c"
 [[bin]]
+name = "abc81a"
+[[bin]]
+name = "abc81b"
+[[bin]]
+name = "abc81c"
+[[bin]]
 name = "abc88a"
 [[bin]]
 name = "abc88b"

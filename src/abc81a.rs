@@ -16,16 +16,11 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let i: i32 = read();
-    let c: Vec<i32> = i.to_string()
-        .chars()
+    let i: String = read();
+    let ans: i32 = i.chars()
         .map(|x| x.to_digit(10).unwrap() as i32)
-        .collect();
-    let d: i32 = c.iter().sum();
-    if i % d == 0 {
-        println!("Yes");
-    } else {
-        println!("No");
-    }
-
+        .collect::<Vec<i32>>()
+        .iter()
+        .sum();
+    println!("{}", ans);
 }

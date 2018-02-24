@@ -16,16 +16,15 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let i: i32 = read();
-    let c: Vec<i32> = i.to_string()
-        .chars()
-        .map(|x| x.to_digit(10).unwrap() as i32)
-        .collect();
-    let d: i32 = c.iter().sum();
-    if i % d == 0 {
-        println!("Yes");
+    let n: u32 = read();
+    let v: Vec<i32> = read_vec();
+    let ans = run(v, 0);
+    println!("{}", ans);
+}
+fn run(i: Vec<i32>, count: i32) -> i32 {
+    if i.iter().all(|x| x % 2 == 0) {
+        run(i.iter().map(|x| x / 2).collect(), count + 1)
     } else {
-        println!("No");
+        count
     }
-
 }

@@ -23,20 +23,9 @@ fn main(){
     // let ans: Vec<(&Vec<i32>,&Vec<i32>)>= s.iter().zip(p.iter()).collect();
     let mut v: Vec<&i32>= Vec::new();
     let mut ans = 0;
-    // s.iter().zip(p.iter())
-    //         .map(|x| v.push(x.1.split_at((x.0.iter().sum::<i32>() + 1) as usize)
-    //         .0.iter().max().unwrap()));
-    for i in 0..n {
-        let sub = p[i as usize].split_at((s[i as usize].iter().sum::<i32>() + 1) as usize).0;
-        if sub.iter().max().unwrap() == &0  && v.contains(&&0) {
-            let m =  sub.into_iter().filter(|x| x != &&0).max().unwrap();
-            v.push(m);
-            ans += m;
-        } else {
-            let m = sub.iter().max().unwrap();
-            v.push(m);
-            ans += m;
-        }
-    }
+    s.iter().zip(p.iter())
+            .map(|x| v.push(x.1.split_at((x.0.iter().sum::<i32>() + 1) as usize)
+            .0.iter().max().unwrap()));
+
     print!("{:?}",ans);
 }
