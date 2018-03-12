@@ -18,6 +18,36 @@ name = "Maze"
 [[bin]]
 name = "coin"
 [[bin]]
+name = "abc68c"
+[[bin]]
+name = "abc69a"
+[[bin]]
+name = "abc69b"
+[[bin]]
+name = "abc69c"
+[[bin]]
+name = "abc70a"
+[[bin]]
+name = "abc70b"
+[[bin]]
+name = "abc70c"
+[[bin]]
+name = "abc71a"
+[[bin]]
+name = "abc71b"
+[[bin]]
+name = "abc71c"
+[[bin]]
+name = "abc72a"
+[[bin]]
+name = "abc72b"
+[[bin]]
+name = "abc73a"
+[[bin]]
+name = "abc73b"
+[[bin]]
+name = "abc73c"
+[[bin]]
 name = "abc77a"
 [[bin]]
 name = "abc77b"
@@ -103,4 +133,16 @@ name = "abc88a"
 name = "abc88b"
 [[bin]]
 name = "abc88c"
+[[bin]]
+name = "abc89a"
+[[bin]]
+name = "abc89b"
+[[bin]]
+name = "abc89c"
+[[bin]]
+name = "abc90a"
+[[bin]]
+name = "abc90b"
+[[bin]]
+name = "abc90c"
 [dependencies]
