@@ -1,3 +1,4 @@
+use std::cmp::min;
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).ok();
@@ -16,6 +17,15 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 fn main(){
     let n:i32 = read();
-    let an:Vec<i32> = read_vec();
-    
+    let an:Vec<i64> = read_vec();
+    let s:i64 = an.iter().sum();
+    let mut x = 0;
+    let mut ans = 1000000000000000000 ;
+    for i in 0..(n-1){ 
+        x += an[i as usize];
+        if i+ 1 < n {
+            ans = min(ans,(s- 2 *x).abs());
+        }
+    }
+    println!("{}",ans);
 }
