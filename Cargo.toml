@@ -18,6 +18,8 @@ name = "Maze"
 [[bin]]
 name = "coin"
 [[bin]]
+name = "abc65c"
+[[bin]]
 name = "abc66c"
 [[bin]]
 name = "abc67c"
