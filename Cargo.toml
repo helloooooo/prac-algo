@@ -18,6 +18,38 @@ name = "Maze"
 [[bin]]
 name = "coin"
 [[bin]]
+name = "abc50a"
+[[bin]]
+name = "abc50b"
+[[bin]]
+name = "abc50c"
+[[bin]]
+name = "abc47a"
+[[bin]]
+name = "abc47c"
+[[bin]]
+name = "abc57c"
+[[bin]]
+name = "abc51a"
+[[bin]]
+name = "abc51b"
+[[bin]]
+name = "abc51c"
+[[bin]]
+name = "abc91a"
+[[bin]]
+name = "abc91b"
+[[bin]]
+name = "abc91c"
+[[bin]]
+name = "abc60c"
+[[bin]]
+name = "abc61c"
+[[bin]]
+name = "abc63c"
+[[bin]]
+name = "abc64c"
+[[bin]]
 name = "abc65c"
 [[bin]]
 name = "abc66c"
