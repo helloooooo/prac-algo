@@ -1,4 +1,3 @@
-
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).ok();
@@ -15,11 +14,9 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-
 fn main(){
-    let a:u32 =read();
-    let b:u32 =read();
-    let ans =  if (a * b) % 2 == 0 { "Even" } else { "Odd"};
-    println!("{}",ans);  
-
+    let n:u64 = read();
+    let v = read_vec::<u64>();
+    let ans:u64 = v.iter().map(|x| x-1).sum();
+    println!("{}",ans );
 }

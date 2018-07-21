@@ -15,11 +15,12 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-
 fn main(){
-    let a:u32 =read();
-    let b:u32 =read();
-    let ans =  if (a * b) % 2 == 0 { "Even" } else { "Odd"};
-    println!("{}",ans);  
-
+    let nm = read_vec::<u64>();
+    let (n,m) = (nm[0],nm[1]);
+    let abn = read_vec2::<u64>(m);
+    let mut v = Vec::new();
+    for i in 0..n {
+        //わからん
+    }
 }
