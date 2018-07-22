@@ -209,4 +209,6 @@ name = "abc103c"
 name = "abc064a"
 [[bin]]
 name = "abc064b"
+[[bin]]
+name = "abc064c"
 [dependencies]
