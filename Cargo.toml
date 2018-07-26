@@ -222,6 +222,8 @@ name = "abc062b"
 [[bin]]
 name = "abc062c"
 [[bin]]
+name = "abc062_sub"
+[[bin]]
 name = "abc061a"
 [[bin]]
 name = "abc061b"
