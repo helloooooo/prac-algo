@@ -21,10 +21,10 @@ fn main(){
     let abn:Vec<Vec<i64>> = read_vec2(n as u32);
     let cdn:Vec<Vec<i64>> = read_vec2(m as u32);
     let ans = abn.iter().fold(Vec::new(),|mut y,x| {
-        let mut calc = cdn.iter().enumerate().map(|(i,cd)| (i,(x[0] - cd[0]).abs() + (x[1]  + cd[1]).abs())).collect::<Vec<(usize,i64)>>();
+        let mut calc = cdn.iter().enumerate().map(|(i,cd)| (i as u64+1,(x[0] - cd[0]).abs() + (x[1] -cd[1]).abs()))
+            .collect::<Vec<(u64,i64)>>();
         calc.sort_by_key(|k| k.1);
-        calc.iter().for_each(|k| println!("{}:{}",k.0,k.1));
-        y.push(calc[0].0+1);
+        y.push(calc[0].0);
         y
     });
     for i in &ans{
