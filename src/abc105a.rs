@@ -1,4 +1,3 @@
-use std::cmp::max;
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).ok();
@@ -16,7 +15,11 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main(){
-    let n : u32 = read();
-    let v:Vec<Vec<u64>> = read_vec2(n);
-    for 
+    let s = read_vec::<i64>();
+    let ans  = if s[0] % s[1] == 0{
+        0
+    } else {
+        1
+    };
+    println!("{}",ans);
 }
