@@ -28,20 +28,17 @@ impl Dp {
         }
     }
     fn solve(&mut self ,x : i64) -> i64{
-        if x == 1 {
-            self.memo[x as usize] = (self.an[x as usize] - self.an[(x-1) as usize]);
-        }
-        if x == self.n {
-            return self.memo[self.n as usize]
-        } else if x == 1 {
-            
-            // self.memo[x as usize]
+        let res = if x == self.n - 1{
+            0
+        } else if x == self.n - 2{
+            self.solve(x + 1) + (self.an[x as usize] - self.an[(x + 1) as usize]).abs()
         } else {
-            let t1 = self.memo[(x-1) as usize] + (self.an[(x-1) as usize] - self.an[(x) as usize]).abs();
-            let t2 = self.memo[(x-2) as usize] + (self.an[(x-2) as usize] - self.an[(x) as usize]).abs();
-            self.memo[x as usize] =  min(t1,t2);
-            self.solve(x+ 1)
-        }
+            let t1 = (self.an[x as usize] - self.an[(x + 1) as usize]).abs();
+            let t2 = (self.an[x as usize] - self.an[(x + 2 ) as usize]).abs();
+            min(self.solve(x+1) + t1, self.solve(x + 2) + t2)
+        };
+        self.memo[x as usize] = res;
+        res
     }
 }
 
@@ -49,6 +46,6 @@ fn main(){
     let n : i64 = read();
     let an = read_vec::<i64>();
     let memo = vec![0;(n+1) as usize];
-    let ans = Dp::new(n,memo,an).solve(1);
+    let ans = Dp::new(n,memo,an).solve(0);
     print!("{}",ans);
 }
