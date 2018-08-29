@@ -322,17 +322,21 @@ name = "abc041b"
 [[bin]]
 name = "abc041c"
 [[bin]]
-<<<<<<< HEAD
 name = "abc107a"
 [[bin]]
 name = "abc107b"
 [[bin]]
 name = "abc107c"
-=======
+[[bin]]
 name = "abc040a"
 [[bin]]
 name = "abc040b"
 [[bin]]
 name = "abc040c"
->>>>>>> a44d0ecaab407078c4b99fa227ba2c9ed57d56c0
+[[bin]]
+name = "abc039a"
+[[bin]]
+name = "abc039b"
+[[bin]]
+name = "abc039c"
 [dependencies]
