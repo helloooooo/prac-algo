@@ -339,4 +339,18 @@ name = "abc039a"
 name = "abc039b"
 [[bin]]
 name = "abc039c"
+[[bin]]
+name = "abc037c"
+[[bin]]
+name = "abc037a"
+[[bin]]
+name = "abc037b"
+[[bin]]
+name = "abc036a"
+[[bin]]
+name = "abc036b"
+[[bin]]
+name = "abc108a"
+[[bin]]
+name = "abc108b"
 [dependencies]
