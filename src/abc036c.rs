@@ -1,3 +1,4 @@
+use std::collections::BTreeSet;
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).ok();
@@ -15,14 +16,14 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main(){
-    let nk = read_vec::<i64>();
-    let (n,k) = (nk[0],nk[1]);
-    let mut ans = 0
-    for a in 1..n+1{
-        for b in 1..n+1{
-            if (a+b) % k == 0{
-                ans += (1..n+1).filter()
-            }
-        } 
+    let n : i64  = read();
+    let mut an = Vec::new();
+    for _ in 0..n{
+        an.push(read::<i64>());
+    }
+    let mut ans =an.iter().cloned().collect::<BTreeSet<i64>>().into_iter().collect::<Vec<i64>>();
+    ans.sort();
+    for x in an.iter().map(|a| ans.binary_search(a).unwrap()){
+        println!("{}",x );
     }
 }
