@@ -1,0 +1,20 @@
+[package]
+name = "resolve"
+version = "0.1.0"
+authors = ["helloooooo <yomicerisier@gmail.com>"]
+
+[dependencies]
+
+[[bin]]
+name = "abc088a"
+[[bin]]
+name = "abc088b"
+[[bin]]
+name = "abc088c"
+[[bin]]
+name = "abc089c"
+[[bin]]
+name = "abc090c"
+[[bin]]
+name = "abc092c"
+
