@@ -390,3 +390,9 @@ name = "abc111a"
 name = "abc111b"
 [[bin]]
 name = "abc111c"
+[[bin]]
+name = "abc112a"
+[[bin]]
+name = "abc112b"
+[[bin]]
+name = "abc112c"
