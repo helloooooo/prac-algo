@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::HashSet;
 use std::cmp::max;
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
@@ -19,27 +19,22 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 fn main(){
     let n = read::<usize>();
     let an = read_vec2::<i64>(n as u32);
-    let mut ans = vec![];
-    let target = an.iter().filter(|x| x[2] >= 1).count();
-    // let mut ans2 = vec![];
-    for j in 0..n{
-        for cx in 0..101{
-            for cy in 0..101{
-                let (x,y,h) = (an[j][0],an[j][1],an[j][2]);
-                let diff = (x-cx).abs() +(y-cy).abs();
-                if h >= 1{
-                    ans.push((cx,cy,h+diff));
-                }
-
-            }
+    let (xt,yt,ht) = {
+            let sub = an.iter().filter(|x| x[2] >= 1).nth(0).unwrap();
+            (sub[0],sub[1],sub[2])
+        };
+    let mut set = HashSet::new();
+    for cx in 0..101{
+        for cy in 0..101{
+            let h = ht + (cx-xt).abs() + (cy-yt).abs();
+            set.insert((cx,cy,h));
         }
     }
-    let ans = ans.into_iter().fold(HashMap::new(),|mut map,x|{
-        let y = map.get(&x).map(|i| i+1).unwrap_or(1);
-        map.insert(x,y);
-        map
-    }).into_iter().collect::<Vec<((_,_,_),_)>>()
-    .into_iter().filter(|z| z.1 == target).nth(0).unwrap();
+    let ans = set.into_iter().collect::<Vec<(_,_,_)>>()
+        .into_iter().filter(|a| an.iter().all(|b| {
+            let (xb,yb,hb) =(b[0],b[1],b[2]);
+            hb == max(a.2-(a.0-xb).abs()-(a.1-yb).abs(),0)
+        })).nth(0).unwrap();
+    println!("{} {} {}",ans.0,ans.1,ans.2);
 
-    println!("{} {} {}",(ans.0).0,(ans.0).1,(ans.0).2 );
 }
