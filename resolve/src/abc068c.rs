@@ -20,10 +20,10 @@ fn main(){
     };
     let an = read_vec2::<i64>(m as u32);
     let bn:Vec<_> = an.iter().filter(|x| x[0] == 1)
+            .map(|x|x[1])
             .collect();
-    let cn = bn.into_iter().map(|x| x[1]).collect::<Vec<i64>>();
-    if an.iter().filter(|x| x[1] == n).map(|x| x[0]).any(|x| cn.contains(&x)) {
-    println!("POSSIBLE"); 
+    if an.into_iter().filter(|x| x[1] == n ).any(|x| bn.contains(&x[0])) {
+        println!("POSSIBLE");  
     }else {
         println!("IMPOSSIBLE");
     }
