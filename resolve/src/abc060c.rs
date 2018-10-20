@@ -1,3 +1,4 @@
+use std::cmp::min;
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).ok();
@@ -19,14 +20,9 @@ fn main(){
         (t[0],t[1])
     };
     let tn = read_vec::<usize>();
-    let mut ans = 0;
-    for j in 0..n-1{
-        if tn[j+1]-tn[j] < t {
-            ans += tn[j+1]-tn[j]
-        } else {
-            ans += t;
-        }
-    }
-    ans += t;
+    let ans = (0..n-1).fold(t,|y,x|{
+        let diff = tn[x+1] - tn[x];
+        y + min(t,diff)
+    });
     println!("{}",ans);
 }
