@@ -9,8 +9,7 @@ authors = ["helloooooo <yomicerisier@gmail.com>"]
 name = "abc088a"
 [[bin]]
 name = "abc088b"
-[[bin]]
-name = "abc088c"
+
 [[bin]]
 name = "abc089c"
 [[bin]]
@@ -94,5 +93,5 @@ name = "abc053c"
 name = "abc048c"
 [[bin]]
 name = "abc047c"
-
-
+[[bin]]
+name = "abc046c"
