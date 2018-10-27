@@ -19,28 +19,67 @@ fn main(){
     for _ in 0..n{
         an.push(read::<i64>());
     }
-    let mut ans:Vec<i64> = vec![0;n];
     an.sort();
-    let mid = if n % 2 == 0  {(n/2) -1} else { n /2  };
-    let mut sum = 0;
-    ans[mid] = an[0];
-    for j in 1..(n/2)+1{
-        if j % 2 != 0 {
-            ans[mid + j] = an[n-j];
-            if !(n % 2 == 0 && j == n/2) { 
-                ans[mid - j] = an[n-j-1];
-            }
+    let mut bn:Vec<i64> = (0..n).map(|x| {
+        if n % 2 == 0{
+            even(x,n-1)
         } else {
-            ans[mid+j] = an[j-1];
-            if !(n % 2 == 0 && j == n/2) {
-                ans[mid-j] = an[j];
-            }
+            odd(x,n-1)
         }
+    }).collect();
+    let mut cn:Vec<i64> = (0..n).map(|x| {
+        if n % 2 == 0{
+            even_1(x,n-1)
+        } else {
+            odd_1(x,n-1)
+        }
+    }).collect();
+    bn.sort();
+    cn.sort();
+    let  up:Vec<i64> = an.iter().zip(bn.into_iter()).map(|(a,b)| {a*b}).collect();
+    let down:Vec<i64> = an.iter().zip(cn.into_iter()).map(|(a,b)| {a*b}).collect();
+    println!("{:?}",up );
+    println!("{:?}",down );
+    let ans = std::cmp::max(up.into_iter().sum::<i64>(),down.into_iter().sum::<i64>());
+    println!("{}", ans);
+}
+fn odd(x:usize,upper:usize)->i64{
+        if x == 0 || x == upper{
+            1
+        } else if x % 2 == 0 {
+            2
+        } else {
+            -2
+        }
+}
+fn odd_1(x:usize,upper:usize)->i64{
+        if x == 0 || x == upper{
+            -1
+        } else if x % 2 == 0 {
+            -2
+        } else {
+            2
+        }
+}
+fn even(x:usize,upper:usize)->i64{
+    if x == 0 {
+        1
+    } else if x == upper {
+        -1
+    } else if x % 2 == 0{
+        2
+    } else {
+        -2 
     }
-    for j in 0..(n-1){
-        sum += (ans[j]-ans[j+1]).abs();
+}
+fn even_1(x:usize,upper:usize)->i64{
+    if x == 0 {
+        -1
+    } else if x == upper {
+        1
+    } else if x % 2 == 0{
+        -2
+    } else {
+        2 
     }
-    println!("{:?}",ans );
-    println!("{}",sum);
-    // println!( );
 }
