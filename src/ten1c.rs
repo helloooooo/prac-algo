@@ -38,8 +38,8 @@ fn main(){
     cn.sort();
     let  up:Vec<i64> = an.iter().zip(bn.into_iter()).map(|(a,b)| {a*b}).collect();
     let down:Vec<i64> = an.iter().zip(cn.into_iter()).map(|(a,b)| {a*b}).collect();
-    println!("{:?}",up );
-    println!("{:?}",down );
+    // println!("{:?}",up );
+    // println!("{:?}",down );
     let ans = std::cmp::max(up.into_iter().sum::<i64>(),down.into_iter().sum::<i64>());
     println!("{}", ans);
 }
