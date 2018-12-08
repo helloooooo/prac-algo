@@ -3,7 +3,6 @@ fn read<T: std::str::FromStr>() -> T {
     std::io::stdin().read_line(&mut s).ok();
     s.trim().parse().ok().unwrap()
 }
-
 fn read_vec<T: std::str::FromStr>() -> Vec<T> {
     read::<String>()
         .split_whitespace()
@@ -15,12 +14,14 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 fn main(){
     let n = read::<i64>();
-    let master = 
-    if n <  357 {
-        println!("0");
-        return;
-    }
-    for i in 1..n+1 {
-         i.to_string().Chars().
-    }
+    let ans = if n == 22 {
+        "Christmas Eve Eve Eve".to_string()
+    } else if n == 23 {
+        "Christmas Eve Eve".to_string()
+    } else if n == 24 {
+        "Christmas Eve".to_string()
+    } else {
+        "Christmas".to_string()
+    };
+    println!("{}",ans);
 }

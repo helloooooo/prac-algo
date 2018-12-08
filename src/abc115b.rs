@@ -3,7 +3,6 @@ fn read<T: std::str::FromStr>() -> T {
     std::io::stdin().read_line(&mut s).ok();
     s.trim().parse().ok().unwrap()
 }
-
 fn read_vec<T: std::str::FromStr>() -> Vec<T> {
     read::<String>()
         .split_whitespace()
@@ -15,12 +14,12 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 fn main(){
     let n = read::<i64>();
-    let master = 
-    if n <  357 {
-        println!("0");
-        return;
+    let mut v:Vec<i64> = vec![];
+    for _ in 0..n{
+        v.push(read::<i64>());
     }
-    for i in 1..n+1 {
-         i.to_string().Chars().
-    }
+    let max_v = v.iter().max().unwrap();
+    let sum:i64 = v.iter().sum();
+    let ans = sum - max_v + (max_v/2);
+    println!("{}",ans);
 }

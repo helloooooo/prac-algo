@@ -3,7 +3,6 @@ fn read<T: std::str::FromStr>() -> T {
     std::io::stdin().read_line(&mut s).ok();
     s.trim().parse().ok().unwrap()
 }
-
 fn read_vec<T: std::str::FromStr>() -> Vec<T> {
     read::<String>()
         .split_whitespace()
@@ -14,13 +13,20 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main(){
-    let n = read::<i64>();
-    let master = 
-    if n <  357 {
-        println!("0");
-        return;
-    }
-    for i in 1..n+1 {
-         i.to_string().Chars().
+    let mut v = read_vec::<i64>();
+    let ans = insertionSort(v,v.len());
+    println!("---------");
+    println!("{:?}",ans);
+}
+fn insertionSort(a:mut Vec<i64>,n) -> Vec<i64>{
+    for i in 1..n {
+        let v = a[i];
+        let j = i - 1;
+        while (j >= 0 &&  a[j] > v) {
+            a[j + 1] = a[j];
+            j--;
+        }
+        a[j + 1] = v;
+        println!("{:?}",a);
     }
 }
