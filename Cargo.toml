@@ -436,3 +436,7 @@ name = "cadiia"
 name = "cadiib"
 [[bin]]
 name = "cadiic"
+[[bin]]
+name = "aisinga"
+[[bin]]
+name = "aisingb"
