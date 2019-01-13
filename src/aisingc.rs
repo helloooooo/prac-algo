@@ -17,5 +17,23 @@ fn main(){
         let t = read_vec::<i64>();
         (t[0],t[1])
     };
-    let mut field = read_vec2(h as u32);
+    let field = read_vec2::<char>(h as u32);
+    for j in 0..h {
+        for k in 0..w {
+            if field[j as usize][k as usize] == '#' {
+
+            } 
+        }
+    } 
+}
+
+fn move_increment(field:&Vec<Vec<char>>,j:usize,k:usize,before:char,max:usize) -> i64 {
+    if before == '#'{
+        if field[j][k] == '.' {
+            1  
+            + if j - 1 >=  0 { move_increment(field, j-1, k, '.',max) }
+            + if j + 1 <= max { move_increment(field, j+1, k, '.' max)}
+            + if 
+        }
+    }
 }

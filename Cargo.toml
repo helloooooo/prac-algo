@@ -440,3 +440,7 @@ name = "cadiic"
 name = "aisinga"
 [[bin]]
 name = "aisingb"
+[[bin]]
+name = "keyensea"
+[[bin]]
+name = "keyenseb"
