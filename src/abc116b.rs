@@ -14,27 +14,18 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 fn main(){
     let s = read::<i64>();
-    let mut ans:Vec<i64> = vec![];
-    let mut count = 1;
-    let mut m = 1 ;
-    loop {
-        
-        if count == 1 {
-
-            count = s;
-        } else if count % 2 == 0 {
-
-            count /= 2;
+    let mut ai = s;
+    let mut v = vec![s];
+    for i in 2.. {
+        ai = if ai % 2 == 0 {
+            ai/2 
         } else {
-
-            count = 3*count + 1;
+            3*ai+1
+        };
+        if v.contains(&ai) {
+            println!("{}",i);
+            return;
         }
-        if ans.contains(&count) {
-            break;
-        }
-        ans.push(count);
-        m += 1;
+        v.push(ai);
     }
-    println!("{:?}",ans);
-    println!("{}",m);
 }
