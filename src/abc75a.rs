@@ -15,14 +15,16 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let input: Vec<i32> = read_vec();
-    let mut ans = 0;
-    if input[0] == input[1] {
-        ans = input[2];
-    } else if input[0] == input[2] {
-        ans = input[1];
-    } else if input[1] == input[2] {
-        ans = input[0];
-    }
-    println!("{}", ans);
+    let (a,b,c) = {
+        let t = read_vec::<i64>();
+        (t[0],t[1],t[2])
+    };
+    let ans = if a == b {
+        c
+    } else if a == c {
+        b
+    } else {
+        a
+    };
+    println!("{}",ans);
 }

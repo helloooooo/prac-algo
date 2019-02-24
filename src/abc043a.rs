@@ -15,7 +15,9 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main(){
-    let n : i64 = read();
-    let ans = (1..n+1).fold(0,|y,x| y + x);
-    println!("{}",ans );
+    let n = read::<usize>();
+    let ans = (1..n+1).fold(0,|y,x|{
+        y + x
+    });
+    println!("{}",ans);
 }
