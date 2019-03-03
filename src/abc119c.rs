@@ -32,7 +32,7 @@ fn main(){
     for i in 0..sub.len() {
         let mut field = vec![vec![0;sub.len()];sub.len()];
         for j in i..sub.len(){
-            fieldp[i]p[j] = sub[i] + sub[j];
+            field[i][j] = sub[i] + sub[j];
         }
     }
 }
