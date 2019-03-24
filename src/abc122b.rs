@@ -50,16 +50,24 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+use std::cmp::max;
 fn main(){
     input!{
-        n:i64,
-        m:i64,
-        mat:[[i64;2];m],
+        s:chars
+    };
+    let master = vec!['A','C','G','T'];
+    let mut ans = 0;
+    let len = s.len();
+    for i in 0..len {
+        let mut  count = 0;
+        for j in i..len {
+            if master.contains(&s[j]) {
+                count += 1;
+            } else {
+                break;
+            }
+        }
+        ans = max(count,ans);
     }
-    let mut field = [[bool;n];n];
-    for arr in &mat {
-        field[arr[0][0]-1][arr[0][1]-1] = true;
-        field[arr[0][1]-1][arr[0][0]-1] = true;
-    }
-    println!("{:?}",field);
+    println!("{}",ans);
 }

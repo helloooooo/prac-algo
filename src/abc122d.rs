@@ -53,13 +53,7 @@ macro_rules! read_value {
 fn main(){
     input!{
         n:i64,
-        m:i64,
-        mat:[[i64;2];m],
     }
-    let mut field = [[bool;n];n];
-    for arr in &mat {
-        field[arr[0][0]-1][arr[0][1]-1] = true;
-        field[arr[0][1]-1][arr[0][0]-1] = true;
-    }
-    println!("{:?}",field);
+    let pow = 4_i64.pow(n as u32);
+    println!("{}",pow );
 }

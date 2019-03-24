@@ -52,14 +52,21 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        n:i64,
-        m:i64,
-        mat:[[i64;2];m],
+        n:usize,
+        q:usize,
+        s:chars,
+        lrn:[(usize,usize);q],
+    };
+    let mut ans:Vec<i64> = vec![0];
+    let mut count = 0;
+    for i in 0..n-1
+     {
+        if s[i] == 'A' && s[i + 1] == 'C' {
+            count += 1;
+        }
+         ans.push(count);
     }
-    let mut field = [[bool;n];n];
-    for arr in &mat {
-        field[arr[0][0]-1][arr[0][1]-1] = true;
-        field[arr[0][1]-1][arr[0][0]-1] = true;
+    for &(k,v) in &lrn {
+        println!("{}",(ans[k-1]-ans[v-1]).abs());
     }
-    println!("{:?}",field);
 }
