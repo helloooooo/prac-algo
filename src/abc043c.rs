@@ -1,31 +1,74 @@
-fn read<T: std::str::FromStr>() -> T {
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).ok();
-    s.trim().parse().ok().unwrap()
+macro_rules! input {
+    (source = $s:expr, $($r:tt)*) => {
+        let mut iter = $s.split_whitespace();
+        let mut next = || { iter.next().unwrap() };
+        input_inner!{next, $($r)*}
+    };
+    ($($r:tt)*) => {
+        let stdin = std::io::stdin();
+        let mut bytes = std::io::Read::bytes(std::io::BufReader::new(stdin.lock()));
+        let mut next = move || -> String{
+            bytes
+                .by_ref()
+                .map(|r|r.unwrap() as char)
+                .skip_while(|c|c.is_whitespace())
+                .take_while(|c|!c.is_whitespace())
+                .collect()
+        };
+        input_inner!{next, $($r)*}
+    };
 }
 
-fn read_vec<T: std::str::FromStr>() -> Vec<T> {
-    read::<String>()
-        .split_whitespace()
-        .map(|e| e.parse().ok().unwrap())
-        .collect()
+macro_rules! input_inner {
+    ($next:expr) => {};
+    ($next:expr, ) => {};
+
+    ($next:expr, $var:ident : $t:tt $($r:tt)*) => {
+        let $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
 }
 
-fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
-    (0..n).map(|_| read_vec()).collect()
+macro_rules! read_value {
+    ($next:expr, ( $($t:tt),* )) => {
+        ( $(read_value!($next, $t)),* )
+    };
+
+    ($next:expr, [ $t:tt ; $len:expr ]) => {
+        (0..$len).map(|_| read_value!($next, $t)).collect::<Vec<_>>()
+    };
+
+    ($next:expr, chars) => {
+        read_value!($next, String).chars().collect::<Vec<char>>()
+    };
+
+    ($next:expr, usize1) => {
+        read_value!($next, usize) - 1
+    };
+
+    ($next:expr, $t:ty) => {
+        $next().parse::<$t>().expect("Parse error")
+    };
 }
 fn main(){
-    let n : i64 = read();
-    let v  = read_vec::<i64>();
-    let sum = v.iter().fold(0,|y,x| y + x );
-    let len = v.len() as i64;
-    let ave = if sum % len == 0 {
-        sum / len
-    } else {
-        (sum + sum % len ) / len
-    };
-    let ans = v.iter().map(|x| (x - ave) * (x - ave))
-        .fold(0 , |y ,x | y + x );
-    println!("{}",ans );
-
+    input!{
+        s:String,
+    }
+    let s:Vec<usize> = s.chars()
+        .map(|c| c as usize - '0' as  usize)
+        .collect();
+    let mut ans = 0;
+    for f in 0..1 << (s.len() - 1){
+        let mut t = 0;
+        for j in 0..s.len(){
+            t *= 10;
+            t += s[j];
+            if f & 1 << j != 0 {
+                ans += t;
+                t = 0;
+            }
+        }
+        ans += t;
+    }
+    println!("{}",ans);
 }

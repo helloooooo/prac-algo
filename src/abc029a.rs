@@ -1,3 +1,4 @@
+use std::cmp::{min,max};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -50,26 +51,36 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-const INF:i64 = 1e10 as i64;
-struct DP {
-    target:Vec<usize>,
-    costs:Vec<i64>,
-}
-impl DP {
-    fn new(n:usize,target:Vec<usize>) -> DP {
-        DP {
-            target,
-            costs:vec![0;n],
-        }
-    }
-    fn calc(&mut self,n:i64) -> i64 {
-        for 
-    }
-}
 fn main(){
     input!{
         n:i64,
-        m:i64,
-        mat:[[i64;m],n],
+        tn:[i64;n],
+    }
+    let mut ans = std::i64::MAX;
+    for bit in 0..1 << n {
+        let mut right = 0;
+        let mut left = 0;
+        for j in 0..n {
+            if bit & (1 << j) != 0 {
+                right += tn[j as usize];
+            } else {
+                left += tn[j as usize];
+            }
+        }
+        ans = min(ans,max(left,right));
+    }
+    println!("{}",ans);
+
+
+    let mut ans = std::i64::MAX;
+    for bit in 0..1 << n {
+        let mut left = 0;
+        let mut right = 0;
+        for j in 0..n{
+            let mut v = vec![];
+            if bit & (1 << j) != 0{
+                v.push(j);
+            }
+        }
     }
 }

@@ -50,26 +50,20 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-const INF:i64 = 1e10 as i64;
-struct DP {
-    target:Vec<usize>,
-    costs:Vec<i64>,
-}
-impl DP {
-    fn new(n:usize,target:Vec<usize>) -> DP {
-        DP {
-            target,
-            costs:vec![0;n],
-        }
-    }
-    fn calc(&mut self,n:i64) -> i64 {
-        for 
-    }
-}
+
 fn main(){
     input!{
         n:i64,
         m:i64,
-        mat:[[i64;m],n],
+        xym:[(i64,i64);m],
+    }
+    for bit in 0..1 << n{
+        let mut v:Vec<i64> = vec![];
+        for j in 0..n {
+            if bit & (1<<j) != 1{
+                println!("{:?}",j);
+            }
+        }
+
     }
 }

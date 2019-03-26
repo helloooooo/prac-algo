@@ -310,6 +310,8 @@ name = "abc043b"
 [[bin]]
 name = "abc043c"
 [[bin]]
+name = "abc43c"
+[[bin]]
 name = "abc042a"
 [[bin]]
 name = "abc042b"
@@ -476,3 +478,15 @@ name = "abc120a"
 name = "abc120b"
 [[bin]]
 name = "abc120c"
+[[bin]]
+name = "abc121a"
+[[bin]]
+name = "abc121b"
+[[bin]]
+name = "abc121c"
+[[bin]]
+name = "abc121d"
+[[bin]]
+name = "abc029a"
+[[bin]]
+name = "abc002d"
