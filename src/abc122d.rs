@@ -50,32 +50,10 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-const INF:i64 = 1e10 as i64;
-struct DP {
-    target:Vec<usize>,
-    costs:Vec<i64>,
-}
-impl DP {
-    fn new(n:usize,target:Vec<usize>) -> DP {
-        DP {
-            target,
-            costs:vec![0;n],
-        }
-    }
-    fn calc(&mut self,n:i64) -> i64 {
-        for 
-    }
-}
 fn main(){
     input!{
         n:i64,
-        m:i64,
-        mat:[[i64;2];m],
     }
-    let mut field = [[bool;n];n];
-    for arr in &mat {
-        field[arr[0][0]-1][arr[0][1]-1] = true;
-        field[arr[0][1]-1][arr[0][0]-1] = true;
-    }
-    println!("{:?}",field);
+    let pow = 4_i64.pow(n as u32);
+    println!("{}",pow );
 }
