@@ -3,8 +3,6 @@ name = "resolve"
 version = "0.1.0"
 authors = ["helloooooo <yomicerisier@gmail.com>"]
 
-[dependencies]
-
 [[bin]]
 name = "abc088a"
 [[bin]]
@@ -32,7 +30,6 @@ name = "abc098c"
 name = "abc100c"
 [[bin]]
 name = "abc101c"
-
 [[bin]]
 name = "abc104c"
 [[bin]]
@@ -105,3 +102,20 @@ name = "abc041c"
 name = "abc037c"
 [[bin]]
 name = "abc038b"
+[[bin]]
+name = "1"
+[[bin]]
+name = "2"
+[[bin]]
+name = "3"
+[[bin]]
+name = "4"
+[[bin]]
+name = "5"
+[[bin]]
+name = "6"
+[[bin]]
+name = "7"
+[[bin]]
+name = "8"
+
