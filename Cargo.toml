@@ -506,3 +506,11 @@ name = "exaa"
 name = "exab"
 [[bin]]
 name = "exac"
+[[bin]]
+name = "abc123a"
+[[bin]]
+name = "abc123b"
+[[bin]]
+name = "abc123c"
+[[bin]]
+name = "abc123d"

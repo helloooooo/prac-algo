@@ -50,37 +50,37 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::collections::HashMap;
 fn main(){
     input!{
-        q:i64,
-        lrn:[(i64,i64);q],
+        x:i64,
+        y:i64,
+        z:i64,
+        k:i64,
+        an:[i64;x],
+        bn:[i64;y],
+        cn:[i64;z],
     }
-    println!("{:?}",sieve(1000));
-}
-fn sieve(n: usize) -> Vec<usize> {
-    let mut ps: Vec<usize> = vec![2];
-    let mut xs: Vec<bool> = vec![true; n / 2];
-    let mut x = 3;
-    while x * x <= n {
-        let mut y = (x - 3) / 2;
-        if xs[y] {
-            ps.push(x);
-            y += x;
-            while y < xs.len() {
-                xs[y] = false;
-                y += x;
-            }
+    let mut cn = cn;
+    cn.sort();
+    cn.reverse();
+    let mut abn = vec![];
+    for i in 0..x as usize{
+        for j in 0..y as usize{
+            abn.push(an[i] + bn[j]);
         }
-        x += 2;
     }
-    while x <= n {
-        if xs[(x - 3) / 2] { ps.push(x); }
-        x += 2;
+    abn.sort();
+    abn.reverse();
+    let rep =  std::cmp::min(k, x*y);
+    let mut ans = vec![];
+    for j in 0..rep as usize{
+        for k in 0..z as usize {
+            ans.push(abn[j] + cn[k]);
+        }
     }
-    ps
+    ans.sort();
+    ans.reverse();
+    for j in 0..k as usize{
+        println!("{}",ans[j]);
+    }
 }
-
-
-
-fn is_prime(n:i64)

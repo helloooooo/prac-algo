@@ -50,37 +50,20 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::collections::HashMap;
 fn main(){
     input!{
-        q:i64,
-        lrn:[(i64,i64);q],
+        n:i64,
+        an:[i64;5],
     }
-    println!("{:?}",sieve(1000));
-}
-fn sieve(n: usize) -> Vec<usize> {
-    let mut ps: Vec<usize> = vec![2];
-    let mut xs: Vec<bool> = vec![true; n / 2];
-    let mut x = 3;
-    while x * x <= n {
-        let mut y = (x - 3) / 2;
-        if xs[y] {
-            ps.push(x);
-            y += x;
-            while y < xs.len() {
-                xs[y] = false;
-                y += x;
-            }
+    let min = an.iter().min().unwrap();
+    let base = if n <= *min {
+        1
+    } else {
+        if n % min == 0 {
+            n / min
+        } else {
+            n / min + 1
         }
-        x += 2;
-    }
-    while x <= n {
-        if xs[(x - 3) / 2] { ps.push(x); }
-        x += 2;
-    }
-    ps
+    };
+    println!("{}",base+4);
 }
-
-
-
-fn is_prime(n:i64)
