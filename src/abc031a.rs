@@ -1,4 +1,3 @@
-use std::cmp::{min,max};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,12 +50,13 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+use std::collections::HashSet;
 fn main(){
     input!{
-        w:chars,
+        a:i64,
+        b:i64,
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    let max = std::cmp::max(a,b);
+    let min = std::cmp::min(a, b);
+    println!("{}",max*(min+1));
 }

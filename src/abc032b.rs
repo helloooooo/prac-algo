@@ -1,4 +1,3 @@
-use std::cmp::{min,max};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,12 +50,17 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+use std::collections::HashSet;
 fn main(){
     input!{
-        w:chars,
+        s:chars,
+        k:i64,
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    let len = s.len();  
+    let mut set = HashSet::new();
+    for cn in s.windows(k as usize){
+        let cn:String = cn.into_iter().map(|&c| c).collect();
+        set.insert(cn);
+    }
+    println!("{}",set.len());
 }

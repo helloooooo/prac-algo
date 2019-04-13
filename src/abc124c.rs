@@ -53,10 +53,24 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        w:chars,
+        s:chars,
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    let mut black = 0;
+    let mut white = 0;
+    for j in 0..s.len() {
+        if j % 2 == 0 {
+            if s[j] == '0'{
+                black +=1;
+            } else {
+                white += 1;                
+            }
+        } else{
+            if s[j] == '1' {
+                black += 1;
+            } else{
+                white += 1;
+            }
+        }
+    }
+    println!("{}",min(white, black));
 }

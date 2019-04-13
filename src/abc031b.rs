@@ -1,4 +1,3 @@
-use std::cmp::{min,max};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -53,10 +52,18 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        w:chars,
+        l:i64,
+        h:i64,
+        n:usize,
+        an:[[i64;1];n],
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    for j in 0..n{
+        if an[j][0] < l {
+            println!("{}",l - an[j][0]);
+        } else if h < an[j][0] {
+            println!("-1");
+        } else {
+            println!("0");
+        }
+    }
 }

@@ -53,10 +53,16 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        w:chars,
+        n:i64,
+        hb:[i64;n],
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    let mut min = hb[0];
+    let mut ans = 0;
+    for h in &hb {
+        if min <= *h {
+            ans += 1;
+            min = *h;
+        }
+    }
+    println!("{}",ans);
 }

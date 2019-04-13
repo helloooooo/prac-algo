@@ -53,10 +53,24 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        w:chars,
+        n:usize,
+        k:i64,
+        s:chars,
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    let mut sum = vec![0];
+    for j in 0..n {
+        if s[j] == '1' {
+            let v = sum[j] + 1; 
+            sum.push(v);
+        } else {
+            let v = sum[j];
+            sum.push(v);
+        }
+    }
+    println!("{:?}",sum);
+    let mut sub = 0;
+    let mut k_sub =0;
+    for j in 0..n+1{
+
+    }
 }

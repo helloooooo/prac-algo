@@ -53,10 +53,16 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        w:chars,
+        n:i64,
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    let ans = if n  == 100 {
+        "Perfect"
+    } else if 90 <= n && n <= 99 {
+        "Great"
+    } else if 60 <= n && n <= 89 {
+        "Good"
+    } else{
+        "Bad"
+    };
+    println!("{}",ans);
 }

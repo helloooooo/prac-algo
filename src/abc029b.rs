@@ -53,10 +53,8 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        w:chars,
+        sn:[chars;12],
     }
-    let mut w:Vec<char> = w;
-    w.push('s');
-    let w:String= w.iter().map(|&c|c).collect();
-    println!("{}",w);
+    let ans:usize = sn.iter().filter(|&s| s.contains(&'r') ).count();
+    println!("{}",ans);
 }
