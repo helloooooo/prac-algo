@@ -51,35 +51,22 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+use std::collections::HashSet;
 fn main(){
     input!{
-        n:usize,
-        k:i64,
         s:chars,
+        n:i64,
     }
-    let mut s = s;
-    s.push('E');
-    let mut ans = std::usize::MIN;
-    let mut l:usize = 0;
-    let mut r:usize = 0;
-    
-    let mut count  = if s[0] == '0' {1} else {0};
-    while r < n {
-        if count <= k {
-            if s[r] == '1' && s[r+1] == '0' {
-                count += 1;
-            }
-            ans = max(ans,r-l+1);
-            r +=1;
-        } else if l == r {
-            l += 1;
-            r += 1;
-        } else {
-            if s[l] == '0' && s[l+1] == '1'{
-                count -= 1;
-            }
-            l += 1;
+    let mut set = HashSet::new();
+    let len = s.len();
+    for j in 0..len {
+        for k in 0..len {
+            let mut sub = s[j].to_string();
+            sub.push(s[k]);
+            set.insert(sub);
         }
     }
-    println!("{}",ans);
+    let mut set = set.into_iter().map(|t|t).collect::<Vec<String>>();
+    set.sort();
+    println!("{}",set[(n-1) as usize]);
 }

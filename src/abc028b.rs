@@ -53,33 +53,10 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        n:usize,
-        k:i64,
         s:chars,
     }
-    let mut s = s;
-    s.push('E');
-    let mut ans = std::usize::MIN;
-    let mut l:usize = 0;
-    let mut r:usize = 0;
-    
-    let mut count  = if s[0] == '0' {1} else {0};
-    while r < n {
-        if count <= k {
-            if s[r] == '1' && s[r+1] == '0' {
-                count += 1;
-            }
-            ans = max(ans,r-l+1);
-            r +=1;
-        } else if l == r {
-            l += 1;
-            r += 1;
-        } else {
-            if s[l] == '0' && s[l+1] == '1'{
-                count -= 1;
-            }
-            l += 1;
-        }
-    }
-    println!("{}",ans);
+    let ans = (b'A'..b'G')
+        .map(char::from)
+        .map(|t| s.iter().filter(|&c| *c == t).count() as i64).collect::<Vec<i64>>();
+    println!("{} {} {} {} {} {}",ans[0],ans[1],ans[2],ans[3],ans[4],ans[5]);
 }

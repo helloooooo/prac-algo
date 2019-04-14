@@ -53,33 +53,18 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        n:usize,
-        k:i64,
-        s:chars,
+        n:i64,
+        an:[[i64;1];n],
     }
-    let mut s = s;
-    s.push('E');
-    let mut ans = std::usize::MIN;
-    let mut l:usize = 0;
-    let mut r:usize = 0;
-    
-    let mut count  = if s[0] == '0' {1} else {0};
-    while r < n {
-        if count <= k {
-            if s[r] == '1' && s[r+1] == '0' {
-                count += 1;
-            }
-            ans = max(ans,r-l+1);
-            r +=1;
-        } else if l == r {
-            l += 1;
-            r += 1;
+    let mut an = an.into_iter().flat_map(|x| x).collect::<Vec<i64>>();
+    an.sort();
+    an.reverse();
+    let mut ans = an.iter().enumerate().fold(0,|y,x|{
+        if x.0 % 2 == 0{
+            y + x.1 * x.1
         } else {
-            if s[l] == '0' && s[l+1] == '1'{
-                count -= 1;
-            }
-            l += 1;
+            y -  (x.1 * x.1)
         }
-    }
+    }) as f64 * std::f64::consts::PI;
     println!("{}",ans);
 }

@@ -51,35 +51,35 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+use std::collections::HashSet;
 fn main(){
     input!{
-        n:usize,
-        k:i64,
-        s:chars,
+        n:i64,
+        a:i64,
+        b:i64,
+        an:[(String,i64);n],
     }
-    let mut s = s;
-    s.push('E');
-    let mut ans = std::usize::MIN;
-    let mut l:usize = 0;
-    let mut r:usize = 0;
-    
-    let mut count  = if s[0] == '0' {1} else {0};
-    while r < n {
-        if count <= k {
-            if s[r] == '1' && s[r+1] == '0' {
-                count += 1;
-            }
-            ans = max(ans,r-l+1);
-            r +=1;
-        } else if l == r {
-            l += 1;
-            r += 1;
+    let mut ans = 0;
+    for (s,dis) in an {
+        if dis < a {
+            ans += dir(&s) * a;
+        } else if a <= dis && dis <= b {
+            ans += dir(&s) * dis;
         } else {
-            if s[l] == '0' && s[l+1] == '1'{
-                count -= 1;
-            }
-            l += 1;
+            ans += dir(&s) * b;
         }
     }
-    println!("{}",ans);
+    if ans < 0 {
+        print!("West ");
+    } else if 0 < ans {
+        print!("East ");
+    }
+    println!("{}",ans.abs());
+}
+fn dir(s:&String) -> i64 {
+    if *s == "East".to_string() {
+        1
+    } else {
+        -1
+    }
 }

@@ -53,33 +53,19 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        n:usize,
-        k:i64,
-        s:chars,
+        n:i64,
+        an:[i64;n],
     }
-    let mut s = s;
-    s.push('E');
-    let mut ans = std::usize::MIN;
-    let mut l:usize = 0;
-    let mut r:usize = 0;
-    
-    let mut count  = if s[0] == '0' {1} else {0};
-    while r < n {
-        if count <= k {
-            if s[r] == '1' && s[r+1] == '0' {
-                count += 1;
-            }
-            ans = max(ans,r-l+1);
-            r +=1;
-        } else if l == r {
-            l += 1;
-            r += 1;
-        } else {
-            if s[l] == '0' && s[l+1] == '1'{
-                count -= 1;
-            }
-            l += 1;
-        }
+    let sum:i64 = an.iter().sum();
+    if sum % n != 0 {println!("-1");return;}
+    let mean = sum / n;
+    let mut cnt = 0;
+    let mut l = 0;
+    let mut ans = 0;
+    for j in 0..n-1{
+        cnt += an[j as usize];
+        l += mean;
+        if cnt != l {ans += 1;};
     }
     println!("{}",ans);
 }
