@@ -558,3 +558,7 @@ name = "abc026b"
 name = "abc025a"
 [[bin]]
 name = "abc025b"
+[[bin]]
+name = "abc024a"
+[[bin]]
+name = "abc024b"
