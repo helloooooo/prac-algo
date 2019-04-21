@@ -57,43 +57,16 @@ fn main(){
         n:i64,
         s:chars,
     }
-    let mut s = s;
-    s.dedup();
-    let mut black:i64 = s.iter().filter(|&c| *c=='#').count() as i64;
-    let mut white = s.len() as i64 - black;
-    let n = s.len() as i64;
-    let mut flag = false;
-    let mut sub = false;
-    let mut count = 0;
-    // let mut white = 0;
-    
-    for j in 0..n {
-
-        if flag {
-            if s[j as usize] == '.' {
-                white += 1;
-            }
-            if s[(j-1) as usize] == '#' && s[j as usize] == '#'{
-                count += 1;
-                sub = true;
-            } else {
-                count = 0;
-                sub = false;
-            }
+    let mut black = 0;
+    let mut white = s.iter().filter(|&c| *c == '.').count() as i64;
+    let mut sum = black + white;
+    for c in &s{
+        if *c == '.' {
+            white -= 1;
+        } else {
+            black += 1;
         }
-        if s[j as usize] == '#' && !flag{
-            flag = true;
-        }
-        
+        sum = min(sum,white + black);
     }
-    if sub{
-        black -= count;
-    }
-    if s[(n-1) as usize] == '#' {
-        black -= 1;    
-    }
-
-
-    let ans = min(white,black);
-    println!("{}",ans);
+    println!("{}",sum);
 }
