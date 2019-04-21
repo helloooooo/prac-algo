@@ -574,3 +574,11 @@ name = "abc021a"
 name = "tenka1a"
 [[bin]]
 name = "tenka1c"
+[[bin]]
+name = "abc022b"
+[[bin]]
+name = "abc021b"
+[[bin]]
+name = "abc020b"
+[[bin]]
+name = "abc019b"
