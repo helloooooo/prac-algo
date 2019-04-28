@@ -59,12 +59,18 @@ macro_rules! read_value {
 }
 fn main(){
     input!{
-        s:chars,
+        n:usize,
+        an:[usize;n],
     }
-    let first = s[0].to_uppercase().collect::<String>();
-    let end = s[1..].iter().map(|&c| c).collect::<String>().to_lowercase().collect::<String>();
-    let mut ans = "".to_string();
-    ans.push_str(&first);
-    ans.push_str(&end);
+    let mut ans = 0;
+    for &a in &an {
+        match a % 6 {
+            0 => ans += 3,
+            2 => ans += 1,
+            4 => ans += 1,
+            5 => ans += 2,
+            _ => (),
+        }
+    }
     println!("{}",ans);
 }
