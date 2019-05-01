@@ -660,3 +660,5 @@ name = "typicala-rec"
 name = "abc015c-stack"
 [[bin]]
 name = "abc016c"
+[[bin]]
+name = "abc017c"
