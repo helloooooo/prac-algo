@@ -642,3 +642,19 @@ name = "abc007c"
 name = "abc008c"
 [[bin]]
 name = "abc010c"
+[[bin]]
+name = "abc011c"
+[[bin]]
+name = "abc012c"
+[[bin]]
+name = "abc013c"
+[[bin]]
+name = "abc014c"
+[[bin]]
+name = "abc015c"
+[[bin]]
+name = "typicala"
+[[bin]]
+name = "typicala-rec"
+[[bin]]
+name = "abc015c-stack"
