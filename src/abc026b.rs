@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,20 +51,21 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         an:[[i64;1];n],
     }
     let mut an = an.into_iter().flat_map(|x| x).collect::<Vec<i64>>();
     an.sort();
     an.reverse();
-    let mut ans = an.iter().enumerate().fold(0,|y,x|{
-        if x.0 % 2 == 0{
+    let mut ans = an.iter().enumerate().fold(0, |y, x| {
+        if x.0 % 2 == 0 {
             y + x.1 * x.1
         } else {
-            y -  (x.1 * x.1)
+            y - (x.1 * x.1)
         }
-    }) as f64 * std::f64::consts::PI;
-    println!("{}",ans);
+    }) as f64
+        * std::f64::consts::PI;
+    println!("{}", ans);
 }

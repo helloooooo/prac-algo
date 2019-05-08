@@ -51,15 +51,15 @@ macro_rules! read_value {
     };
 }
 use std::cmp::max;
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars
     };
-    let master = vec!['A','C','G','T'];
+    let master = vec!['A', 'C', 'G', 'T'];
     let mut ans = 0;
     let len = s.len();
     for i in 0..len {
-        let mut  count = 0;
+        let mut count = 0;
         for j in i..len {
             if master.contains(&s[j]) {
                 count += 1;
@@ -67,7 +67,7 @@ fn main(){
                 break;
             }
         }
-        ans = max(count,ans);
+        ans = max(count, ans);
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

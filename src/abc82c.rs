@@ -25,19 +25,21 @@ fn main() {
 fn run(an: Vec<i32>, count: i32) -> i32 {
     let mut map = HashMap::new();
     for x in an {
-       let ins_v = match map.get(&x) {
+        let ins_v = match map.get(&x) {
             Some(y) => y + 1,
             None => 1,
         };
-        map.insert(x,ins_v);
+        map.insert(x, ins_v);
     }
-    map.iter().map(|(&m,&n)| {
-        if m == n {
-            0
-        } else if m < n{
-            n - m 
-        } else {
-            n
-        }
-    }).fold(0,|sum,l| sum + l)
+    map.iter()
+        .map(|(&m, &n)| {
+            if m == n {
+                0
+            } else if m < n {
+                n - m
+            } else {
+                n
+            }
+        })
+        .fold(0, |sum, l| sum + l)
 }

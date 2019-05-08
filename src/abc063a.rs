@@ -14,13 +14,13 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let ab = read_vec::<u64>();
-    let (a,b) = (ab[0],ab[1]);
-    let ans = if (a+b >= 10){
+    let (a, b) = (ab[0], ab[1]);
+    let ans = if (a + b >= 10) {
         "error".to_string()
     } else {
-        (a+b).to_string()
+        (a + b).to_string()
     };
-    println!("{}",ans );
+    println!("{}", ans);
 }

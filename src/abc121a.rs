@@ -50,13 +50,13 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         h:usize,
         w:usize,
         h1:usize,
         w1:usize,
     }
-    let ans = (h-h1) * (w-w1);
-    println!("{}",ans);
+    let ans = (h - h1) * (w - w1);
+    println!("{}", ans);
 }

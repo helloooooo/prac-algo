@@ -14,12 +14,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let  xy = read_vec::<i64>();
-    let ans = if xy[0] < xy[1] {
-        "Better"
-    } else {
-        "Worse"
-    };
-    println!("{}",ans);
+fn main() {
+    let xy = read_vec::<i64>();
+    let ans = if xy[0] < xy[1] { "Better" } else { "Worse" };
+    println!("{}", ans);
 }

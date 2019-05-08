@@ -13,34 +13,31 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let (n,p) = {
+fn main() {
+    let (n, p) = {
         let t = read_vec::<i64>();
-        (t[0],t[1])
+        (t[0], t[1])
     };
-    let ans:i64 = if n == 1 {
+    let ans: i64 = if n == 1 {
         p
     } else {
         let res = trivial_division(p as u64);
-        res.into_iter().fold(HashMap::new(),|mut map,x| {
-            let y = map.get(&x).map(|t| t+1).unwrap_or(1);
-            map.insert(x,y);
-            map
+        res.into_iter()
+            .fold(HashMap::new(), |mut map, x| {
+                let y = map.get(&x).map(|t| t + 1).unwrap_or(1);
+                map.insert(x, y);
+                map
             })
             .into_iter()
-            .filter(|&(x,y)|{
-                y >= n
-            }).fold(1,|y,(i,v)|{
-                y *  i.pow((v/n) as u32) as i64
-            })
+            .filter(|&(x, y)| y >= n)
+            .fold(1, |y, (i, v)| y * i.pow((v / n) as u32) as i64)
     };
-    println!("{}",ans);
-
+    println!("{}", ans);
 }
 
 fn trivial_division(n: u64) -> Vec<u64> {
     let mut result = n;
-    for i in 2..((n as f64).sqrt() as u64)+1 {
+    for i in 2..((n as f64).sqrt() as u64) + 1 {
         if n % i == 0 {
             result = i;
             break;

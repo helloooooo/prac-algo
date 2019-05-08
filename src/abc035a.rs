@@ -14,9 +14,9 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let wh = read_vec::<i64>();
-    let (w,h) = (wh[0],wh[1]);
+    let (w, h) = (wh[0], wh[1]);
     if w % 16 == 0 && h % 9 == 0 {
         println!("16:9");
     } else {

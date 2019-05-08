@@ -15,31 +15,29 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let n: i32 = read();
-    let sub_an:Vec<i64> = read_vec();
-    let mut an = sub_an.iter().fold(HashMap::new(),|mut map ,x| {
-        let y = map.get(&x).map(|i| i + 1).unwrap_or(1);
-        map.insert(x,y);
-        map
-    })
-    .into_iter()
-    .flat_map(|(x,y)|{
-        if y >= 4{
-            vec![x,x]
-        } else if y>= 2 {
-            vec![x]
-        }else {
-            vec![]
-        } 
-    })
-    .collect::<Vec<_>>();
+    let sub_an: Vec<i64> = read_vec();
+    let mut an = sub_an
+        .iter()
+        .fold(HashMap::new(), |mut map, x| {
+            let y = map.get(&x).map(|i| i + 1).unwrap_or(1);
+            map.insert(x, y);
+            map
+        })
+        .into_iter()
+        .flat_map(|(x, y)| {
+            if y >= 4 {
+                vec![x, x]
+            } else if y >= 2 {
+                vec![x]
+            } else {
+                vec![]
+            }
+        })
+        .collect::<Vec<_>>();
     an.sort();
     an.reverse();
-    let ans = if an.len() >= 2{
-        an[0] * an[1]
-    } else{
-        0
-    };
-    println!("{}",ans);
+    let ans = if an.len() >= 2 { an[0] * an[1] } else { 0 };
+    println!("{}", ans);
 }

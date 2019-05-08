@@ -17,11 +17,11 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let nt:Vec<i64> = read_vec();
-    let tn:Vec<i64> = read_vec();
-    let ans = (0..nt[0]-1).fold(nt[1],|x,y| {
-        let sub = (tn[(y+1) as usize]- tn[y as usize]).abs();
-        x + min(nt[1],sub)
+    let nt: Vec<i64> = read_vec();
+    let tn: Vec<i64> = read_vec();
+    let ans = (0..nt[0] - 1).fold(nt[1], |x, y| {
+        let sub = (tn[(y + 1) as usize] - tn[y as usize]).abs();
+        x + min(nt[1], sub)
     });
-    println!("{}",ans);
+    println!("{}", ans);
 }

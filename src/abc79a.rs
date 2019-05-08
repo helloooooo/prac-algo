@@ -16,13 +16,13 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let n : String = read();
-    let v: Vec<i32> =n.chars().map(|x| x as i32).collect();
+    let n: String = read();
+    let v: Vec<i32> = n.chars().map(|x| x as i32).collect();
     if v[0] == v[1] && v[1] == v[2] {
         println!("Yes");
     } else if v[1] == v[2] && v[2] == v[3] {
         println!("Yes");
-    } else{
+    } else {
         println!("No");
     }
-}   
+}

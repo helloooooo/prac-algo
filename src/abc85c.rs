@@ -16,13 +16,13 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let ny:Vec<i32> = read_vec();
-    let (n,y) = (ny[0],ny[1]);
-    for i in 0..n+1 {
-        for j in  0..n+1 -i  {
+    let ny: Vec<i32> = read_vec();
+    let (n, y) = (ny[0], ny[1]);
+    for i in 0..n + 1 {
+        for j in 0..n + 1 - i {
             let z = n - i - j;
             if i * 10000 + j * 5000 + 1000 * z == y {
-                println!("{} {} {}",i,j,z);
+                println!("{} {} {}", i, j, z);
                 return;
             }
         }

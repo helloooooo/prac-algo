@@ -15,15 +15,20 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let n : i64  = read();
+fn main() {
+    let n: i64 = read();
     let mut an = Vec::new();
-    for _ in 0..n{
+    for _ in 0..n {
         an.push(read::<i64>());
     }
-    let mut ans =an.iter().cloned().collect::<BTreeSet<i64>>().into_iter().collect::<Vec<i64>>();
+    let mut ans = an
+        .iter()
+        .cloned()
+        .collect::<BTreeSet<i64>>()
+        .into_iter()
+        .collect::<Vec<i64>>();
     ans.sort();
-    for x in an.iter().map(|a| ans.binary_search(a).unwrap()){
-        println!("{}",x );
+    for x in an.iter().map(|a| ans.binary_search(a).unwrap()) {
+        println!("{}", x);
     }
 }

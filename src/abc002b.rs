@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,14 +57,15 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         w:chars,
     }
-    let master = vec!['a','i','u','e','o'];
-    let ans:String =  w.iter()
+    let master = vec!['a', 'i', 'u', 'e', 'o'];
+    let ans: String = w
+        .iter()
         .filter(|&c| !master.contains(c))
         .map(|&c| c)
         .collect();
-    println!("{}",ans);
+    println!("{}", ans);
 }

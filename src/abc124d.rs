@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,8 +51,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         k:i64,
         s:chars,
@@ -60,26 +60,26 @@ fn main(){
     let mut s = s;
     s.push('E');
     let mut ans = std::usize::MIN;
-    let mut l:usize = 0;
-    let mut r:usize = 0;
-    
-    let mut count  = if s[0] == '0' {1} else {0};
+    let mut l: usize = 0;
+    let mut r: usize = 0;
+
+    let mut count = if s[0] == '0' { 1 } else { 0 };
     while r < n {
         if count <= k {
-            if s[r] == '1' && s[r+1] == '0' {
+            if s[r] == '1' && s[r + 1] == '0' {
                 count += 1;
             }
-            ans = max(ans,r-l+1);
-            r +=1;
+            ans = max(ans, r - l + 1);
+            r += 1;
         } else if l == r {
             l += 1;
             r += 1;
         } else {
-            if s[l] == '0' && s[l+1] == '1'{
+            if s[l] == '0' && s[l + 1] == '1' {
                 count -= 1;
             }
             l += 1;
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

@@ -58,11 +58,11 @@ macro_rules! read_value {
 }
 fn main() {
     input! {
-        s:String,
+        sn:String,
+    } 
+    let mut ans = 0;
+    for sub in sn.split('+') {
+        if !sub.split('*').any(|s| s == "0" ) { ans += 1; }
     }
-    let s = s.to_lowercase();
-    let mut s: Vec<char> = s.chars().collect();
-    s[0] = s[0].to_uppercase().nth(0).unwrap();
-    let s: String = s.into_iter().collect();
-    println!("{}", s);
+    println!("{}",ans);
 }

@@ -15,25 +15,24 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let n = read::<i64>();
-    let ans  = (1..)
+    let ans = (1..)
         .take_while(|&x| x * x <= n)
         .filter(|&x| n % x == 0)
-        .map(|x| max(get_x(x), get_x(n/x)) )
+        .map(|x| max(get_x(x), get_x(n / x)))
         .min()
         .unwrap();
 
-    print!("{}",ans);
-
+    print!("{}", ans);
 }
 
-fn get_x(x:i64) -> usize {
-        let mut cnt = 0;
-        let mut n = x;
-        while n > 0 {
-            cnt += 1;
-            n /= 10;
-        }
-        cnt
+fn get_x(x: i64) -> usize {
+    let mut cnt = 0;
+    let mut n = x;
+    while n > 0 {
+        cnt += 1;
+        n /= 10;
+    }
+    cnt
 }

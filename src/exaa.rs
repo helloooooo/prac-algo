@@ -50,16 +50,16 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:usize,
         b:usize,
         c:usize,
     }
-    let ans = if a == b && b == c && a==c {
+    let ans = if a == b && b == c && a == c {
         "Yes"
-    } else{
+    } else {
         "No"
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

@@ -18,10 +18,6 @@ fn main() {
     let ab = read_vec::<String>();
     let a = ab[0].parse::<i32>().unwrap();
     let b = ab[2].parse::<i32>().unwrap();
-    let ans = if ab[1] == "+"{
-        a + b
-    } else{
-        a -b 
-    };
-    println!("{}",ans );
+    let ans = if ab[1] == "+" { a + b } else { a - b };
+    println!("{}", ans);
 }

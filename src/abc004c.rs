@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -55,28 +55,28 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
     }
-    let mut v =vec![
-        vec![1,2,3,4,5,6],
-        vec![2,3,4,5,6,1],
-        vec![3,4,5,6,1,2],
-        vec![4,5,6,1,2,3],
-        vec![5,6,1,2,3,4],
-        vec![6,1,2,3,4,5]
+    let mut v = vec![
+        vec![1, 2, 3, 4, 5, 6],
+        vec![2, 3, 4, 5, 6, 1],
+        vec![3, 4, 5, 6, 1, 2],
+        vec![4, 5, 6, 1, 2, 3],
+        vec![5, 6, 1, 2, 3, 4],
+        vec![6, 1, 2, 3, 4, 5],
     ];
     let n = n % 30;
-    let period = n/5;
-    let index:usize = n as usize%5;
+    let period = n / 5;
+    let index: usize = n as usize % 5;
     for j in 0..index {
         let mut tmp = v[period as usize][j];
-        v[period as usize][j] = v[period as usize][j+1];
-        v[period as usize][j+1] = tmp;
+        v[period as usize][j] = v[period as usize][j + 1];
+        v[period as usize][j + 1] = tmp;
     }
-    for x in &v[period as usize]{
-        print!("{}",x);
+    for x in &v[period as usize] {
+        print!("{}", x);
     }
     println!("");
 }

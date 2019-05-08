@@ -16,9 +16,9 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let n : i32 = read();
-    let k : i32 = read();
-    let xi : Vec<i32> = read_vec();
+    let n: i32 = read();
+    let k: i32 = read();
+    let xi: Vec<i32> = read_vec();
     let mut ans = 0;
     for i in 0..xi.len() {
         let n_div = (xi[i as usize] - 0).abs();
@@ -29,5 +29,5 @@ fn main() {
             ans += n_div * 2;
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

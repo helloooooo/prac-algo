@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,32 +56,32 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         k:usize,
         tnk:[[usize;k];n],
     }
-    let target = DFS{
-        n:n,
-        k:k,
-        tnk:tnk,
+    let target = DFS {
+        n: n,
+        k: k,
+        tnk: tnk,
     };
-    println!("{}", if target.dfs(0,0) {"Found"} else {"Nothing"});
+    println!("{}", if target.dfs(0, 0) { "Found" } else { "Nothing" });
 }
-struct DFS{
-    n:usize,
-    k:usize,
-    tnk:Vec<Vec<usize>>
+struct DFS {
+    n: usize,
+    k: usize,
+    tnk: Vec<Vec<usize>>,
 }
-impl DFS{
-    fn dfs(&self,count:usize,v:usize) -> bool{
+impl DFS {
+    fn dfs(&self, count: usize, v: usize) -> bool {
         if count == self.n {
-            return v == 0
+            return v == 0;
         }
         for j in 0..self.k {
-            if self.dfs(count+1,v^self.tnk[count][j]){
-                return true
+            if self.dfs(count + 1, v ^ self.tnk[count][j]) {
+                return true;
             }
         }
         false

@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,14 +56,14 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         k:usize,
         tnk:[[usize;k];n],
     }
     let mut stack = Vec::new();
-    stack.push((0,0));
+    stack.push((0, 0));
     let mut ans = false;
     while let Some(point) = stack.pop() {
         if point.0 == n && point.1 == 0 {
@@ -72,9 +71,9 @@ fn main(){
         }
         if point.0 < n {
             for j in 0..k {
-                stack.push((point.0+1,tnk[point.0][j] ^ point.1));
+                stack.push((point.0 + 1, tnk[point.0][j] ^ point.1));
             }
         }
     }
-    println!("{}",if ans {"Found"} else {"Nothing"});
+    println!("{}", if ans { "Found" } else { "Nothing" });
 }

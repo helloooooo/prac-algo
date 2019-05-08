@@ -50,8 +50,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         x:i64,
         y:i64,
         z:i64,
@@ -64,23 +64,23 @@ fn main(){
     cn.sort();
     cn.reverse();
     let mut abn = vec![];
-    for i in 0..x as usize{
-        for j in 0..y as usize{
+    for i in 0..x as usize {
+        for j in 0..y as usize {
             abn.push(an[i] + bn[j]);
         }
     }
     abn.sort();
     abn.reverse();
-    let rep =  std::cmp::min(k, x*y);
+    let rep = std::cmp::min(k, x * y);
     let mut ans = vec![];
-    for j in 0..rep as usize{
+    for j in 0..rep as usize {
         for k in 0..z as usize {
             ans.push(abn[j] + cn[k]);
         }
     }
     ans.sort();
     ans.reverse();
-    for j in 0..k as usize{
-        println!("{}",ans[j]);
+    for j in 0..k as usize {
+        println!("{}", ans[j]);
     }
 }

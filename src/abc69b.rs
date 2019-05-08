@@ -14,10 +14,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let s_sub: String = read();
-    let s:Vec<char>= s_sub.chars().collect();
-    let length = s.iter().enumerate().filter(|x| x.0 != 0 && x.0 != s.len() - 1).count();
-    let ans = format!("{}{}{}",s[0],length,s[s.len() -1]);
-    println!("{}",ans);
+    let s: Vec<char> = s_sub.chars().collect();
+    let length = s
+        .iter()
+        .enumerate()
+        .filter(|x| x.0 != 0 && x.0 != s.len() - 1)
+        .count();
+    let ans = format!("{}{}{}", s[0], length, s[s.len() - 1]);
+    println!("{}", ans);
 }

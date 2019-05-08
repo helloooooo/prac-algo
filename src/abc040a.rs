@@ -14,14 +14,10 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let n = read_vec::<i64>();
-    let sub1 =  (1 - n[1]).abs();
+    let sub1 = (1 - n[1]).abs();
     let sub2 = (n[0] - n[1]).abs();
-    let ans = if sub1 < sub2 {
-        sub1
-    } else {
-        sub2
-    };
-    print!("{}",ans);
+    let ans = if sub1 < sub2 { sub1 } else { sub2 };
+    print!("{}", ans);
 }

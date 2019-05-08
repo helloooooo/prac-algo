@@ -17,13 +17,15 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 pub const M: i32 = 1000000007;
 fn main() {
     let ans = solve();
-    println!("{}",ans );
+    println!("{}", ans);
 }
-fn solve() -> i32{
+fn solve() -> i32 {
     let s = read::<String>();
-    s.chars().fold((0,' '),|x,y| if y != x.1{
-        (x.0+1,y)
-    }else{
-        (x.0,y)
-    }).0 -1
+    s.chars()
+        .fold(
+            (0, ' '),
+            |x, y| if y != x.1 { (x.0 + 1, y) } else { (x.0, y) },
+        )
+        .0
+        - 1
 }

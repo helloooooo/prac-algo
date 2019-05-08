@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,10 +51,10 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::collections::VecDeque;
 use std::collections::HashMap;
-fn main(){
-    input!{
+use std::collections::VecDeque;
+fn main() {
+    input! {
         n:i64,
         ab:[i64;2],
         k:i64,
@@ -63,11 +63,10 @@ fn main(){
     let mut an = an;
     an.sort();
     an.dedup();
-    let ans = if an.len() as i64 == k 
-        && ab.iter().all(|&x| !an.contains(&x)){
-            "YES"
+    let ans = if an.len() as i64 == k && ab.iter().all(|&x| !an.contains(&x)) {
+        "YES"
     } else {
         "NO"
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

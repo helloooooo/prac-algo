@@ -17,16 +17,16 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 
 fn main() {
     let n: i32 = read();
-    let mut an :Vec<i32> = read_vec();
+    let mut an: Vec<i32> = read_vec();
     an.sort();
     an.reverse();
     let mut ans = 0;
-    for i in  0..an.len() {
+    for i in 0..an.len() {
         if i % 2 == 0 {
             ans += an[i];
         } else {
             ans -= an[i];
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

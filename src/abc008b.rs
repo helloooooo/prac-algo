@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,18 +57,21 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         an:[String;n],
     }
-    let mut ans = an.into_iter().fold(HashMap::new(),|mut map, x|{
-        let y = map.get(&x).map(|i| i+1).unwrap_or(1);
-        map.insert(x,y);
-        map
-    }).into_iter()
-    .collect::<Vec<_>>();
-    ans.sort_by_key(|x|x.1);
+    let mut ans = an
+        .into_iter()
+        .fold(HashMap::new(), |mut map, x| {
+            let y = map.get(&x).map(|i| i + 1).unwrap_or(1);
+            map.insert(x, y);
+            map
+        })
+        .into_iter()
+        .collect::<Vec<_>>();
+    ans.sort_by_key(|x| x.1);
     let len = ans.len();
-    println!("{}",ans[len-1].0);
+    println!("{}", ans[len - 1].0);
 }

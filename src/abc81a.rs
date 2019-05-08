@@ -17,7 +17,8 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 
 fn main() {
     let i: String = read();
-    let ans: i32 = i.chars()
+    let ans: i32 = i
+        .chars()
         .map(|x| x.to_digit(10).unwrap() as i32)
         .collect::<Vec<i32>>()
         .iter()

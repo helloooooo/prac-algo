@@ -14,18 +14,18 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let ab = read_vec::<u64>();
-    let ans = if ab[0] == ab[1]{
+    let ans = if ab[0] == ab[1] {
         "Draw"
-    } else if ab[0] == 1  {
+    } else if ab[0] == 1 {
         "Alice"
     } else if ab[1] == 1 {
         "Bob"
-    } else if ab[0] < ab[1]{
-       "Bob" 
+    } else if ab[0] < ab[1] {
+        "Bob"
     } else {
         "Alice"
     };
-    println!("{}",ans );
+    println!("{}", ans);
 }

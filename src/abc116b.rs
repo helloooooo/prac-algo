@@ -12,18 +12,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let s = read::<i64>();
     let mut ai = s;
     let mut v = vec![s];
     for i in 2.. {
-        ai = if ai % 2 == 0 {
-            ai/2 
-        } else {
-            3*ai+1
-        };
+        ai = if ai % 2 == 0 { ai / 2 } else { 3 * ai + 1 };
         if v.contains(&ai) {
-            println!("{}",i);
+            println!("{}", i);
             return;
         }
         v.push(ai);

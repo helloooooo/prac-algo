@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -56,21 +56,21 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         mut s: String,
         n:usize,
         lrn:[(usize,usize);n],
     }
-    for &(l,r) in lrn.iter(){
+    for &(l, r) in lrn.iter() {
         let sub = &s.clone();
-        let (sub,end) = sub.split_at(r);
-        let (first,sub) = sub.split_at(l-1);
+        let (sub, end) = sub.split_at(r);
+        let (first, sub) = sub.split_at(l - 1);
         let sub = sub.chars().rev().collect::<String>();
         s.clear();
         s.push_str(first);
         s.push_str(&sub);
-        s.push_str(end); 
+        s.push_str(end);
     }
-    println!("{}",s);
+    println!("{}", s);
 }

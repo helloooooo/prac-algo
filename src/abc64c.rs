@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use std::cmp::min;
+use std::collections::HashSet;
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).ok();
@@ -18,14 +18,19 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 fn main() {
     let n: i32 = read();
-    let an:Vec<i32> = read_vec();
-    let under_red = an.iter().filter(|&&x| x < 3200).map(|x| x / 400).collect::<HashSet<_>>().len();
+    let an: Vec<i32> = read_vec();
+    let under_red = an
+        .iter()
+        .filter(|&&x| x < 3200)
+        .map(|x| x / 400)
+        .collect::<HashSet<_>>()
+        .len();
     let over_red = an.iter().filter(|&&x| x >= 3200).count();
-    let min_ans = if  under_red == 0 {
-        min(1,over_red)
+    let min_ans = if under_red == 0 {
+        min(1, over_red)
     } else {
         under_red
     };
     let max_ans = under_red + over_red;
-    println!("{} {}",min_ans,max_ans);
+    println!("{} {}", min_ans, max_ans);
 }

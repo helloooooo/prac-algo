@@ -15,7 +15,7 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let s:String = read();
-    let ans = format!("ABC{}",s);
-    println!("{}",ans);
+    let s: String = read();
+    let ans = format!("ABC{}", s);
+    println!("{}", ans);
 }

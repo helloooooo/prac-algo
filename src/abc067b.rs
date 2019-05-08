@@ -16,11 +16,11 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 fn main() {
     let nk = read_vec::<u64>();
-    let (n,k) = (nk[0],nk[1]);
+    let (n, k) = (nk[0], nk[1]);
     let div = n - k;
     let mut v = read_vec::<u64>();
     v.sort();
-    let sum :u64 = v.iter().sum();
-    let ans = sum - (0..div).fold(0,|x,y| x + v[y as usize]);
-    println!("{}",ans);
+    let sum: u64 = v.iter().sum();
+    let ans = sum - (0..div).fold(0, |x, y| x + v[y as usize]);
+    println!("{}", ans);
 }

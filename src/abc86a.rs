@@ -16,12 +16,12 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let ab :Vec<i32>= read_vec();
-    let (a,b) = (ab[0],ab[1]);
+    let ab: Vec<i32> = read_vec();
+    let (a, b) = (ab[0], ab[1]);
     let ans = if (a * b) % 2 == 0 {
         "Even".to_string()
     } else {
         "Odd".to_string()
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

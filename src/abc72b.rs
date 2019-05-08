@@ -15,7 +15,12 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let s :String = read();
-    let ans:String = s.chars().enumerate().filter(|x| x.0 % 2  == 0).map(|y| y.1).collect();
-    println!("{}",ans);
+    let s: String = read();
+    let ans: String = s
+        .chars()
+        .enumerate()
+        .filter(|x| x.0 % 2 == 0)
+        .map(|y| y.1)
+        .collect();
+    println!("{}", ans);
 }

@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,16 +51,24 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::collections::VecDeque;
 use std::collections::HashMap;
-fn main(){
-    input!{
+use std::collections::VecDeque;
+fn main() {
+    input! {
         an:[i64;3],
     }
-    let mut ans:Vec<i64> = an.clone();
+    let mut ans: Vec<i64> = an.clone();
     ans.sort();
     ans.reverse();
-    for x in &an{
-        println!("{}",ans.iter().enumerate().filter(|z| z.1 == x).map(|z| z.0).sum::<usize>() + 1);
+    for x in &an {
+        println!(
+            "{}",
+            ans.iter()
+                .enumerate()
+                .filter(|z| z.1 == x)
+                .map(|z| z.0)
+                .sum::<usize>()
+                + 1
+        );
     }
 }

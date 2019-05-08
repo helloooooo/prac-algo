@@ -17,18 +17,18 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 pub const M: i32 = 1000000007;
 fn main() {
     let ans = solve();
-    println!("{}",ans );
+    println!("{}", ans);
 }
-fn solve() -> String{
+fn solve() -> String {
     let mut abc = read_vec::<i32>();
     abc.sort();
-    check(abc[0] + abc[1],abc[2])
+    check(abc[0] + abc[1], abc[2])
 }
-fn check(x:i32,y:i32) -> String{
-        let ans =  if x == y{
-            "Yes".to_string()
-        } else{
-            "No".to_string()
-        };
-        ans
+fn check(x: i32, y: i32) -> String {
+    let ans = if x == y {
+        "Yes".to_string()
+    } else {
+        "No".to_string()
+    };
+    ans
 }

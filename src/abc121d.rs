@@ -50,12 +50,12 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:i128,
         b:i128,
     }
-    let v:Vec<i128>=(a..b+1).collect();
-    let ans =  v.iter().fold(0,|x,y|y ^ x);
-    println!("{}",ans);
+    let v: Vec<i128> = (a..b + 1).collect();
+    let ans = v.iter().fold(0, |x, y| y ^ x);
+    println!("{}", ans);
 }

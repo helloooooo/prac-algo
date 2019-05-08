@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,13 +56,13 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         mut an:[usize;n],
     }
     an.sort();
     an.dedup();
-    let len  = an.len();
-    println!("{}",an[len-2]);
+    let len = an.len();
+    println!("{}", an[len - 2]);
 }

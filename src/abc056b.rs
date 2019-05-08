@@ -14,13 +14,13 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let wab = read_vec::<i64>();
-    let (w,a,b) = (wab[0],wab[1],wab[2]);
-    let ans = if (a-b).abs() < w{
+    let (w, a, b) = (wab[0], wab[1], wab[2]);
+    let ans = if (a - b).abs() < w {
         0
     } else {
-        (a-b).abs() - w
+        (a - b).abs() - w
     };
-    println!("{}",ans );
+    println!("{}", ans);
 }

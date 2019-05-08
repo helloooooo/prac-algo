@@ -14,8 +14,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-        let ab = read_vec::<i64>();
-    let ans = (ab[0]-1) * (ab[1]-1);
-    println!("{}",ans );
+fn main() {
+    let ab = read_vec::<i64>();
+    let ans = (ab[0] - 1) * (ab[1] - 1);
+    println!("{}", ans);
 }

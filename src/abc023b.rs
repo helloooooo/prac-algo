@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -52,24 +52,24 @@ macro_rules! read_value {
     };
 }
 use std::collections::VecDeque;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         s:String,
     }
-    if n % 2 == 0{
+    if n % 2 == 0 {
         println!("-1");
         return;
     }
     let mut cnt = 1;
-    let mid  = (n-1)/ 2;
+    let mid = (n - 1) / 2;
     let mut v = VecDeque::new();
     v.push_back('b');
-    for j in 0..mid{
+    for j in 0..mid {
         if cnt % 3 == 1 {
             v.push_front('a');
             v.push_back('c');
-        } else if cnt % 3 == 2{
+        } else if cnt % 3 == 2 {
             v.push_front('c');
             v.push_back('a');
         } else {
@@ -78,6 +78,6 @@ fn main(){
         }
         cnt += 1;
     }
-    let sub:String = v.iter().map(|&c|c).collect();
-    println!("{}", if s == sub {mid as i64} else {-1});
+    let sub: String = v.iter().map(|&c| c).collect();
+    println!("{}", if s == sub { mid as i64 } else { -1 });
 }

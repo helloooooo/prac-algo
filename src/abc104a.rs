@@ -14,14 +14,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let r : u64 = read();
+fn main() {
+    let r: u64 = read();
     let ans = if r < 1200 {
         "ABC"
     } else if r < 2800 {
         "ARC"
-    } else{
+    } else {
         "AGC"
     };
-    println!("{}",ans );
+    println!("{}", ans);
 }

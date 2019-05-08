@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,31 +51,35 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         an:[i64;n],
     }
-    let mut left = vec![0;n+1];
-    let mut right = vec![0;n+1];
-    for j in 0..n { left[j+1] = gcd(left[j],an[j]);}
-    for j in (0..n).rev() {  right[j] = gcd(right[j+1],an[j]);}
+    let mut left = vec![0; n + 1];
+    let mut right = vec![0; n + 1];
+    for j in 0..n {
+        left[j + 1] = gcd(left[j], an[j]);
+    }
+    for j in (0..n).rev() {
+        right[j] = gcd(right[j + 1], an[j]);
+    }
 
     let mut ans = 0;
-    for j in 0..n{
+    for j in 0..n {
         let l = left[j];
-        let r = right[j+1];
-        ans = max(ans,gcd(l,r));
+        let r = right[j + 1];
+        ans = max(ans, gcd(l, r));
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }
-fn gcd(a:i64,b:i64) -> i64{
+fn gcd(a: i64, b: i64) -> i64 {
     if b == 0 {
         return a;
     }
-    if a % b == 0{
+    if a % b == 0 {
         b
     } else {
-        gcd(b, a%b)
+        gcd(b, a % b)
     }
 }

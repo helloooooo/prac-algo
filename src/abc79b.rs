@@ -16,21 +16,20 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let n : i64 = read();
+    let n: i64 = read();
     match n {
-        0 =>{
+        0 => {
             println!("2");
-        },
+        }
         1 => {
             println!("1");
         }
         _ => {
             let ans = calc(n);
-            println!("{}",ans);
+            println!("{}", ans);
         }
     }
-
-}       
+}
 fn calc(n: i64) -> i64 {
     let mut f1 = 2;
     let mut f2 = 1;

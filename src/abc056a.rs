@@ -14,7 +14,7 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let ab = read_vec::<String>();
     let ans = if ab[0] == "H" {
         match &*ab[1] {

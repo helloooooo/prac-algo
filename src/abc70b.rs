@@ -17,14 +17,13 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let i : Vec<i64> = read_vec();
-    let ac = vec![i[0],i[2]];
-    let bd = vec![i[1],i[3]];
+    let i: Vec<i64> = read_vec();
+    let ac = vec![i[0], i[2]];
+    let bd = vec![i[1], i[3]];
     let ans = if ac.iter().max().unwrap() <= bd.iter().min().unwrap() {
-         bd.iter().min().unwrap() - ac.iter().max().unwrap()
-    } else{
+        bd.iter().min().unwrap() - ac.iter().max().unwrap()
+    } else {
         0
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }
-

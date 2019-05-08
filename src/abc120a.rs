@@ -50,15 +50,15 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:i64,
         b:i64,
         c:i64,
     }
     if b / a < c {
-        println!("{}",b/a);
+        println!("{}", b / a);
     } else {
-        println!("{}",c);
+        println!("{}", c);
     }
 }

@@ -16,21 +16,21 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let nk:Vec<i64> = read_vec();
-    let mut v :Vec<(i64,i64)> = Vec::new();
+    let nk: Vec<i64> = read_vec();
+    let mut v: Vec<(i64, i64)> = Vec::new();
     for _ in 0..nk[0] {
-        let r:Vec<i64> = read_vec();
-        v.push((r[0],r[1]));
+        let r: Vec<i64> = read_vec();
+        v.push((r[0], r[1]));
     }
     v.sort();
     let mut key = nk[1];
     let mut ans = 0;
-    for (a,b) in v{
+    for (a, b) in v {
         key -= b;
-        if key <= 0{
-           ans =  a;
+        if key <= 0 {
+            ans = a;
             break;
         }
-    };
-    println!("{}",ans);
+    }
+    println!("{}", ans);
 }

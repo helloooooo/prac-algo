@@ -15,7 +15,7 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let i: Vec<Vec<i32>> =  read_vec2(3);
+    let i: Vec<Vec<i32>> = read_vec2(3);
     for i1 in 0..i.len() {
         for i2 in 0..i.len() {
             for j1 in 0..i.len() {

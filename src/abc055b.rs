@@ -14,10 +14,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main (){
+fn main() {
     let n = read::<i64>();
-    let ans = (1..n+1).fold(1,|y,x|{
-        (y * x )% (1e9 as i64 + 7)
-    });
-    println!("{}",ans);
+    let ans = (1..n + 1).fold(1, |y, x| (y * x) % (1e9 as i64 + 7));
+    println!("{}", ans);
 }

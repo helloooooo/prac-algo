@@ -1,4 +1,4 @@
-use std::cmp::{max,min, Ordering};
+use std::cmp::{max, min, Ordering};
 fn read<T: std::str::FromStr>() -> T {
     let mut s = String::new();
     std::io::stdin().read_line(&mut s).ok();
@@ -15,19 +15,19 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let a : String = read();
-    let b : String = read();
+fn main() {
+    let a: String = read();
+    let b: String = read();
     let ans = if a.len() < b.len() {
         "LESS"
     } else if a.len() > b.len() {
         "GREATER"
     } else {
         match a.cmp(&b) {
-            Ordering::Equal => "EQUAL" ,
+            Ordering::Equal => "EQUAL",
             Ordering::Less => "LESS",
             Ordering::Greater => "GREATER",
         }
     };
-    println!("{}",ans );
+    println!("{}", ans);
 }

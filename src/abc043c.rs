@@ -50,17 +50,15 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:String,
     }
-    let s:Vec<usize> = s.chars()
-        .map(|c| c as usize - '0' as  usize)
-        .collect();
+    let s: Vec<usize> = s.chars().map(|c| c as usize - '0' as usize).collect();
     let mut ans = 0;
-    for f in 0..1 << (s.len() - 1){
+    for f in 0..1 << (s.len() - 1) {
         let mut t = 0;
-        for j in 0..s.len(){
+        for j in 0..s.len() {
             t *= 10;
             t += s[j];
             if f & 1 << j != 0 {
@@ -70,5 +68,5 @@ fn main(){
         }
         ans += t;
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

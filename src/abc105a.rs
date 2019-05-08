@@ -14,12 +14,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let s = read_vec::<i64>();
-    let ans  = if s[0] % s[1] == 0{
-        0
-    } else {
-        1
-    };
-    println!("{}",ans);
+    let ans = if s[0] % s[1] == 0 { 0 } else { 1 };
+    println!("{}", ans);
 }

@@ -24,9 +24,12 @@ fn main() {
         pxn.push(read_vec::<i32>());
     }
 
-    let sum:i32 = tn.iter().sum();
-    let ans:Vec<i32> = pxn.iter().map(|x| sum-tn[(x[0]-1) as usize] +x[1]).collect();
-    for x in ans{
-        println!("{}",x);
+    let sum: i32 = tn.iter().sum();
+    let ans: Vec<i32> = pxn
+        .iter()
+        .map(|x| sum - tn[(x[0] - 1) as usize] + x[1])
+        .collect();
+    for x in ans {
+        println!("{}", x);
     }
 }

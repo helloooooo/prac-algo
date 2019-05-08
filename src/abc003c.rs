@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -55,8 +55,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         k:usize,
         rn:[usize;n],
@@ -66,10 +66,7 @@ fn main(){
     // 最大値を教えて
     let mut rn = rn;
     rn.sort();
-    let sub_rn:Vec<f64> = rn.iter().skip(n-k).map(|&x|x as f64).collect();
-    let ans = sub_rn.iter()
-        .fold(0.,|y,x|{
-            (x+y)/2.
-        });
-        println!("{:.6}",ans);
+    let sub_rn: Vec<f64> = rn.iter().skip(n - k).map(|&x| x as f64).collect();
+    let ans = sub_rn.iter().fold(0., |y, x| (x + y) / 2.);
+    println!("{:.6}", ans);
 }

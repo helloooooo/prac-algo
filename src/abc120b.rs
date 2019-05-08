@@ -50,18 +50,18 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:i64,
         b:i64,
         c:i64,
     }
     let mut v = vec![];
     for i in 1..101 {
-        if a % i == 0 && b % i == 0{
+        if a % i == 0 && b % i == 0 {
             v.push(i);
-        } 
+        }
     }
     v.reverse();
-    println!("{}",v[c as usize - 1]);
+    println!("{}", v[c as usize - 1]);
 }

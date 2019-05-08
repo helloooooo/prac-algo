@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,19 +51,19 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::collections::VecDeque;
 use std::collections::HashMap;
-fn main(){
-    input!{
+use std::collections::VecDeque;
+fn main() {
+    input! {
         s:chars,
     }
     let mut s = s;
     s.push('E');
     let len = s.len();
     let mut count = 1;
-    let mut ans:String = "".to_string();
-    for j in 0..len-1 {
-        if s[(j)] == s[(j+1)] {
+    let mut ans: String = "".to_string();
+    for j in 0..len - 1 {
+        if s[(j)] == s[(j + 1)] {
             count += 1;
         } else {
             ans.push(s[j]);
@@ -71,5 +71,5 @@ fn main(){
             count = 1;
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

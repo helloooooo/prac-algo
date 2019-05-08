@@ -16,5 +16,5 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 fn main() {
     let s = read::<String>();
-    println!("{}", s.replace(","," "));
+    println!("{}", s.replace(",", " "));
 }

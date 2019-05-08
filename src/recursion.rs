@@ -20,7 +20,11 @@ impl Fibmemo {
     }
 }
 fn fact(x: i32) -> i32 {
-    if x == 0 { 1 } else { x * fact(x - 1) }
+    if x == 0 {
+        1
+    } else {
+        x * fact(x - 1)
+    }
 }
 
 fn fib(x: i64) -> i64 {
@@ -41,7 +45,6 @@ fn fib_dp(n: i64) -> i64 {
     }
     tmp
 }
-
 
 fn main() {
     println!("{}", fact(10));

@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,16 +57,16 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         field:[[String;4];4],
     }
-    let mut ans = vec![vec![" ";4];4];
-    for j in 0..4{
-        for k in 0..4{
-            ans[j][k] = &field[3-j][3-k];
-            print!("{}",ans[j][k]);
-            if  k < 3 {
+    let mut ans = vec![vec![" "; 4]; 4];
+    for j in 0..4 {
+        for k in 0..4 {
+            ans[j][k] = &field[3 - j][3 - k];
+            print!("{}", ans[j][k]);
+            if k < 3 {
                 print!(" ");
             }
         }

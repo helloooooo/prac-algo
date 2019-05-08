@@ -15,9 +15,9 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let x :i32 = read();
-    let a :i32 = read();
-    let b :i32 = read();
-    let ans  = (x - a ) % b;
-    println!("{}",ans);
+    let x: i32 = read();
+    let a: i32 = read();
+    let b: i32 = read();
+    let ans = (x - a) % b;
+    println!("{}", ans);
 }

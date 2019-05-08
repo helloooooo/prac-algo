@@ -14,16 +14,16 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let nk = read_vec::<i64>();
-    let (n,k) = (nk[0],nk[1]);
-    let ans = k * double(k-1,n-1);
+    let (n, k) = (nk[0], nk[1]);
+    let ans = k * double(k - 1, n - 1);
     println!("{}", ans);
 }
-fn double(x:i64,c:i64) -> i64{
+fn double(x: i64, c: i64) -> i64 {
     if c == 0 {
         1
     } else {
-        x * double(x, c-1)
+        x * double(x, c - 1)
     }
 }

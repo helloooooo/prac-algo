@@ -58,11 +58,33 @@ macro_rules! read_value {
 }
 fn main() {
     input! {
-        s:String,
+        n:i64,
+        k:i64,
+        sn:[i64;n],
     }
-    let s = s.to_lowercase();
-    let mut s: Vec<char> = s.chars().collect();
-    s[0] = s[0].to_uppercase().nth(0).unwrap();
-    let s: String = s.into_iter().collect();
-    println!("{}", s);
+    if sn.contains(&0) {
+        println!("{}", n);
+        return;
+    };
+    let mut left = 0;
+    let mut right = 0;
+    let mut ans = 0;
+    let mut count = 0;
+    let mut multi = 1;
+    while right < n {
+        if multi * sn[right as usize] <= k {
+            multi *= sn[right as usize];
+            right += 1;
+            count += 1;
+            ans = max(ans, count);
+        } else if left == right {
+            left += 1;
+            right += 1;
+        } else {
+            multi /= sn[left as usize];
+            count -= 1;
+            left += 1;
+        }
+    }
+    println!("{}", ans);
 }

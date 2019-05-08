@@ -50,17 +50,13 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         an:chars,
     }
     let r = an.iter().filter(|&c| *c == 'R').count();
-    let b = n -r;
-    let ans =if r > b {
-        "Yes"
-    } else {
-        "No"
-    };
-    println!("{}",ans);
+    let b = n - r;
+    let ans = if r > b { "Yes" } else { "No" };
+    println!("{}", ans);
 }

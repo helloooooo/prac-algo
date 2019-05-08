@@ -14,15 +14,15 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let xab = read_vec::<i64>();
-    let (x,a,b) = (xab[0],xab[1],xab[2]);
-    let ans = if (-a+b) <= 0{
+    let (x, a, b) = (xab[0], xab[1], xab[2]);
+    let ans = if (-a + b) <= 0 {
         "delicious"
-    } else if  -a+b <= x{
+    } else if -a + b <= x {
         "safe"
     } else {
         "dangerous"
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

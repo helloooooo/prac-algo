@@ -14,12 +14,18 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let s:String = read();
+fn main() {
+    let s: String = read();
     let len = s.chars().count();
-    if s.chars().skip(2).take(len-3).filter(|&x| x=='C').count() == 1 {
-        if s.chars().nth(0).unwrap()== 'A'{
-            if s.chars().filter(|&x| x.is_lowercase()).count() == (len-2){
+    if s.chars()
+        .skip(2)
+        .take(len - 3)
+        .filter(|&x| x == 'C')
+        .count()
+        == 1
+    {
+        if s.chars().nth(0).unwrap() == 'A' {
+            if s.chars().filter(|&x| x.is_lowercase()).count() == (len - 2) {
                 println!("AC");
                 return;
             }

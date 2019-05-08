@@ -14,8 +14,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let s = read_vec::<String>();
-    let ans:String = s.iter().flat_map(|x| x.chars().nth(0)).collect();
-    println!("{}",ans );
+    let ans: String = s.iter().flat_map(|x| x.chars().nth(0)).collect();
+    println!("{}", ans);
 }

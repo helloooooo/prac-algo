@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,8 +51,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:i64,
         b:i64,
     }
@@ -62,11 +62,11 @@ fn main(){
     for _ in 0..2 {
         if a >= b {
             ans += a;
-            a-=1;
-        }else {
+            a -= 1;
+        } else {
             ans += b;
-            b-=1;
+            b -= 1;
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

@@ -14,13 +14,15 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let a = read::<usize>();
     let b = read::<usize>();
     let mut n = read::<usize>();
     loop {
-        if n % a == 0 && n % b == 0 { break; }
+        if n % a == 0 && n % b == 0 {
+            break;
+        }
         n += 1;
     }
-    println!("{}",n);
+    println!("{}", n);
 }

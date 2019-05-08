@@ -16,7 +16,7 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let i : Vec<f64> = read_vec();
+    let i: Vec<f64> = read_vec();
     let x = (i[0] + i[1]) / 2.;
-    println!("{}", x.round() );
+    println!("{}", x.round());
 }

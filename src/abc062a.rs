@@ -14,14 +14,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let xy = read_vec::<u64>();
-    let (x,y) = (xy[0]-1,xy[1]-1);
-    let v = vec![1,3,1,2,1,2,1,1,2,1,2,1];
-    let ans = if (v[x as usize] == v[y as usize]){
+    let (x, y) = (xy[0] - 1, xy[1] - 1);
+    let v = vec![1, 3, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1];
+    let ans = if (v[x as usize] == v[y as usize]) {
         "Yes"
-    } else{
+    } else {
         "No"
     };
-    println!("{}",ans );
+    println!("{}", ans);
 }

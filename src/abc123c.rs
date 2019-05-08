@@ -50,8 +50,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         an:[i64;5],
     }
@@ -65,5 +65,5 @@ fn main(){
             n / min + 1
         }
     };
-    println!("{}",base+4);
+    println!("{}", base + 4);
 }

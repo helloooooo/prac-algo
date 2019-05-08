@@ -15,10 +15,10 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 
-fn main(){
-    let a:i64 = read();
-    let b : i64 = read();
-    let h : i64 = read();
-    let ans = (a + b) * h /2 ;
-    println!("{}",ans );
+fn main() {
+    let a: i64 = read();
+    let b: i64 = read();
+    let h: i64 = read();
+    let ans = (a + b) * h / 2;
+    println!("{}", ans);
 }

@@ -12,20 +12,20 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let (a,b,c) = {
+fn main() {
+    let (a, b, c) = {
         let t = read_vec::<i64>();
-        (t[0],t[1],t[2])
+        (t[0], t[1], t[2])
     };
-    let mut ans:i64 = 0;
+    let mut ans: i64 = 0;
     for _ in 0..a {
-        let (h,w) = {
+        let (h, w) = {
             let t = read_vec::<i64>();
-            (t[0],t[1])
+            (t[0], t[1])
         };
         if h >= b && w >= c {
             ans += 1;
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

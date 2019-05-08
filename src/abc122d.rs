@@ -50,10 +50,10 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
     }
     let pow = 4_i64.pow(n as u32);
-    println!("{}",pow );
+    println!("{}", pow);
 }

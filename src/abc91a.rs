@@ -15,12 +15,12 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 
-fn main(){
-    let abc:Vec<i32> = read_vec();
+fn main() {
+    let abc: Vec<i32> = read_vec();
     let ans = if abc[0] + abc[1] >= abc[2] {
         "Yes".to_string()
     } else {
-         "No".to_string()
+        "No".to_string()
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

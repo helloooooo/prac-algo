@@ -662,3 +662,7 @@ name = "abc015c-stack"
 name = "abc016c"
 [[bin]]
 name = "abc017c"
+[[bin]]
+name = "abc032c"
+[[bin]]
+name = "abc033c"

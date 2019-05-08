@@ -14,12 +14,12 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let mut v = read_vec::<u64>();
     v.sort();
     let mut cost = 0;
-    for i in 1..v.len(){
-        cost += v[i as usize] - v[(i-1) as usize];
+    for i in 1..v.len() {
+        cost += v[i as usize] - v[(i - 1) as usize];
     }
-    println!("{}",cost )
+    println!("{}", cost)
 }

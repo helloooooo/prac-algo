@@ -50,23 +50,23 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         an:[(String,i64);n],
     }
     let mut sum = 0;
     let mut max = 0;
     let mut place = "".to_string();
-    for (s,p) in an{
+    for (s, p) in an {
         sum += p;
         if max <= p {
-            max = std::cmp::max(max,p);
+            max = std::cmp::max(max, p);
             place = s.to_string();
         }
     }
-    if sum/2 < max {
-        println!("{}",place);
+    if sum / 2 < max {
+        println!("{}", place);
     } else {
         println!("atcoder");
     }

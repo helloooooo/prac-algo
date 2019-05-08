@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,22 +56,22 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         abn:[(usize,usize);n],
     }
-    let mut count:Vec<i64> = vec![0;1000002];
-    let mut sum:Vec<i64> = vec![0];
-    for &(a,b) in &abn{
+    let mut count: Vec<i64> = vec![0; 1000002];
+    let mut sum: Vec<i64> = vec![0];
+    for &(a, b) in &abn {
         count[a] += 1;
-        count[b+1] -= 1;
+        count[b + 1] -= 1;
     }
-    count.insert(0,0);
-    for j in 1..1000002{
-        let s = sum[j-1] + count[j];
+    count.insert(0, 0);
+    for j in 1..1000002 {
+        let s = sum[j - 1] + count[j];
         sum.push(s);
     }
     let ans = sum.iter().max().unwrap();
-    println!("{}",ans);
+    println!("{}", ans);
 }

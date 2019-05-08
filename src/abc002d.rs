@@ -51,19 +51,18 @@ macro_rules! read_value {
     };
 }
 
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         m:i64,
         xym:[(i64,i64);m],
     }
-    for bit in 0..1 << n{
-        let mut v:Vec<i64> = vec![];
+    for bit in 0..1 << n {
+        let mut v: Vec<i64> = vec![];
         for j in 0..n {
-            if bit & (1<<j) != 1{
-                println!("{:?}",j);
+            if bit & (1 << j) != 1 {
+                println!("{:?}", j);
             }
         }
-
     }
 }

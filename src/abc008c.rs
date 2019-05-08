@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,19 +56,19 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         cn:[usize;n],
     }
     let mut ans = 0.;
     for &c in &cn {
-        let sub = cn.iter().filter(|&x| c % x == 0 ).count()-1;
+        let sub = cn.iter().filter(|&x| c % x == 0).count() - 1;
         ans += if sub % 2 == 0 {
-            (sub/2 + 1) as f64/(sub+1) as f64 //式変形
+            (sub / 2 + 1) as f64 / (sub + 1) as f64 //式変形
         } else {
             0.5
         };
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

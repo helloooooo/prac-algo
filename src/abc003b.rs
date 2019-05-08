@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,22 +57,22 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
         t:chars,
     }
-    let master = vec!['a','t','c','o','d','e','r'];
-    let mut ans  = true;
+    let master = vec!['a', 't', 'c', 'o', 'd', 'e', 'r'];
+    let mut ans = true;
     for j in 0..s.len() {
         if s[j] != t[j] {
-            if (s[j] =='@' || t[j] == '@') && (master.contains(&s[j]) || master.contains(&t[j])) {
+            if (s[j] == '@' || t[j] == '@') && (master.contains(&s[j]) || master.contains(&t[j])) {
                 continue;
-            } else{
+            } else {
                 ans = false;
                 break;
             }
         }
     }
-    println!("{}", if ans {"You can win"} else {"You will lose"});
+    println!("{}", if ans { "You can win" } else { "You will lose" });
 }

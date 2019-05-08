@@ -12,18 +12,17 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let n = read::<usize>();
     let an = read_vec::<i64>();
-    let ans = an.iter().fold(0,|acc,&x| {
-        gcd(acc,x)
-    });
-    println!("{}",ans);
+    let ans = an.iter().fold(0, |acc, &x| gcd(acc, x));
+    println!("{}", ans);
 }
 
-fn gcd(x:i64,y:i64) -> i64 {
-    if y == 0 { x
+fn gcd(x: i64, y: i64) -> i64 {
+    if y == 0 {
+        x
     } else {
-        gcd(y,x % y)
+        gcd(y, x % y)
     }
 }

@@ -50,20 +50,20 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         s:chars,
     }
     let mut ans = 0;
     let mut count = 0;
     for c in &s {
-        if *c == 'I'{
+        if *c == 'I' {
             count += 1;
         } else {
             count -= 1;
         }
         ans = std::cmp::max(ans, count);
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

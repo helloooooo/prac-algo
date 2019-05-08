@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,12 +51,16 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
     }
     let ans = (b'A'..b'G')
         .map(char::from)
-        .map(|t| s.iter().filter(|&c| *c == t).count() as i64).collect::<Vec<i64>>();
-    println!("{} {} {} {} {} {}",ans[0],ans[1],ans[2],ans[3],ans[4],ans[5]);
+        .map(|t| s.iter().filter(|&c| *c == t).count() as i64)
+        .collect::<Vec<i64>>();
+    println!(
+        "{} {} {} {} {} {}",
+        ans[0], ans[1], ans[2], ans[3], ans[4], ans[5]
+    );
 }

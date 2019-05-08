@@ -18,20 +18,32 @@ macro_rules! eprintln {
 
 //////////////////// useful functions ////////////////////
 pub trait SetMin {
-	fn setmin(&mut self, v: Self) -> bool;
+    fn setmin(&mut self, v: Self) -> bool;
 }
-impl<T> SetMin for T where T: PartialOrd {
-	fn setmin(&mut self, v: T) -> bool {
-		*self > v && { *self = v; true }
-	}
+impl<T> SetMin for T
+where
+    T: PartialOrd,
+{
+    fn setmin(&mut self, v: T) -> bool {
+        *self > v && {
+            *self = v;
+            true
+        }
+    }
 }
 pub trait SetMax {
-	fn setmax(&mut self, v: Self) -> bool;
+    fn setmax(&mut self, v: Self) -> bool;
 }
-impl<T> SetMax for T where T: PartialOrd {
-	fn setmax(&mut self, v: T) -> bool {
-		*self < v && { *self = v; true }
-	}
+impl<T> SetMax for T
+where
+    T: PartialOrd,
+{
+    fn setmax(&mut self, v: T) -> bool {
+        *self < v && {
+            *self = v;
+            true
+        }
+    }
 }
 
 macro_rules! debug {
@@ -49,9 +61,11 @@ macro_rules! mat {
 }
 
 pub fn readln() -> String {
-	let mut line = String::new();
-	::std::io::stdin().read_line(&mut line).unwrap_or_else(|e| panic!("{}", e));
-	line
+    let mut line = String::new();
+    ::std::io::stdin()
+        .read_line(&mut line)
+        .unwrap_or_else(|e| panic!("{}", e));
+    line
 }
 
 macro_rules! read {
@@ -90,19 +104,24 @@ macro_rules! _read {
 }
 
 pub fn main() {
-	let _ = ::std::thread::Builder::new().name("run".to_string()).stack_size(32 * 1024 * 1024).spawn(run).unwrap().join();
+    let _ = ::std::thread::Builder::new()
+        .name("run".to_string())
+        .stack_size(32 * 1024 * 1024)
+        .spawn(run)
+        .unwrap()
+        .join();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 pub mod vec {
-	use std::ops::*;
-	pub type StdVec<T> = ::std::vec::Vec<T>;
-	
-	pub trait Idx: Copy {
-		fn to_usize(self) -> usize;
-	}
-	
-	macro_rules! impl_idx {
+    use std::ops::*;
+    pub type StdVec<T> = ::std::vec::Vec<T>;
+
+    pub trait Idx: Copy {
+        fn to_usize(self) -> usize;
+    }
+
+    macro_rules! impl_idx {
 		($($t:ty),*) => {
 			$(
 				impl Idx for $t {
@@ -114,42 +133,42 @@ pub mod vec {
 			)*
 		};
 	}
-	
-	impl_idx!(i32, i64, usize);
-	
-	#[derive(Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
-	pub struct Vec<T>(pub StdVec<T>);
-	
-	impl<T> Vec<T> {
-		pub fn new() -> Self {
-			Vec(StdVec::new())
-		}
-	}
-	
-	impl<T, I: Idx> Index<I> for Vec<T> {
-		type Output = T;
-		fn index(&self, i: I) -> &T {
-			&self.0[i.to_usize()]
-		}
-	}
-	
-	impl<T, I: Idx> IndexMut<I> for Vec<T> {
-		fn index_mut(&mut self, i: I) -> &mut T {
-			&mut self.0[i.to_usize()]
-		}
-	}
-	
-	pub trait VecUtils<I> {
-		fn is_valid(&self, i: I) -> bool;
-	}
-	
-	impl<T, I: Idx> VecUtils<I> for Vec<T> {
-		fn is_valid(&self, i: I) -> bool {
-			i.to_usize() < self.len()
-		}
-	}
-	
-	macro_rules! impl_tuple {
+
+    impl_idx!(i32, i64, usize);
+
+    #[derive(Clone, Default, PartialEq, Eq, PartialOrd, Ord, Hash)]
+    pub struct Vec<T>(pub StdVec<T>);
+
+    impl<T> Vec<T> {
+        pub fn new() -> Self {
+            Vec(StdVec::new())
+        }
+    }
+
+    impl<T, I: Idx> Index<I> for Vec<T> {
+        type Output = T;
+        fn index(&self, i: I) -> &T {
+            &self.0[i.to_usize()]
+        }
+    }
+
+    impl<T, I: Idx> IndexMut<I> for Vec<T> {
+        fn index_mut(&mut self, i: I) -> &mut T {
+            &mut self.0[i.to_usize()]
+        }
+    }
+
+    pub trait VecUtils<I> {
+        fn is_valid(&self, i: I) -> bool;
+    }
+
+    impl<T, I: Idx> VecUtils<I> for Vec<T> {
+        fn is_valid(&self, i: I) -> bool {
+            i.to_usize() < self.len()
+        }
+    }
+
+    macro_rules! impl_tuple {
 		($f:ident) => {
 			impl_tuple!($f; A, B; C, D, E, F, G, H, I, J);
 		};
@@ -161,8 +180,8 @@ pub mod vec {
 			impl_tuple!($f; $($i,)* $j; $($k),*);
 		};
 	}
-	
-	macro_rules! impl_vec_tuple {
+
+    macro_rules! impl_vec_tuple {
 		(# $i:ident $(,$j:ident)*) => { Vec<impl_vec_tuple!(# $($j),*)> };
 		(#) => { T };
 		($($i:ident),*) => {
@@ -194,75 +213,75 @@ pub mod vec {
 			}
 		};
 	}
-	
-	impl_tuple!(impl_vec_tuple);
-	
-	impl<T> Deref for Vec<T> {
-		type Target = StdVec<T>;
-		fn deref(&self) -> &StdVec<T> {
-			&self.0
-		}
-	}
-	
-	impl<T> DerefMut for Vec<T> {
-		fn deref_mut(&mut self) -> &mut StdVec<T> {
-			&mut self.0
-		}
-	}
-	
-	impl<T: ::std::fmt::Debug> ::std::fmt::Debug for Vec<T> {
-		fn fmt(&self, f: &mut ::std::fmt::Formatter) -> Result<(), ::std::fmt::Error> {
-			self.0.fmt(f)
-		}
-	}
-	
-	impl<T: ::std::fmt::Display> ::std::fmt::Display for Vec<T> {
-		fn fmt(&self, f: &mut ::std::fmt::Formatter) -> Result<(), ::std::fmt::Error> {
-			for (i, a) in self.iter().enumerate() {
-				if i > 0 {
-					' '.fmt(f)?;
-				}
-				a.fmt(f)?;
-			}
-			Ok(())
-		}
-	}
-	
-	impl<T> IntoIterator for Vec<T> {
-		type Item = T;
-		type IntoIter = ::std::vec::IntoIter<T>;
-		fn into_iter(self) -> Self::IntoIter {
-			self.0.into_iter()
-		}
-	}
-	
-	impl<'a, T> IntoIterator for &'a Vec<T> {
-		type Item = &'a T;
-		type IntoIter = ::std::slice::Iter<'a, T>;
-		fn into_iter(self) -> Self::IntoIter {
-			self.0.iter()
-		}
-	}
-	
-	impl<'a, T> IntoIterator for &'a mut Vec<T> {
-		type Item = &'a mut T;
-		type IntoIter = ::std::slice::IterMut<'a, T>;
-		fn into_iter(self) -> Self::IntoIter {
-			self.0.iter_mut()
-		}
-	}
-	
-	impl<T> ::std::iter::FromIterator<T> for Vec<T> {
-		fn from_iter<I: IntoIterator<Item = T>>(iter: I) -> Self {
-			Vec(StdVec::from_iter(iter))
-		}
-	}
-	
-	impl<S: Into<StdVec<T>>, T> From<S> for Vec<T> {
-		fn from(a: S) -> Self {
-			Vec(a.into())
-		}
-	}
+
+    impl_tuple!(impl_vec_tuple);
+
+    impl<T> Deref for Vec<T> {
+        type Target = StdVec<T>;
+        fn deref(&self) -> &StdVec<T> {
+            &self.0
+        }
+    }
+
+    impl<T> DerefMut for Vec<T> {
+        fn deref_mut(&mut self) -> &mut StdVec<T> {
+            &mut self.0
+        }
+    }
+
+    impl<T: ::std::fmt::Debug> ::std::fmt::Debug for Vec<T> {
+        fn fmt(&self, f: &mut ::std::fmt::Formatter) -> Result<(), ::std::fmt::Error> {
+            self.0.fmt(f)
+        }
+    }
+
+    impl<T: ::std::fmt::Display> ::std::fmt::Display for Vec<T> {
+        fn fmt(&self, f: &mut ::std::fmt::Formatter) -> Result<(), ::std::fmt::Error> {
+            for (i, a) in self.iter().enumerate() {
+                if i > 0 {
+                    ' '.fmt(f)?;
+                }
+                a.fmt(f)?;
+            }
+            Ok(())
+        }
+    }
+
+    impl<T> IntoIterator for Vec<T> {
+        type Item = T;
+        type IntoIter = ::std::vec::IntoIter<T>;
+        fn into_iter(self) -> Self::IntoIter {
+            self.0.into_iter()
+        }
+    }
+
+    impl<'a, T> IntoIterator for &'a Vec<T> {
+        type Item = &'a T;
+        type IntoIter = ::std::slice::Iter<'a, T>;
+        fn into_iter(self) -> Self::IntoIter {
+            self.0.iter()
+        }
+    }
+
+    impl<'a, T> IntoIterator for &'a mut Vec<T> {
+        type Item = &'a mut T;
+        type IntoIter = ::std::slice::IterMut<'a, T>;
+        fn into_iter(self) -> Self::IntoIter {
+            self.0.iter_mut()
+        }
+    }
+
+    impl<T> ::std::iter::FromIterator<T> for Vec<T> {
+        fn from_iter<I: IntoIterator<Item = T>>(iter: I) -> Self {
+            Vec(StdVec::from_iter(iter))
+        }
+    }
+
+    impl<S: Into<StdVec<T>>, T> From<S> for Vec<T> {
+        fn from(a: S) -> Self {
+            Vec(a.into())
+        }
+    }
 }
 
 use vec::*;
@@ -270,28 +289,28 @@ use vec::*;
 const DXY: [(i32, i32); 4] = [(1, 0), (0, 1), (-1, 0), (0, -1)];
 
 fn run() {
-	let (R, C) = read!(usize, usize);
-	let mut s = read!(i32, i32);
-	let mut g = read!(i32, i32);
-	s.0 -= 1;
-	s.1 -= 1;
-	g.0 -= 1;
-	g.1 -= 1;
-	let c = read!([char]; R);
-	let mut dist = mat![i32::max_value(); R; C];
-	let mut que = BinaryHeap::new();
-	println!("{:?}",c);
-	dist[s] = 0;
-	que.push(s);
-	while let Some(p) = que.pop() {
-		let d = dist[p];
-		for &dir in &DXY {
-			let q = (p.0 + dir.0, p.1 + dir.1);
-			println!("{} {}",q.0,q.1);
-			if c.is_valid(q) && c[q] == '.' && dist[q].setmin(d + 1) {
-				que.push(q);
-			}
-		}
-	}
-	println!("{}", dist[g]);
+    let (R, C) = read!(usize, usize);
+    let mut s = read!(i32, i32);
+    let mut g = read!(i32, i32);
+    s.0 -= 1;
+    s.1 -= 1;
+    g.0 -= 1;
+    g.1 -= 1;
+    let c = read!([char]; R);
+    let mut dist = mat![i32::max_value(); R; C];
+    let mut que = BinaryHeap::new();
+    println!("{:?}", c);
+    dist[s] = 0;
+    que.push(s);
+    while let Some(p) = que.pop() {
+        let d = dist[p];
+        for &dir in &DXY {
+            let q = (p.0 + dir.0, p.1 + dir.1);
+            println!("{} {}", q.0, q.1);
+            if c.is_valid(q) && c[q] == '.' && dist[q].setmin(d + 1) {
+                que.push(q);
+            }
+        }
+    }
+    println!("{}", dist[g]);
 }

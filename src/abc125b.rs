@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,8 +51,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         vn:[i64;n],
         cn:[i64;n],
@@ -60,9 +60,9 @@ fn main(){
     let mut v_sum = 0;
     let mut c_sum = 0;
     let mut diff = vec![];
-    for j in 0..n{
-        diff.push(vn[j as usize]-cn[j as usize]);
+    for j in 0..n {
+        diff.push(vn[j as usize] - cn[j as usize]);
     }
-    let ans:i64= diff.iter().filter(|&x|*x > 0).sum();
-    println!("{}",ans);
-} 
+    let ans: i64 = diff.iter().filter(|&x| *x > 0).sum();
+    println!("{}", ans);
+}

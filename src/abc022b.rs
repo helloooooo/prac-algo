@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,10 +51,10 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::collections::VecDeque;
 use std::collections::HashMap;
-fn main(){
-    input!{
+use std::collections::VecDeque;
+fn main() {
+    input! {
         n:i64,
         an:[i64;n],
     }
@@ -63,12 +63,8 @@ fn main(){
         let y = map.get(&a).map(|i| i + 1).unwrap_or(1);
         map.insert(a, y);
     }
-    let ans = map.iter().fold(0,|y,x| {
-        if *x.1 >= 2{
-            y + (x.1-1)
-        } else {
-            y
-        }
-    });
-    println!("{}",ans);
+    let ans = map
+        .iter()
+        .fold(0, |y, x| if *x.1 >= 2 { y + (x.1 - 1) } else { y });
+    println!("{}", ans);
 }

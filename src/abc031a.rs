@@ -51,12 +51,12 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashSet;
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:i64,
         b:i64,
     }
-    let max = std::cmp::max(a,b);
+    let max = std::cmp::max(a, b);
     let min = std::cmp::min(a, b);
-    println!("{}",max*(min+1));
+    println!("{}", max * (min + 1));
 }

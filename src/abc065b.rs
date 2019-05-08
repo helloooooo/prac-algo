@@ -14,17 +14,17 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let n = read::<u64>();
     let mut v = Vec::new();
-    for _ in 0..n{
-        v.push(read::<u64>()-1);
+    for _ in 0..n {
+        v.push(read::<u64>() - 1);
     }
     let mut m = 0;
     for i in 0..n {
         m = v[m as usize];
         if m == 1 {
-            println!("{}",i+1);
+            println!("{}", i + 1);
             return;
         }
     }

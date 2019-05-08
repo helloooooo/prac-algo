@@ -50,16 +50,16 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         l:i64,
         h:i64,
         n:usize,
         an:[[i64;1];n],
     }
-    for j in 0..n{
+    for j in 0..n {
         if an[j][0] < l {
-            println!("{}",l - an[j][0]);
+            println!("{}", l - an[j][0]);
         } else if h < an[j][0] {
             println!("-1");
         } else {

@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -52,15 +52,15 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashSet;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         a:i64,
         b:i64,
         an:[(String,i64);n],
     }
     let mut ans = 0;
-    for (s,dis) in an {
+    for (s, dis) in an {
         if dis < a {
             ans += dir(&s) * a;
         } else if a <= dis && dis <= b {
@@ -74,9 +74,9 @@ fn main(){
     } else if 0 < ans {
         print!("East ");
     }
-    println!("{}",ans.abs());
+    println!("{}", ans.abs());
 }
-fn dir(s:&String) -> i64 {
+fn dir(s: &String) -> i64 {
     if *s == "East".to_string() {
         1
     } else {

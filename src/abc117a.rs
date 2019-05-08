@@ -12,11 +12,11 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let (t,x) = {
+fn main() {
+    let (t, x) = {
         let s = read_vec::<f64>();
-        (s[0],s[1])
+        (s[0], s[1])
     };
-    let ans:f64 = t / x;
-    println!("{: <.010}",ans);
+    let ans: f64 = t / x;
+    println!("{: <.010}", ans);
 }

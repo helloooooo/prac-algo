@@ -14,18 +14,18 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let nx = read_vec::<i64>();
-    let (n,x) = (nx[0],nx[1]);
+    let (n, x) = (nx[0], nx[1]);
     let mut v = read_vec::<i64>();
     let mut ans = 0;
     for i in 1..n {
-        let sum = v[i as usize] + v[(i-1) as usize];
+        let sum = v[i as usize] + v[(i - 1) as usize];
         if sum > x {
             let diff = x - sum;
             ans += diff.abs();
             v[i as usize] += diff;
         }
     }
-    println!("{}",ans );
+    println!("{}", ans);
 }

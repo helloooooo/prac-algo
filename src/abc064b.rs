@@ -14,10 +14,10 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let n : u64 = read();
+fn main() {
+    let n: u64 = read();
     let mut v = read_vec::<u64>();
     v.sort();
-    let ans = v.last().unwrap() -v[0];
-    println!("{}",ans );
+    let ans = v.last().unwrap() - v[0];
+    println!("{}", ans);
 }

@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,25 +56,25 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-const SUM:i64 = 2025;
-fn main(){
-    input!{
+const SUM: i64 = 2025;
+fn main() {
+    input! {
         n:i64,
         mut h:i64,
-        a:i64, 
-        b:i64, 
+        a:i64,
+        b:i64,
         c:i64,
         d:i64,
         e:i64,
     }
     let mut ans = std::i64::MAX;
-    for x in 0..n+1{
-        let mut y = ((n-x)*e -h - b* x) / (d+e) + 1;
-        if (n-x) * e - h -b*x < 0 {
+    for x in 0..n + 1 {
+        let mut y = ((n - x) * e - h - b * x) / (d + e) + 1;
+        if (n - x) * e - h - b * x < 0 {
             y = 0;
         }
-        let cost = a*x + c*y;
+        let cost = a * x + c * y;
         ans = min(ans, cost);
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

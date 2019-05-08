@@ -16,18 +16,18 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let i : Vec<i64> = read_vec();
+    let i: Vec<i64> = read_vec();
     let x = i[0];
     let y = i[1];
-    let ans = run(x,y,0);
-    println!("{}",ans);
+    let ans = run(x, y, 0);
+    println!("{}", ans);
 }
 
-fn run(x:i64,y:i64,count:i64) -> i64{
+fn run(x: i64, y: i64, count: i64) -> i64 {
     if x > y {
         count
     } else {
-        println!("{}",x);
-        run(x * 2,y,count + 1)
+        println!("{}", x);
+        run(x * 2, y, count + 1)
     }
 }

@@ -50,23 +50,22 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         q:usize,
         s:chars,
         lrn:[(usize,usize);q],
     };
-    let mut ans:Vec<i64> = vec![0];
+    let mut ans: Vec<i64> = vec![0];
     let mut count = 0;
-    for i in 0..n-1
-     {
+    for i in 0..n - 1 {
         if s[i] == 'A' && s[i + 1] == 'C' {
             count += 1;
         }
-         ans.push(count);
+        ans.push(count);
     }
-    for &(k,v) in &lrn {
-        println!("{}",(ans[k-1]-ans[v-1]).abs());
+    for &(k, v) in &lrn {
+        println!("{}", (ans[k - 1] - ans[v - 1]).abs());
     }
 }

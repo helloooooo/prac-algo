@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -52,12 +52,12 @@ macro_rules! read_value {
     };
 }
 use std::collections::VecDeque;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64
     }
-    println!("{}",n);
-    for _ in 0..n{
+    println!("{}", n);
+    for _ in 0..n {
         println!("1");
     }
 }

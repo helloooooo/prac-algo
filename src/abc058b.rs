@@ -14,15 +14,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let o : String= read();
-    let e : String = read();
-    let e = if e.len() < o.len(){
-        e + " "
-    } else {
-        e
-    };
-    let mut ans : String = o.chars().zip(e.chars())
-        .flat_map(|(x,y)| vec![x,y]).collect();
-    println!("{}",ans );
+fn main() {
+    let o: String = read();
+    let e: String = read();
+    let e = if e.len() < o.len() { e + " " } else { e };
+    let mut ans: String = o
+        .chars()
+        .zip(e.chars())
+        .flat_map(|(x, y)| vec![x, y])
+        .collect();
+    println!("{}", ans);
 }

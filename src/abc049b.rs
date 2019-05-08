@@ -14,16 +14,16 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let hw = read_vec::<u64>();
-    let mut v:Vec<Vec<char>> = Vec::new();
-    for _ in 0..hw[0]{
+    let mut v: Vec<Vec<char>> = Vec::new();
+    for _ in 0..hw[0] {
         v.push(read::<String>().chars().collect());
     }
-    for j in 0..hw[0]*2{
-        for k in 0..hw[1]{
-            let i = (j)/2;
-            print!("{}",v[i as usize][k as usize]);
+    for j in 0..hw[0] * 2 {
+        for k in 0..hw[1] {
+            let i = (j) / 2;
+            print!("{}", v[i as usize][k as usize]);
         }
         println!("");
     }

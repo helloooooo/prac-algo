@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,20 +57,20 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         m:usize,
     }
     let ans = if m < 100 {
         0
     } else if m <= 5000 {
-        m/ 100
+        m / 100
     } else if m <= 30000 {
-        m/1000 + 50
+        m / 1000 + 50
     } else if m <= 70000 {
-        (m/1000 -30)/5 + 80
+        (m / 1000 - 30) / 5 + 80
     } else {
         89
     };
-    println!("{:02}",ans);
+    println!("{:02}", ans);
 }

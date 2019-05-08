@@ -50,17 +50,13 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:String,
     }
-    let mut v:Vec<char> = s.chars().collect();
+    let mut v: Vec<char> = s.chars().collect();
     let zero = v.iter().filter(|&x| *x == '0').count();
-    let one  = v.iter().filter(|&x| *x == '1').count();
-    let ans = if zero < one {
-        zero
-    } else {
-        one
-    };
-    println!("{}",ans*2);
+    let one = v.iter().filter(|&x| *x == '1').count();
+    let ans = if zero < one { zero } else { one };
+    println!("{}", ans * 2);
 }

@@ -18,8 +18,8 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 fn main() {
     let i: Vec<i32> = read_vec();
     if (i[0] * i[1]) < i[2] {
-        println!("{}",i[0] * i[1]);
-    }else {
-        println!("{}",i[2]);
+        println!("{}", i[0] * i[1]);
+    } else {
+        println!("{}", i[2]);
     }
 }

@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,21 +51,26 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         an:[i64;n],
     }
-    let sum:i64 = an.iter().sum();
-    if sum % n != 0 {println!("-1");return;}
+    let sum: i64 = an.iter().sum();
+    if sum % n != 0 {
+        println!("-1");
+        return;
+    }
     let mean = sum / n;
     let mut cnt = 0;
     let mut l = 0;
     let mut ans = 0;
-    for j in 0..n-1{
+    for j in 0..n - 1 {
         cnt += an[j as usize];
         l += mean;
-        if cnt != l {ans += 1;};
+        if cnt != l {
+            ans += 1;
+        };
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

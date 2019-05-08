@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,21 +56,21 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-const SUM:i64 = 2025;
-fn main(){
-    input!{
+const SUM: i64 = 2025;
+fn main() {
+    input! {
         n:i64,
     }
     let mut ans = vec![];
     for j in 1..10 {
         for k in 1..10 {
-            if SUM - n == j * k{
-                ans.push((j,k));
+            if SUM - n == j * k {
+                ans.push((j, k));
             }
         }
     }
-    ans.sort_by_key(|x|x.0);
-    for &(j,k) in &ans{
-        println!("{} x {}",j,k);
+    ans.sort_by_key(|x| x.0);
+    for &(j, k) in &ans {
+        println!("{} x {}", j, k);
     }
 }

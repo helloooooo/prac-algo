@@ -15,12 +15,12 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let ab:Vec<i32> = read_vec();
-    let (a,b) = (ab[0],ab[1]);
-    let ans = if (a+b) % 3 == 0 || a % 3 == 0 || b % 3 == 0{
+    let ab: Vec<i32> = read_vec();
+    let (a, b) = (ab[0], ab[1]);
+    let ans = if (a + b) % 3 == 0 || a % 3 == 0 || b % 3 == 0 {
         "Possible"
     } else {
         "Impossible"
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

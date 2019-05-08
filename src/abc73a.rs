@@ -15,11 +15,11 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let n :String  = read();
+    let n: String = read();
     let ans = if n.contains("9") == true {
         "Yes".to_string()
     } else {
         "No".to_string()
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

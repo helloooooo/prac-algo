@@ -14,18 +14,18 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let n = read::<i64>();
-    let mut x = n-2;
+    let mut x = n - 2;
     let mut ans = 0;
     while x > 0 {
         ans += x;
         x -= 2;
     }
     ans *= 2;
-    if n% 2 != 0{
-        ans -= (n-2);
+    if n % 2 != 0 {
+        ans -= (n - 2);
     }
-    
-    println!("{}",ans);
+
+    println!("{}", ans);
 }

@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -52,8 +52,8 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashSet;
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
         n:i64,
     }
@@ -66,7 +66,7 @@ fn main(){
             set.insert(sub);
         }
     }
-    let mut set = set.into_iter().map(|t|t).collect::<Vec<String>>();
+    let mut set = set.into_iter().map(|t| t).collect::<Vec<String>>();
     set.sort();
-    println!("{}",set[(n-1) as usize]);
+    println!("{}", set[(n - 1) as usize]);
 }

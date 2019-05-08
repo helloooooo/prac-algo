@@ -50,12 +50,12 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         h:f64,
         m:f64,
     }
     let h = 30. * (h % 12.) + 0.5 * m;
     let m = m * 6.;
-    println!("{}",(h-m).abs().min(360. - (h-m).abs()) );
+    println!("{}", (h - m).abs().min(360. - (h - m).abs()));
 }

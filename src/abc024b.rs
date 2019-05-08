@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,19 +51,19 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         t:i64,
         an:[i64;n],
     }
     let mut ans = t;
-    for j in 0..(n-1) as usize{
-        if an[j+1] - an[j] >= t{
+    for j in 0..(n - 1) as usize {
+        if an[j + 1] - an[j] >= t {
             ans += t;
-        } else{
+        } else {
             ans += an[j + 1] - an[j];
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

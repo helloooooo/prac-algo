@@ -12,8 +12,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let c:Vec<char> = read::<String>().chars().collect();
+fn main() {
+    let c: Vec<char> = read::<String>().chars().collect();
     let ans = match c[0] {
         'A' => 'T',
         'T' => 'A',
@@ -21,5 +21,5 @@ fn main(){
         'G' => 'C',
         _ => panic!(),
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

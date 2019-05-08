@@ -17,25 +17,30 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let n : u64 = read();
-    let mut tn : Vec<u64>= Vec::new();
+    let n: u64 = read();
+    let mut tn: Vec<u64> = Vec::new();
     for _ in 0..n {
         tn.push(read::<u64>());
     }
-    let ans = tn.into_iter().fold(None,|x,y| Some(match x {
-        None => y,
-        Some(x) => lcm(x,y),
-    })).unwrap();
-    println!("{}",ans);
+    let ans = tn
+        .into_iter()
+        .fold(None, |x, y| {
+            Some(match x {
+                None => y,
+                Some(x) => lcm(x, y),
+            })
+        })
+        .unwrap();
+    println!("{}", ans);
 }
-fn gcd(a:u64,b:u64) -> u64{
+fn gcd(a: u64, b: u64) -> u64 {
     let c = a % b;
-    if c == 0{
+    if c == 0 {
         b
     } else {
-        gcd(b,c)
+        gcd(b, c)
     }
 }
-fn lcm(a:u64,b:u64) -> u64{
-    a / gcd(a,b) * b
+fn lcm(a: u64, b: u64) -> u64 {
+    a / gcd(a, b) * b
 }

@@ -50,10 +50,10 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         an:[i64;5],
     }
-    let ans = std::cmp::max(an[0] + an[3] + an[4],an[1]+an[2]+an[4]);
-    println!("{}",ans);
+    let ans = std::cmp::max(an[0] + an[3] + an[4], an[1] + an[2] + an[4]);
+    println!("{}", ans);
 }

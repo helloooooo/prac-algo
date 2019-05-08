@@ -15,11 +15,7 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let xt :Vec<i32> = read_vec();
-    let ans = if xt[0] - xt[1] >= 0 {
-        xt[0] - xt[1]
-    }else {
-        0
-    };
-    println!("{}",ans);
+    let xt: Vec<i32> = read_vec();
+    let ans = if xt[0] - xt[1] >= 0 { xt[0] - xt[1] } else { 0 };
+    println!("{}", ans);
 }

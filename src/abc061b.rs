@@ -15,18 +15,18 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let nm = read_vec::<u64>();
-    let (n,m) = (nm[0],nm[1]);
+    let (n, m) = (nm[0], nm[1]);
     let v = read_vec2::<u64>(m as u32);
-    let ans = v.into_iter().fold(HashMap::new(),|mut map,x| {
+    let ans = v.into_iter().fold(HashMap::new(), |mut map, x| {
         let y = map.get(&x[0]).map(|i| i + 1).unwrap_or(1);
         let z = map.get(&x[1]).map(|i| i + 1).unwrap_or(1);
         map.insert(x[0], y);
         map.insert(x[1], z);
         map
     });
-    for m in 1..n+1 {
-        println!("{}", ans.get(&m).unwrap_or(&0) );
+    for m in 1..n + 1 {
+        println!("{}", ans.get(&m).unwrap_or(&0));
     }
 }

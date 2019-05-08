@@ -51,16 +51,16 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashSet;
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
         k:i64,
     }
-    let len = s.len();  
+    let len = s.len();
     let mut set = HashSet::new();
-    for cn in s.windows(k as usize){
-        let cn:String = cn.into_iter().map(|&c| c).collect();
+    for cn in s.windows(k as usize) {
+        let cn: String = cn.into_iter().map(|&c| c).collect();
         set.insert(cn);
     }
-    println!("{}",set.len());
+    println!("{}", set.len());
 }

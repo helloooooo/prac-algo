@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,22 +57,22 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         m:i64,
     }
     //老人の数の固定
-    for j in 0..n+1{
-        for k in 0..2{
+    for j in 0..n + 1 {
+        for k in 0..2 {
             let grown = 2 * j;
             let old = 3 * k;
-            let new = 4 * (n - k-j);
+            let new = 4 * (n - k - j);
             if new < 0 {
                 continue;
             }
             if m == grown + old + new {
-                println!("{} {} {}",j,k,n-k-j);
+                println!("{} {} {}", j, k, n - k - j);
                 return;
             }
         }

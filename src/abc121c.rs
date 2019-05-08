@@ -50,21 +50,21 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         m:i64,
         abn:[(i64,i64);n],
     }
     let mut abn = abn;
     abn.sort_by_key(|k| k.0);
-    let mut ans = (m,0);
-    for &(cost,num) in &abn{
+    let mut ans = (m, 0);
+    for &(cost, num) in &abn {
         if ans.0 < num {
-            ans = (0, ans.1 + ans.0*cost);
+            ans = (0, ans.1 + ans.0 * cost);
         } else {
-            ans = (ans.0-num,ans.1 + cost*num);
+            ans = (ans.0 - num, ans.1 + cost * num);
         }
     }
-    println!("{}",ans.1);
+    println!("{}", ans.1);
 }

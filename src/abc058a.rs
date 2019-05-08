@@ -14,13 +14,9 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let v = read_vec::<i64>();
-    let (a,b,c) = (v[0],v[1],v[2]);
-    let ans = if b - a == c - b{
-        "YES"
-    } else {
-        "NO"
-    };
-    println!("{}",ans );
+    let (a, b, c) = (v[0], v[1], v[2]);
+    let ans = if b - a == c - b { "YES" } else { "NO" };
+    println!("{}", ans);
 }

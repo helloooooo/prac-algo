@@ -51,8 +51,8 @@ macro_rules! read_value {
     };
 }
 
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         m:usize,
         c:i64,
@@ -61,10 +61,14 @@ fn main(){
     }
     let mut ans = 0;
     for j in 0..n {
-        let res:i64 = an[j as usize].iter().zip(bn.iter()).map(|(&x1,&x2)| x1 * x2).sum();
+        let res: i64 = an[j as usize]
+            .iter()
+            .zip(bn.iter())
+            .map(|(&x1, &x2)| x1 * x2)
+            .sum();
         if res + c > 0 {
-            ans +=1;
+            ans += 1;
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

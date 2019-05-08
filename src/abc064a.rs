@@ -14,11 +14,11 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let v = read_vec::<u64>();
-    if (v[0]*100 + v[1]*10 +v[2]) % 4 == 0{
+    if (v[0] * 100 + v[1] * 10 + v[2]) % 4 == 0 {
         println!("YES");
-    } else{
+    } else {
         println!("NO");
     }
 }

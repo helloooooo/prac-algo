@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -55,29 +55,29 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         t:i64,
         n:i64,
         an:[i64;n],
         m:i64,
         bm:[i64;m],
     }
-    let mut index_n:usize = 0;
-    let mut index_m:usize = 0;
+    let mut index_n: usize = 0;
+    let mut index_m: usize = 0;
     let mut ans = 0;
     if n < m {
         println!("no");
         return;
     }
-    while (index_n as i64) < n && (index_m  as i64) < m {
-        if bm[index_m] >= an[index_n] && (an[index_n] - bm[index_m]) >= -1 *(t){
+    while (index_n as i64) < n && (index_m as i64) < m {
+        if bm[index_m] >= an[index_n] && (an[index_n] - bm[index_m]) >= -1 * (t) {
             index_n += 1;
             index_m += 1;
             ans += 1;
         } else {
-            index_n +=1;
+            index_n += 1;
         }
     }
-    println!("{}",if ans == m {"yes"} else {"no"});
+    println!("{}", if ans == m { "yes" } else { "no" });
 }

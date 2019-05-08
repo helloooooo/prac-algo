@@ -14,11 +14,10 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let n:String = read::<String>().chars().map(|c| if c == '1' {
-        '9'
-    }else {
-        '1'
-    }).collect();
-    println!("{}",n);
+fn main() {
+    let n: String = read::<String>()
+        .chars()
+        .map(|c| if c == '1' { '9' } else { '1' })
+        .collect();
+    println!("{}", n);
 }

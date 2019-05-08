@@ -14,20 +14,20 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let nm:Vec<u32> = read_vec();
-    let am:Vec<Vec<u32>> = read_vec2(nm[1]);
-    let mut oi = vec![false;(nm[0]+ 1) as usize];
-    let mut iton = vec![false;(nm[0] + 1) as usize];
-    for i in 0..nm[1]{
+fn main() {
+    let nm: Vec<u32> = read_vec();
+    let am: Vec<Vec<u32>> = read_vec2(nm[1]);
+    let mut oi = vec![false; (nm[0] + 1) as usize];
+    let mut iton = vec![false; (nm[0] + 1) as usize];
+    for i in 0..nm[1] {
         if am[i as usize][0] == 1 {
             oi[(am[i as usize][1]) as usize] = true;
         } else if am[i as usize][1] == nm[0] {
-            iton[(am[i as usize][0]) as usize] = true; 
+            iton[(am[i as usize][0]) as usize] = true;
         }
     }
     for i in 0..nm[0] + 1 {
-        if oi[i as usize] && iton[i as usize]{
+        if oi[i as usize] && iton[i as usize] {
             println!("POSSIBLE");
             return;
         }

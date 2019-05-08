@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,8 +57,8 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         ax:f64,
         ay:f64,
         bx:f64,
@@ -70,7 +69,7 @@ fn main(){
     // 起点をax,ayとする
     // (a,b),(c,d)
     // s = |ad-bc|2
-    let a = (bx-ax)*(cy-ay);
-    let b = (cx-ax)*(by-ay);
-    println!("{:.1}",(a-b).abs() / 2.);
+    let a = (bx - ax) * (cy - ay);
+    let b = (cx - ax) * (by - ay);
+    println!("{:.1}", (a - b).abs() / 2.);
 }

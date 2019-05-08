@@ -14,8 +14,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let xab :Vec<i32> = read_vec();
+fn main() {
+    let xab: Vec<i32> = read_vec();
     let a = xab[0] - xab[1];
     let b = xab[0] - xab[2];
     let ans = if a.abs() > b.abs() {
@@ -23,5 +23,5 @@ fn main(){
     } else {
         "A".to_string()
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

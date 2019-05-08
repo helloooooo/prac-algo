@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,23 +56,23 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
     }
     let len = s.len();
     let mut index = 0;
-    let ones = vec!['o','k','u'];
-    if len == 1 && !ones.contains(&s[index]){
+    let ones = vec!['o', 'k', 'u'];
+    if len == 1 && !ones.contains(&s[index]) {
         println!("NO");
         return;
     }
     while index < len {
         if ones.contains(&s[index]) {
             index += 1;
-        } else if &s[index..index+2].iter().map(|&c|c).collect::<String>() == &"ch" {
+        } else if &s[index..index + 2].iter().map(|&c| c).collect::<String>() == &"ch" {
             index += 2;
-        } else{
+        } else {
             println!("NO");
             return;
         }

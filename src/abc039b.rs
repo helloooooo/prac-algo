@@ -14,14 +14,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let x = read::<f64>();
-    let ans = revPow(x,0);
-    println!("{}",ans );
+    let ans = revPow(x, 0);
+    println!("{}", ans);
 }
-fn revPow(x:f64,c:i64) -> f64 {
+fn revPow(x: f64, c: i64) -> f64 {
     if c == 2 {
         return x;
     }
-    revPow(x.sqrt(),c+1)
+    revPow(x.sqrt(), c + 1)
 }

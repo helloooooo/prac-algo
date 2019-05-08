@@ -14,12 +14,12 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let abx = read_vec::<i64>();
     let ans = if abx[0] == 0 {
         1 + abx[1] / abx[2]
     } else {
-        (abx[1] / abx[2]) - ((abx[0] -1)/ abx[2])
+        (abx[1] / abx[2]) - ((abx[0] - 1) / abx[2])
     };
-    println!("{}",ans );
-    }
+    println!("{}", ans);
+}

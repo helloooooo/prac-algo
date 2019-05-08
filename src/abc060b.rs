@@ -14,11 +14,11 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let abc = read_vec::<u64>();
-    let (a,b,c) = (abc[0],abc[1],abc[2]);
-    for j in 0..b+1{
-        if (a*j ) % b == c {
+    let (a, b, c) = (abc[0], abc[1], abc[2]);
+    for j in 0..b + 1 {
+        if (a * j) % b == c {
             println!("YES");
             return;
         }

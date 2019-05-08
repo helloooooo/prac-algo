@@ -50,21 +50,26 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         an:[i64;5],
     }
-    let v = an.iter().filter(|&x| x % 10 !=0).map(|&x| x % 10).min().unwrap_or(1000);
+    let v = an
+        .iter()
+        .filter(|&x| x % 10 != 0)
+        .map(|&x| x % 10)
+        .min()
+        .unwrap_or(1000);
     let mut sum = 0;
     for j in 0..5 {
         if an[j] % 10 != 0 {
-            sum += an[j]+(10 - an[j] % 10);
+            sum += an[j] + (10 - an[j] % 10);
         } else {
             sum += an[j];
         };
     }
-    if (v != 1000){
+    if (v != 1000) {
         sum -= (10 - v % 10);
     }
-    println!("{}",sum);
+    println!("{}", sum);
 }

@@ -50,14 +50,14 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         an:[i64;5],
         ka:i64,
     }
-    for j in 0..5{
-        for k in j..5{
-            if (an[k]-an[j]) > ka{
+    for j in 0..5 {
+        for k in j..5 {
+            if (an[k] - an[j]) > ka {
                 println!(":(");
                 return;
             }

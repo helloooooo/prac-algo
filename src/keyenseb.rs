@@ -13,14 +13,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let s = read::<String>();
     let master = "keyence".to_string();
     for j in 0..s.len() {
         for k in j..s.len() {
             let a = &s[0..j];
             let b = &s[k..s.len()];
-            if master == format!("{}{}",a,b) {
+            if master == format!("{}{}", a, b) {
                 println!("YES");
                 return;
             }

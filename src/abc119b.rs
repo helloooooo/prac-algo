@@ -12,11 +12,11 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     let n = read::<usize>();
-    let mut sum_jp:f64 = 0.0;
-    let mut sum_btc:f64 = 0.0;
-    for _ in 0..n{
+    let mut sum_jp: f64 = 0.0;
+    let mut sum_btc: f64 = 0.0;
+    for _ in 0..n {
         let t = read_vec::<String>();
         if t[1] == "JPY" {
             sum_jp += t[0].parse::<f64>().unwrap();
@@ -24,6 +24,6 @@ fn main(){
             sum_btc += t[0].parse::<f64>().unwrap();
         }
     }
-    let ans = sum_jp + (sum_btc*380000.0);
-    println!("{}",ans);
+    let ans = sum_jp + (sum_btc * 380000.0);
+    println!("{}", ans);
 }

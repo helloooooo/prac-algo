@@ -18,31 +18,30 @@ fn main() {
         let t = read_vec::<i64>();
         (t[0], t[1])
     };
-    let ans = solve(n,x);
-    println!("{}",ans);
+    let ans = solve(n, x);
+    println!("{}", ans);
 }
 
-fn solve(n:i64,x:i64) -> i64 {
+fn solve(n: i64, x: i64) -> i64 {
     if n == 0 {
         return if x >= 1 { 1 } else { 0 };
     }
 
-    let mut sum = 1 ;
+    let mut sum = 1;
     for _ in 0..n {
         sum = 3 + sum * 2;
     }
     if x == 1 {
         0
-    } else if x <= sum /2 {
-        solve(n-1,x-1)
-    } else if x == sum /2 + 1 {
-        solve(n-1,x-1) + 1
+    } else if x <= sum / 2 {
+        solve(n - 1, x - 1)
+    } else if x == sum / 2 + 1 {
+        solve(n - 1, x - 1) + 1
     } else {
         let mut p = 1;
-        for _ in 0..n-1 {
-            p = 1 + p *2;
+        for _ in 0..n - 1 {
+            p = 1 + p * 2;
         }
-        solve(n-1,x - sum/2 - 1) + 1 + p
+        solve(n - 1, x - sum / 2 - 1) + 1 + p
     }
-
 }

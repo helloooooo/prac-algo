@@ -16,7 +16,7 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let i : i32 = read();
+    let i: i32 = read();
     let ans = 48 - i;
-    println!("{}",ans);
+    println!("{}", ans);
 }

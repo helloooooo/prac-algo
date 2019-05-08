@@ -16,7 +16,7 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let s_sub:String = read();
-    let s = s_sub.replace("2017","2018");
-    println!("{}",s);
+    let s_sub: String = read();
+    let s = s_sub.replace("2017", "2018");
+    println!("{}", s);
 }

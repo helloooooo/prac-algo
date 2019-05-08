@@ -52,41 +52,41 @@ macro_rules! read_value {
     };
 }
 
-fn main(){
-    input!{
+fn main() {
+    input! {
         d:usize,
         g:i64,
         v:[(i64,i64);d],
     }
     let mut ans = std::i64::MAX;
-    for bit in (0..1<<d) {
+    for bit in (0..1 << d) {
         let mut count = 0;
         let mut value_count = 0;
         for j in 0..d as i64 {
             if bit & (1 << j) != 0 {
-                count += v[j as  usize].0;
-                value_count += (j+1) * 100 * v[j as usize].0 + v[j as usize].1;
+                count += v[j as usize].0;
+                value_count += (j + 1) * 100 * v[j as usize].0 + v[j as usize].1;
             }
         }
         if value_count >= g {
-            ans = min(ans,count);
+            ans = min(ans, count);
             continue;
         }
-        let best = (0,0);
+        let best = (0, 0);
         for j in (0..d as i64).rev() {
-            if bit & (1<<j) != 0 {
+            if bit & (1 << j) != 0 {
                 continue;
             }
 
-            if value_count + (j+1) * 100 * v[j as usize].0 >= g {
-                let u = (g- value_count + (j + 1) * 100 - 1)/((j + 1) * 100);
+            if value_count + (j + 1) * 100 * v[j as usize].0 >= g {
+                let u = (g - value_count + (j + 1) * 100 - 1) / ((j + 1) * 100);
                 count += u;
                 break;
             }
             count += v[j as usize].0;
             value_count += (j + 1) * 100 * v[j as usize].0;
         }
-        ans = min(ans,count);
+        ans = min(ans, count);
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

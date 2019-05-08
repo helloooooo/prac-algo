@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,16 +57,14 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
     }
-    let mut v = vec![0;1000000];
+    let mut v = vec![0; 1000000];
     v[2] = 1;
-    for j in 3..n{
-            v[j] = v[j-3] % 10007
-                + v[j-2] % 10007
-                + v[j-1] % 10007;
+    for j in 3..n {
+        v[j] = v[j - 3] % 10007 + v[j - 2] % 10007 + v[j - 1] % 10007;
     }
-    println!("{}",v[n-1] % 10007);
+    println!("{}", v[n - 1] % 10007);
 }

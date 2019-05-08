@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -52,21 +52,21 @@ macro_rules! read_value {
     };
 }
 use std::collections::VecDeque;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         s:chars,
     }
     let mut black = 0;
     let mut white = s.iter().filter(|&c| *c == '.').count() as i64;
     let mut sum = black + white;
-    for c in &s{
+    for c in &s {
         if *c == '.' {
             white -= 1;
         } else {
             black += 1;
         }
-        sum = min(sum,white + black);
+        sum = min(sum, white + black);
     }
-    println!("{}",sum);
+    println!("{}", sum);
 }

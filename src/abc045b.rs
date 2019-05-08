@@ -15,29 +15,34 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 
-fn main(){
-    let mut sa : Vec<char> = read::<String>().chars().collect();
-    let mut sb : Vec<char> = read::<String>().chars().collect();
-    let mut sc : Vec<char> = read::<String>().chars().collect();
+fn main() {
+    let mut sa: Vec<char> = read::<String>().chars().collect();
+    let mut sb: Vec<char> = read::<String>().chars().collect();
+    let mut sc: Vec<char> = read::<String>().chars().collect();
     sa.reverse();
     sb.reverse();
     sc.reverse();
     let mut p = 'a';
     let mut ans = ' ';
     loop {
-        if  p == 'E'{ break; }
+        if p == 'E' {
+            break;
+        }
         match p {
-            'a' => {p = sa.pop().unwrap_or('E');
-                    ans = 'A';
-                },
-            'b' => {p = sb.pop().unwrap_or('E');
+            'a' => {
+                p = sa.pop().unwrap_or('E');
+                ans = 'A';
+            }
+            'b' => {
+                p = sb.pop().unwrap_or('E');
                 ans = 'B';
-            },
-            'c' => {p = sc.pop().unwrap_or('E');
+            }
+            'c' => {
+                p = sc.pop().unwrap_or('E');
                 ans = 'C';
-            },
-            _ =>  unimplemented!() ,
+            }
+            _ => unimplemented!(),
         }
     }
-    println!("{}",ans );
+    println!("{}", ans);
 }

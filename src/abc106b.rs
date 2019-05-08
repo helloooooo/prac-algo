@@ -14,12 +14,12 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let n:i64 = read();
+fn main() {
+    let n: i64 = read();
     let mut ans = 0;
-    for j in 1..n+1 {
+    for j in 1..n + 1 {
         let mut v: Vec<i64> = Vec::new();
-        for k in 1..j+1 {
+        for k in 1..j + 1 {
             if j % k == 0 && j % 2 == 1 {
                 v.push(k);
             }
@@ -28,5 +28,5 @@ fn main(){
             ans += 1;
         }
     }
-    println!("{}",ans );
+    println!("{}", ans);
 }

@@ -1,32 +1,74 @@
-fn read<T: std::str::FromStr>() -> T {
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).ok();
-    s.trim().parse().ok().unwrap()
+use std::cmp::{max, min};
+macro_rules! input {
+    (source = $s:expr, $($r:tt)*) => {
+        let mut iter = $s.split_whitespace();
+        let mut next = || { iter.next().unwrap() };
+        input_inner!{next, $($r)*}
+    };
+    ($($r:tt)*) => {
+        let stdin = std::io::stdin();
+        let mut bytes = std::io::Read::bytes(std::io::BufReader::new(stdin.lock()));
+        let mut next = move || -> String{
+            bytes
+                .by_ref()
+                .map(|r|r.unwrap() as char)
+                .skip_while(|c|c.is_whitespace())
+                .take_while(|c|!c.is_whitespace())
+                .collect()
+        };
+        input_inner!{next, $($r)*}
+    };
 }
 
-fn read_vec<T: std::str::FromStr>() -> Vec<T> {
-    read::<String>()
-        .split_whitespace()
-        .map(|e| e.parse().ok().unwrap())
-        .collect()
+macro_rules! input_inner {
+    ($next:expr) => {};
+    ($next:expr, ) => {};
+
+    ($next:expr, $var:ident : $t:tt $($r:tt)*) => {
+        let $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
+
+    ($next:expr, mut $var:ident : $t:tt $($r:tt)*) => {
+        let mut $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
 }
 
-fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
-    (0..n).map(|_| read_vec()).collect()
+macro_rules! read_value {
+    ($next:expr, ( $($t:tt),* )) => {
+        ( $(read_value!($next, $t)),* )
+    };
+
+    ($next:expr, [ $t:tt ; $len:expr ]) => {
+        (0..$len).map(|_| read_value!($next, $t)).collect::<Vec<_>>()
+    };
+
+    ($next:expr, chars) => {
+        read_value!($next, String).chars().collect::<Vec<char>>()
+    };
+
+    ($next:expr, usize1) => {
+        read_value!($next, usize) - 1
+    };
+
+    ($next:expr, $t:ty) => {
+        $next().parse::<$t>().expect("Parse error")
+    };
 }
-
-// struct Points {
-//     start:(i64,i64),
-//     goal: (i64,i64),
-//     n : i64,
-//     m : i64,
-
-// }
-fn main(){
-    let wh = read_vec::<i64>();
-    let (w,h) = (wh[0],wh[1]);
-    let ans = (1..w+h-2).fold(1,|y,x| {
-        (y % 1000000007) * (x % 1000000007)
-    });
-    println!("{}",ans );
+const MOVES: [(i32, i32); 4] = [(1, 0), (0, 1), (-1, 0), (0, -1)];
+use std::collections::BinaryHeap;
+fn main() {
+    input!{
+        w:i64,
+        h:i64,
+    }
+    let max = max(w,h);
+    let min = min(w,h);
+    let up:i64 = (max..w+h-1).fold(1,|y,x| {(y*x)% 1e5 as i64 + 7 });
+    println!("{}",up);
+    let down:i64 = (1..min).fold(1,|y,x| {(y*x)% 1e5 as i64  + 7});
+    println!("{}",down);
+    let ans = up / down;
+    println!("{}",ans);
 }

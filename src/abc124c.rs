@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,26 +51,26 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
     }
     let mut black = 0;
     let mut white = 0;
     for j in 0..s.len() {
         if j % 2 == 0 {
-            if s[j] == '0'{
-                black +=1;
+            if s[j] == '0' {
+                black += 1;
             } else {
-                white += 1;                
+                white += 1;
             }
-        } else{
+        } else {
             if s[j] == '1' {
                 black += 1;
-            } else{
+            } else {
                 white += 1;
             }
         }
     }
-    println!("{}",min(white, black));
+    println!("{}", min(white, black));
 }

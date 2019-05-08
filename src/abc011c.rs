@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,8 +57,8 @@ macro_rules! read_value {
     };
 }
 // greedy
-fn main(){
-    input!{
+fn main() {
+    input! {
         mut n:i64,
         ng:[i64;3],
     }
@@ -67,16 +66,16 @@ fn main(){
     for _ in 0..100 {
         if n == 0 {
             break;
-        } else if !check(&ng, n){
+        } else if !check(&ng, n) {
             flag = false;
             break;
         }
-        if n-3 >= 0 && check(&ng, n-3) {
+        if n - 3 >= 0 && check(&ng, n - 3) {
             n -= 3;
-        } else if n-2 >=0  && check(&ng, n-2){
+        } else if n - 2 >= 0 && check(&ng, n - 2) {
             n -= 2;
-        } else if n -1 >= 0 && check(&ng, n-1){
-            n-=1;
+        } else if n - 1 >= 0 && check(&ng, n - 1) {
+            n -= 1;
         } else {
             flag = false;
             break;
@@ -85,8 +84,8 @@ fn main(){
     if n != 0 {
         flag = false;
     }
-    println!("{}",if flag {"YES"} else {"NO"});
+    println!("{}", if flag { "YES" } else { "NO" });
 }
-fn check(ng:&[i64],target:i64)-> bool{
+fn check(ng: &[i64], target: i64) -> bool {
     !ng.contains(&target)
 }

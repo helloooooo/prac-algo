@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -51,18 +51,18 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
     }
-    let ans = if n  == 100 {
+    let ans = if n == 100 {
         "Perfect"
     } else if 90 <= n && n <= 99 {
         "Great"
     } else if 60 <= n && n <= 89 {
         "Good"
-    } else{
+    } else {
         "Bad"
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

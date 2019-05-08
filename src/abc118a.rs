@@ -12,14 +12,14 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let (a,b) = {
+fn main() {
+    let (a, b) = {
         let t = read_vec::<usize>();
-        (t[0],t[1])
+        (t[0], t[1])
     };
     if b % a == 0 {
-        println!("{}",a+b);
-    }else {
-        println!("{}",b-a);
+        println!("{}", a + b);
+    } else {
+        println!("{}", b - a);
     }
 }

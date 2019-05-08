@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -57,8 +56,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         txa:i64,
         tya:i64,
         txb:i64,
@@ -69,14 +68,14 @@ fn main(){
         xyn:[(i64,i64);n],
     }
     let mut suc = false;
-    for &(x,y) in &xyn {
-        let s_m = (x-txa).pow(2) + (y-tya).pow(2);
-        let m_g = (txb-x).pow(2) + (tyb-y).pow(2);
+    for &(x, y) in &xyn {
+        let s_m = (x - txa).pow(2) + (y - tya).pow(2);
+        let m_g = (txb - x).pow(2) + (tyb - y).pow(2);
         let sum = (s_m as f64).sqrt() + (m_g as f64).sqrt();
-        if sum <= (t * v ) as f64{
+        if sum <= (t * v) as f64 {
             suc = true;
-            break; 
+            break;
         }
     }
-    println!("{}", if suc {"YES"} else {"NO"});
+    println!("{}", if suc { "YES" } else { "NO" });
 }

@@ -18,10 +18,10 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let si:String = read();
-    let ti:String = read();
-    let mut s:Vec<char> = si.chars().collect();
-    let mut t:Vec<char> = ti.chars().collect();
+    let si: String = read();
+    let ti: String = read();
+    let mut s: Vec<char> = si.chars().collect();
+    let mut t: Vec<char> = ti.chars().collect();
     s.sort();
     t.sort();
     t.reverse();

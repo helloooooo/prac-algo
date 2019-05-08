@@ -14,8 +14,8 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let s : String = read();
+fn main() {
+    let s: String = read();
     let ans = s.rfind('Z').unwrap() - s.find('A').unwrap() + 1;
-    println!("{}",ans );
+    println!("{}", ans);
 }

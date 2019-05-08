@@ -1,4 +1,4 @@
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -52,13 +52,13 @@ macro_rules! read_value {
     };
 }
 use std::collections::VecDeque;
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:usize,
         b:usize,
         c:usize,
     }
-    if a < c && c< b{
+    if a < c && c < b {
         println!("Yes");
     } else if b < c && c < a {
         println!("Yes")

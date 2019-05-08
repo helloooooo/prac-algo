@@ -50,25 +50,23 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
         t:i64,
     }
-    let ans:(i64,i64,i64) = s.iter().fold((0,0,0),|y,c|{
-        match *c {
-            'L' => (y.0-1,y.1,y.2),
-            'R' => (y.0+1,y.1,y.2),
-            'U' => (y.0,y.1+1,y.2),
-            'D' => (y.0,y.1-1,y.2),
-            '?' => (y.0,y.1,y.2+1),
-            _ => unreachable!()
-        }
+    let ans: (i64, i64, i64) = s.iter().fold((0, 0, 0), |y, c| match *c {
+        'L' => (y.0 - 1, y.1, y.2),
+        'R' => (y.0 + 1, y.1, y.2),
+        'U' => (y.0, y.1 + 1, y.2),
+        'D' => (y.0, y.1 - 1, y.2),
+        '?' => (y.0, y.1, y.2 + 1),
+        _ => unreachable!(),
     });
-    let ans = if t == 1{
+    let ans = if t == 1 {
         ans.0.abs() + ans.1.abs() + ans.2
     } else {
-        std::cmp::max(s.len() as i64 %2, ans.0.abs() + (ans.1).abs() - ans.2)
+        std::cmp::max(s.len() as i64 % 2, ans.0.abs() + (ans.1).abs() - ans.2)
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

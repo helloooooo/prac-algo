@@ -14,17 +14,17 @@ fn read_vec<T: std::str::FromStr>() -> Vec<T> {
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
-    let s_sub : String = read();
-    let mut s:Vec<char> = s_sub.chars().collect();
+fn main() {
+    let s_sub: String = read();
+    let mut s: Vec<char> = s_sub.chars().collect();
     s.sort();
     s.dedup();
 
     let a = 'a' as u8;
-    let mut alphas:Vec<char> = (a..a+26).map(|x| x as char).collect();
+    let mut alphas: Vec<char> = (a..a + 26).map(|x| x as char).collect();
     for i in 0..26 {
-        if !s.contains(&alphas[i]){
-            return println!("{}",alphas[i]);
+        if !s.contains(&alphas[i]) {
+            return println!("{}", alphas[i]);
         }
     }
     println!("None");

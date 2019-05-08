@@ -16,16 +16,15 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
 }
 
 fn main() {
-    let i : Vec<i32> = read_vec();
+    let i: Vec<i32> = read_vec();
     let l = i[0] + i[1];
     let r = i[2] + i[3];
-    let diff = l -r ;
+    let diff = l - r;
     if diff == 0 {
         println!("Balanced");
     } else if diff < 0 {
         println!("Right");
-    } else  {
+    } else {
         println!("Left");
     }
-
 }

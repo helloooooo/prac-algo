@@ -15,8 +15,8 @@ fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
 fn main() {
-    let n:i32 = read();
-    let a:i32 = read();
+    let n: i32 = read();
+    let a: i32 = read();
     let rem = n % 500;
     if rem <= a {
         println!("Yes");

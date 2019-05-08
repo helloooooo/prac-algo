@@ -1,5 +1,4 @@
-
-use std::cmp::{min,max};
+use std::cmp::{max, min};
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -58,49 +57,59 @@ macro_rules! read_value {
     };
 }
 // 再帰関数での実装
-const MOVES: [(i32, i32); 4]  = [(1,0),(0,1),(-1,0),(0,-1)];
-fn main(){
-    input!{
+const MOVES: [(i32, i32); 4] = [(1, 0), (0, 1), (-1, 0), (0, -1)];
+fn main() {
+    input! {
         h:usize,
         w:usize,
         field:[chars;h],
     }
-    let mut s_index = (0,0);
-    let mut g_index = (0,0);
+    let mut s_index = (0, 0);
+    let mut g_index = (0, 0);
     for j in 0..h {
         for k in 0..w {
             if field[j][k] == 's' {
-                s_index = (j,k);
+                s_index = (j, k);
             } else if field[j][k] == 'g' {
-                g_index = (j,k);
+                g_index = (j, k);
             }
         }
     }
-    let mut solver = DFS{
-        h:h,
-        w:w,
-        field:field,
-        dist:vec![vec![false;w];h],
+    let mut solver = DFS {
+        h: h,
+        w: w,
+        field: field,
+        dist: vec![vec![false; w]; h],
     };
     solver.search(s_index);
-    println!("{}", if solver.dist[g_index.0][g_index.1] { "Yes"} else {"No"})
+    println!(
+        "{}",
+        if solver.dist[g_index.0][g_index.1] {
+            "Yes"
+        } else {
+            "No"
+        }
+    )
 }
 
 struct DFS {
-    h:usize,
-    w:usize,
-    field:Vec<Vec<char>>,
-    dist:Vec<Vec<bool>>
+    h: usize,
+    w: usize,
+    field: Vec<Vec<char>>,
+    dist: Vec<Vec<bool>>,
 }
 impl DFS {
-    fn search(&mut self,point:(usize,usize)){
-        if self.h <= point.0 || self.w <= point.1 
-            || self.field[point.0][point.1] == '#' {
-                return;
+    fn search(&mut self, point: (usize, usize)) {
+        if self.h <= point.0 || self.w <= point.1 || self.field[point.0][point.1] == '#' {
+            return;
         }
-        if self.dist[point.0][point.1] {return;} else { self.dist[point.0][point.1] = true;}
-        for &mv in &MOVES{
-            let after = (point.0 as i32 + mv.0 , point.1 as i32 + mv.1);
+        if self.dist[point.0][point.1] {
+            return;
+        } else {
+            self.dist[point.0][point.1] = true;
+        }
+        for &mv in &MOVES {
+            let after = (point.0 as i32 + mv.0, point.1 as i32 + mv.1);
             if after.0 < 0 || after.1 < 0 {
                 continue;
             }
