@@ -63,12 +63,22 @@ fn main() {
         w:i64,
         h:i64,
     }
-    let max = max(w,h);
-    let min = min(w,h);
-    let up:i64 = (max..w+h-1).fold(1,|y,x| {(y*x)% 1e5 as i64 + 7 });
+    // let max = max(w,h);
+    // let min = min(w,h);
+    let up:i64 = (1..w+h-2).fold(1,|y,x| {calc(y,x, 1e5 as i64 + 7) });
     println!("{}",up);
-    let down:i64 = (1..min).fold(1,|y,x| {(y*x)% 1e5 as i64  + 7});
-    println!("{}",down);
-    let ans = up / down;
-    println!("{}",ans);
+    let left:i64 = (1..h-1).fold(1,|y,x| {calc(y,x, 1e5 as i64 + 7)});
+    let right:i64 = (1..w-1).fold(1,|y,x| {calc(y,x, 1e5 as i64 + 7)});
+    println!("{}", up/(left*right));
+}
+fn calc(a:i64,b:i64,p:i64) -> i64 {
+    if b == 0 {
+        return 1;
+    }
+    if b % 2 == 0 {
+        let d = calc(a,b/2,p);
+        (d * d) % p
+    } else {
+        (a*calc(a,b-1,p)) % p
+    }
 }
