@@ -672,3 +672,9 @@ name = "diverta1"
 name = "diverta2"
 [[bin]]
 name = "diverta3"
+[[bin]]
+name = "abc126a"
+[[bin]]
+name = "abc126b"
+[[bin]]
+name = "abc126c"
