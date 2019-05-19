@@ -56,45 +56,15 @@ fn main(){
         n:i64,
         k:i64
     }
-    let mut i = 1;
-    let mut div = vec![];
-    while i <= n {
-        if i >= k {
-            break;
+    let mut ans = 0.;
+    for j in  1..n+1 {
+        let mut tmp = 1./n as f64;
+        let mut now = j.clone();
+        while now < k {
+            now *= 2;
+            tmp /= 2.;
         }
-        div.push(calc(i,&k));
-        i += 1;
+        ans +=tmp;
     }
-    let max_v= div.iter().max().unwrap();
-    let mut sum:f64= div.iter().fold(0,|y,x| {
-        if max_v - x == 0  {
-            y + 1
-        } else {
-            (max_v-x).abs()*2 + y
-        }
-    }) as f64;
-
-    let master = calc_2(&max_v);
-        if (div.len() as i64 )< n {
-        sum += (n - div.len() as i64) as f64* master; 
-    }
-    let ans = sum/(master*n as f64);
-
-    println!("{:?}",ans);
-}
-fn calc(n:i64,k:&i64) -> i64{
-    let mut sub = n.clone();
-    let mut ans = 0;
-    while sub <= *k {
-        sub *= 2;
-        ans += 1;
-    }
-    ans
-}
-fn calc_2(n:&i64) -> f64 {
-    let mut t = 2;
-    for _ in 0..*n-1 {
-        t *= 2;
-    }
-    t as f64
+    println!("{:.14}",ans);
 }
