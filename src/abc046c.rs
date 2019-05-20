@@ -1,30 +1,65 @@
+macro_rules! input {
+    (source = $s:expr, $($r:tt)*) => {
+        let mut iter = $s.split_whitespace();
+        let mut next = || { iter.next().unwrap() };
+        input_inner!{next, $($r)*}
+    };
+    ($($r:tt)*) => {
+        let stdin = std::io::stdin();
+        let mut bytes = std::io::Read::bytes(std::io::BufReader::new(stdin.lock()));
+        let mut next = move || -> String{
+            bytes
+                .by_ref()
+                .map(|r|r.unwrap() as char)
+                .skip_while(|c|c.is_whitespace())
+                .take_while(|c|!c.is_whitespace())
+                .collect()
+        };
+        input_inner!{next, $($r)*}
+    };
+}
+
+macro_rules! input_inner {
+    ($next:expr) => {};
+    ($next:expr, ) => {};
+
+    ($next:expr, $var:ident : $t:tt $($r:tt)*) => {
+        let $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
+}
+
+macro_rules! read_value {
+    ($next:expr, ( $($t:tt),* )) => {
+        ( $(read_value!($next, $t)),* )
+    };
+
+    ($next:expr, [ $t:tt ; $len:expr ]) => {
+        (0..$len).map(|_| read_value!($next, $t)).collect::<Vec<_>>()
+    };
+
+    ($next:expr, chars) => {
+        read_value!($next, String).chars().collect::<Vec<char>>()
+    };
+
+    ($next:expr, usize1) => {
+        read_value!($next, usize) - 1
+    };
+
+    ($next:expr, $t:ty) => {
+        $next().parse::<$t>().expect("Parse error")
+    };
+}
 use std::cmp::max;
-fn read<T: std::str::FromStr>() -> T {
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).ok();
-    s.trim().parse().ok().unwrap()
-}
-
-fn read_vec<T: std::str::FromStr>() -> Vec<T> {
-    read::<String>()
-        .split_whitespace()
-        .map(|e| e.parse().ok().unwrap())
-        .collect()
-}
-
-fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
-    (0..n).map(|_| read_vec()).collect()
-}
 fn main() {
-    let n: i64 = read();
-    let ta = read_vec2(n as u32);
-    // let mut ans = (ta[0][0],ta[0][1]);
+    input! {
+        n:i64,
+        tan:[(i64,i64);n],
+    }
     let mut ans = (1, 1);
-    for j in 0..n {
-        let t: i64 = ta[j as usize][0];
-        let a: i64 = ta[j as usize][1];
-        let o = max((ans.0 + t - 1) / t, (ans.1 + a - 1) / a);
-        ans = (o * t, o * a);
+    for &(t, a) in &tan {
+        let sub = max((ans.0 + t - 1) / t, (ans.1 + a - 1) / a);
+        ans = (sub * t, sub * a);
     }
     println!("{}", ans.0 + ans.1);
 }

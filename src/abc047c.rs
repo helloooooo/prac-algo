@@ -27,6 +27,10 @@ macro_rules! input_inner {
         let $var = read_value!($next, $t);
         input_inner!{$next $($r)*}
     };
+    ($next:expr, mut $var:ident : $t:tt $($r:tt)*) => {
+        let mut $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
 }
 
 macro_rules! read_value {
@@ -52,20 +56,9 @@ macro_rules! read_value {
 }
 fn main() {
     input! {
-        a:i64,
-        b:i64,
+        mut s:chars,
     }
-    let mut a = a;
-    let mut b = b;
-    let mut ans = 0;
-    for _ in 0..2 {
-        if a >= b {
-            ans += a;
-            a -= 1;
-        } else {
-            ans += b;
-            b -= 1;
-        }
-    }
-    println!("{}", ans);
+    s.dedup();
+    let len = s.len();
+    println!("{}", len - 1);
 }

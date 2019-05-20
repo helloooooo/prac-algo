@@ -50,22 +50,6 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main() {
-    input! {
-        a:i64,
-        b:i64,
-    }
-    let mut a = a;
-    let mut b = b;
-    let mut ans = 0;
-    for _ in 0..2 {
-        if a >= b {
-            ans += a;
-            a -= 1;
-        } else {
-            ans += b;
-            b -= 1;
-        }
-    }
-    println!("{}", ans);
+fn main(){
+    let 
 }
