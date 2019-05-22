@@ -161,7 +161,7 @@ name = "abc86b"
 name = "abc86c"
 [[bin]]
 name = "abc87a"
-[[bin]]
+[[bin]] 
 name = "abc87b"
 [[bin]]
 name = "abc87c"
@@ -678,3 +678,7 @@ name = "abc126a"
 name = "abc126b"
 [[bin]]
 name = "abc126c"
+[[bin]]
+name = "abc047c"
+[[bin]]
+name = "abc050c"
