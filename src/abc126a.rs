@@ -50,25 +50,23 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         k:usize,
         s:chars
     }
     for j in 0..s.len() {
-        if j == k-1 {
-            if s[j] == 'A'{
+        if j == k - 1 {
+            if s[j] == 'A' {
                 print!("a")
             } else if s[j] == 'B' {
                 print!("b")
-            } else if s[j] == 'C'{
+            } else if s[j] == 'C' {
 
             }
-
         } else {
-            print!("{}",s[j]);
+            print!("{}", s[j]);
         }
-        
     }
 }

@@ -59,7 +59,7 @@ macro_rules! read_value {
 const MOVES: [(i32, i32); 4] = [(1, 0), (0, 1), (-1, 0), (0, -1)];
 use std::collections::BinaryHeap;
 fn main() {
-    input!{
+    input! {
         n:i64,
         sn:[String;n],
     }
@@ -68,16 +68,16 @@ fn main() {
     let mut all = 0;
     let mut ans = 0;
     for j in 0..sn.len() {
-        if sn[j].starts_with("B") && sn[j].ends_with("A"){
+        if sn[j].starts_with("B") && sn[j].ends_with("A") {
             all += 1;
         } else if sn[j].ends_with("A") {
             end_a += 1;
-        } else if sn[j].starts_with("B"){
+        } else if sn[j].starts_with("B") {
             start_b += 1;
         }
-        let cn:Vec<char> = sn[j].chars().collect();
-        for k in 0..cn.len()-1 {
-            if cn[k] == 'A' && cn[k+1] =='B' {
+        let cn: Vec<char> = sn[j].chars().collect();
+        for k in 0..cn.len() - 1 {
+            if cn[k] == 'A' && cn[k + 1] == 'B' {
                 ans += 1;
             }
         }
@@ -85,9 +85,9 @@ fn main() {
     if all == 0 {
         ans += min(end_a, start_b);
     } else if all != 0 && end_a + start_b > 0 {
-        ans += all + min(end_a, start_b );
+        ans += all + min(end_a, start_b);
     } else if all != 0 {
-        ans += all -1;
+        ans += all - 1;
     }
-    println!("{}",ans );
+    println!("{}", ans);
 }
