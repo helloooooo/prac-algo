@@ -50,19 +50,19 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         s:chars,
     }
-    let first:String = s[0..2].iter().map(|&c| c).collect();
-    let second:String = s[2..4].iter().map(|&c| c).collect();
+    let first: String = s[0..2].iter().map(|&c| c).collect();
+    let second: String = s[2..4].iter().map(|&c| c).collect();
     let first = first.parse::<i32>().unwrap();
     let second = second.parse::<i32>().unwrap();
-    if 0 < first && first <= 12 &&  0 < second  &&  second <= 12 {
+    if 0 < first && first <= 12 && 0 < second && second <= 12 {
         println!("AMBIGUOUS");
     } else if 0 < first && first <= 12 {
         println!("MMYY");
-    } else if  0 < second  &&  second <= 12{
+    } else if 0 < second && second <= 12 {
         println!("YYMM");
     } else {
         println!("NA")

@@ -59,20 +59,20 @@ macro_rules! read_value {
 const MOVES: [(i32, i32); 4] = [(1, 0), (0, 1), (-1, 0), (0, -1)];
 use std::collections::BinaryHeap;
 fn main() {
-    input!{
+    input! {
         r:i64,
         g:i64,
         b:i64,
         n:i64,
     }
-    let mut ans  =0 ;
-    for j in 0..n+1 {
-        for k in 0..n+1 {
-            if ((n -(j*r + k*g))/b)*b+j*r + k*g == n &&(n -(j*r + k*g)) >= 0 {
+    let mut ans = 0;
+    for j in 0..n + 1 {
+        for k in 0..n + 1 {
+            if ((n - (j * r + k * g)) / b) * b + j * r + k * g == n && (n - (j * r + k * g)) >= 0 {
                 // println!("{} {} {}",j,k,(n -(j*r + k*g)));
                 ans += 1;
             }
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

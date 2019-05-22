@@ -59,10 +59,12 @@ macro_rules! read_value {
 fn main() {
     input! {
         sn:String,
-    } 
+    }
     let mut ans = 0;
     for sub in sn.split('+') {
-        if !sub.split('*').any(|s| s == "0" ) { ans += 1; }
+        if !sub.split('*').any(|s| s == "0") {
+            ans += 1;
+        }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

@@ -59,10 +59,10 @@ macro_rules! read_value {
 const MOVES: [(i32, i32); 4] = [(1, 0), (0, 1), (-1, 0), (0, -1)];
 use std::collections::BinaryHeap;
 fn main() {
-    input!{
+    input! {
         n:i64,
         k:i64,
     }
     let ans = n - k + 1;
-    println!("{}",ans );
+    println!("{}", ans);
 }

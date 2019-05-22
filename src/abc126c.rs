@@ -51,20 +51,20 @@ macro_rules! read_value {
     };
 }
 use std::cmp::max;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         k:i64
     }
     let mut ans = 0.;
-    for j in  1..n+1 {
-        let mut tmp = 1./n as f64;
+    for j in 1..n + 1 {
+        let mut tmp = 1. / n as f64;
         let mut now = j.clone();
         while now < k {
             now *= 2;
             tmp /= 2.;
         }
-        ans +=tmp;
+        ans += tmp;
     }
-    println!("{:.14}",ans);
+    println!("{:.14}", ans);
 }
