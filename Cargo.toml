@@ -679,10 +679,18 @@ name = "abc126b"
 [[bin]]
 name = "abc126c"
 [[bin]]
-<<<<<<< HEAD
 name = "abc047c"
 [[bin]]
 name = "abc050c"
-=======
+[[bin]]
 name = "abc051c"
->>>>>>> 0caeefa977fae01a905d06e456ce3fa762c75429
+[[bin]]
+name = "abc052c"
+[[bin]]
+name = "abc055c"
+[[bin]]
+name= "abc056c"
+[[bin]]
+name = "abc057c"
+[[bin]]
+name = "abc058c"

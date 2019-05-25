@@ -1,40 +1,79 @@
-fn read<T: std::str::FromStr>() -> T {
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).ok();
-    s.trim().parse().ok().unwrap()
+use std::collections::HashMap;
+macro_rules! input {
+    (source = $s:expr, $($r:tt)*) => {
+        let mut iter = $s.split_whitespace();
+        let mut next = || { iter.next().unwrap() };
+        input_inner!{next, $($r)*}
+    };
+    ($($r:tt)*) => {
+        let stdin = std::io::stdin();
+        let mut bytes = std::io::Read::bytes(std::io::BufReader::new(stdin.lock()));
+        let mut next = move || -> String{
+            bytes
+                .by_ref()
+                .map(|r|r.unwrap() as char)
+                .skip_while(|c|c.is_whitespace())
+                .take_while(|c|!c.is_whitespace())
+                .collect()
+        };
+        input_inner!{next, $($r)*}
+    };
 }
 
-fn read_vec<T: std::str::FromStr>() -> Vec<T> {
-    read::<String>()
-        .split_whitespace()
-        .map(|e| e.parse().ok().unwrap())
-        .collect()
+macro_rules! input_inner {
+    ($next:expr) => {};
+    ($next:expr, ) => {};
+
+    ($next:expr, $var:ident : $t:tt $($r:tt)*) => {
+        let $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
 }
 
-fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
-    (0..n).map(|_| read_vec()).collect()
+macro_rules! read_value {
+    ($next:expr, ( $($t:tt),* )) => {
+        ( $(read_value!($next, $t)),* )
+    };
+
+    ($next:expr, [ $t:tt ; $len:expr ]) => {
+        (0..$len).map(|_| read_value!($next, $t)).collect::<Vec<_>>()
+    };
+
+    ($next:expr, chars) => {
+        read_value!($next, String).chars().collect::<Vec<char>>()
+    };
+
+    ($next:expr, usize1) => {
+        read_value!($next, usize) - 1
+    };
+
+    ($next:expr, $t:ty) => {
+        $next().parse::<$t>().expect("Parse error")
+    };
 }
 fn main() {
-    let n: u64 = read();
-    let an = read_vec::<i64>();
+    input! {
+        n:usize,
+        an:[i64;n],
+    }
     let ans = std::cmp::min(solve(true, &an), solve(false, &an));
     println!("{}", ans);
 }
-fn solve(mut symbol: bool, v: &Vec<i64>) -> i64 {
+fn solve(mut flag: bool, an: &Vec<i64>) -> i64 {
     let mut sum = 0;
     let mut ans = 0;
-    for &a in v {
+    for &a in an {
         sum += a;
-        if !symbol && sum >= 0 {
-            let next = sum - -1;
-            ans += next;
-            sum -= next;
-        } else if symbol && sum <= 0 {
-            let next = 1 - sum;
-            sum += next;
-            ans += next;
+        if !flag && sum >= 0 {
+            let diff = sum - -1;
+            ans += diff;
+            sum -= diff;
+        } else if flag && sum <= 0 {
+            let diff = 1 - sum;
+            ans += diff;
+            sum += diff;
         }
-        symbol = !symbol;
+        flag = !flag;
     }
     ans
 }

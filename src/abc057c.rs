@@ -50,13 +50,30 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+fn count_digit(x: i64) -> i64 {
+    let mut s = x.clone();
+    let mut res = 0;
+    while s > 0 {
+        s /= 10;
+        res += 1;
+    }
+    res
+}
+use std::cmp::{max, min};
 fn main() {
     input! {
-        x:usize,
+        n:i64,
     }
-    let mut n = 1;
-    while (n * (n + 1)) / 2 < x {
-        n += 1;
+    let mut ans = count_digit(n);
+    for j in 1..n {
+        if j * j > n {
+            break;
+        }
+        if n % j != 0 {
+            continue;
+        }
+        let div = n / j;
+        ans = min(ans, max(count_digit(j), count_digit(div)));
     }
-    println!("{}", n);
+    println!("{}", ans);
 }

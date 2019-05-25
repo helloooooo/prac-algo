@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -52,11 +53,21 @@ macro_rules! read_value {
 }
 fn main() {
     input! {
-        x:usize,
+        n:usize,
+        sn:[chars;n],
     }
-    let mut n = 1;
-    while (n * (n + 1)) / 2 < x {
-        n += 1;
+    let mut v = vec![vec![0; n]; 26];
+    for j in 0..n {
+        for c in &sn[j] {
+            v[(*c as u8 - 'a' as u8) as usize][j] += 1;
+        }
     }
-    println!("{}", n);
+    let mut ans = String::new();
+    for c in b'a'..b'z' + 1 {
+        let c = char::from(c);
+        let i = c as u8 - 'a' as u8;
+        let count = *v[i as usize].iter().min().unwrap();
+        ans.push_str(&vec![c; count].into_iter().collect::<String>());
+    }
+    println!("{}", ans);
 }

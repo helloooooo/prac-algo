@@ -27,6 +27,11 @@ macro_rules! input_inner {
         let $var = read_value!($next, $t);
         input_inner!{$next $($r)*}
     };
+
+    ($next:expr, mut $var:ident : $t:tt $($r:tt)*) => {
+        let mut $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
 }
 
 macro_rules! read_value {
@@ -50,13 +55,48 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+const MOD: i64 = 1e9 as i64 + 7;
+use std::collections::HashMap;
 fn main() {
     input! {
-        x:usize,
+        n:i64,
     }
-    let mut n = 1;
-    while (n * (n + 1)) / 2 < x {
-        n += 1;
+    let mut map = HashMap::new();
+    for j in 2..n + 1 {
+        for k in 2..j + 1 {
+            if !is_prime(k) {
+                continue;
+            }
+            if j % k != 0 {
+                continue;
+            }
+            let mut count = 0;
+            let mut tmp = j;
+            while tmp % k == 0 {
+                count += 1;
+                tmp /= k;
+            }
+            let target = map.entry(k).or_insert(0);
+            *target += count;
+        }
     }
-    println!("{}", n);
+    let mut ans = 1;
+    for (_, v) in map {
+        ans *= v + 1;
+        ans %= MOD;
+    }
+    println!("{}", ans);
+}
+fn is_prime(n: i64) -> bool {
+    let mut res = true;
+    for i in 2..n {
+        if i * i > n {
+            break;
+        }
+        if n % i == 0 {
+            res = false;
+            break;
+        }
+    }
+    res
 }

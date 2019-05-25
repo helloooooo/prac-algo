@@ -27,6 +27,11 @@ macro_rules! input_inner {
         let $var = read_value!($next, $t);
         input_inner!{$next $($r)*}
     };
+
+    ($next:expr, mut $var:ident : $t:tt $($r:tt)*) => {
+        let mut $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
 }
 
 macro_rules! read_value {
@@ -50,13 +55,13 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main() {
-    input! {
-        x:usize,
+fn main(){
+    input!{
+        n:usize,
+        m:usize,
+        abn:[(usize,usize);m],
     }
-    let mut n = 1;
-    while (n * (n + 1)) / 2 < x {
-        n += 1;
-    }
-    println!("{}", n);
+    let mut stack = vec![];
+    vec.
 }
+

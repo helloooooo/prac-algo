@@ -27,6 +27,10 @@ macro_rules! input_inner {
         let $var = read_value!($next, $t);
         input_inner!{$next $($r)*}
     };
+    ($next:expr,mut $var:ident : $t:tt $($r:tt)*) => {
+        let mut $var = read_value!($next, $t);
+        input_inner!{$next $($r)*}
+    };
 }
 
 macro_rules! read_value {
@@ -52,11 +56,20 @@ macro_rules! read_value {
 }
 fn main() {
     input! {
-        x:usize,
+       mut n:i64,
+       mut m:i64,
     }
-    let mut n = 1;
-    while (n * (n + 1)) / 2 < x {
-        n += 1;
+    let mut ans = 0;
+    for _ in 0..n {
+        if m <= 1 {
+            println!("{}", ans);
+            return;
+        }
+        ans += 1;
+        m -= 2;
     }
-    println!("{}", n);
+    if m >= 4 {
+        ans += m / 4;
+    }
+    println!("{}", ans);
 }
