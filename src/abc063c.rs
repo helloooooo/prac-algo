@@ -55,40 +55,16 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::cmp::{max, min};
 fn main() {
     input! {
         n:usize,
-        k:usize,
-        vn:[i64;n],
+        sn:[usize;n],
     }
-    let m = min(n, k);
-    let mut ans = 0;
-    for l in 0..m + 1 {
-        for r in 0..(m + 1 - l) {
-            let d = k - l - r;
-            let mut now = 0;
-            let mut s = vec![];
-            for j in 0..l {
-                now += vn[j];
-                s.push(vn[j]);
-            }
-            for j in n - r..n {
-                now += vn[j];
-                s.push(vn[j]);
-            }
-            s.sort();
-            for j in 0..d {
-                if j >= s.len() {
-                    break;
-                }
-                if s[j] >= 0 {
-                    break;
-                }
-                now -= s[j];
-            }
-            ans = max(ans, now);
-        }
-    }
-    println!("{}", ans);
+    let sum: usize = sn.iter().fold(0, |y, x| y + x);
+    let ans = if sum % 10 == 0 {
+        sum - sn.iter().filter(|&x| x % 10 != 0).min().unwrap_or(&0)
+    } else {
+        sum
+    };
+    println!("{}", if ans % 10 == 0 { 0 } else { ans });
 }
