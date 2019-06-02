@@ -56,24 +56,29 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         an:[i64;n],
     }
-    let map = an.iter().fold(HashMap::new(),|mut map,x|{
-        let y = map.get(&x).map(|&i| i +1).unwrap_or(1);
-        map.insert(x,y);
+    let map = an.iter().fold(HashMap::new(), |mut map, x| {
+        let y = map.get(&x).map(|&i| i + 1).unwrap_or(1);
+        map.insert(x, y);
         map
     });
-    let master = map.iter().filter(|&(k,v)| {
-        *v == 2
-    }).map(|(k,v)|*v).collect::<Vec<i64>>();
-    if master.len() as i64 != n / 2 {println!("0"); return;}
-    let mut ans = master.iter().fold(1,|y,x| (y * x) % (1e9 as i64 + 7));
+    let master = map
+        .iter()
+        .filter(|&(k, v)| *v == 2)
+        .map(|(k, v)| *v)
+        .collect::<Vec<i64>>();
+    if master.len() as i64 != n / 2 {
+        println!("0");
+        return;
+    }
+    let mut ans = master.iter().fold(1, |y, x| (y * x) % (1e9 as i64 + 7));
     if n % 2 != 0 && an.iter().filter(|&x| *x == 0).count() != 1 {
         println!("0");
         return;
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }

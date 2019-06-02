@@ -55,23 +55,23 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::cmp::{max,min};
-fn main(){
-    input!{
+use std::cmp::{max, min};
+fn main() {
+    input! {
         n:i64,
         m:i64,
         lrm:[(i64,i64);m],
     }
     let mut left_max = 1;
     let mut right_min = n;
-    for &(l,r) in &lrm{
-        left_max = max(l,left_max);
-        right_min = min(r,right_min);
+    for &(l, r) in &lrm {
+        left_max = max(l, left_max);
+        right_min = min(r, right_min);
     }
     let ans = if right_min >= left_max {
         right_min - left_max + 1
     } else {
         0
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

@@ -133,7 +133,7 @@ impl Calc {
                     print!("L");
                 }
             }
-            if  self.go_flag {
+            if self.go_flag {
                 print!("D");
             } else {
                 print!("U")

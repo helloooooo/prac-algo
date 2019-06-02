@@ -27,7 +27,6 @@ macro_rules! input_inner {
         let $var = read_value!($next, $t);
         input_inner!{$next $($r)*}
     };
-
     ($next:expr, mut $var:ident : $t:tt $($r:tt)*) => {
         let mut $var = read_value!($next, $t);
         input_inner!{$next $($r)*}
@@ -55,11 +54,19 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+use std::collections::HashMap;
 fn main() {
-    input! {
-        a:usize,
-        b:usize,
+    input!{
+        n:usize,
+        k:usize,
+        an:[usize;n],
     }
-    let ans = (a * 3 + b) / 2;
-    println!("{}", ans);
+    let mut map = HashMap::new();
+    for &a in &an {
+        *map.entry(a).or_insert(0) += 1;
+    }
+    let mut sub:Vec<(usize,usize)> = map.into_iter().collect::<Vec<(usize,usize)>>();
+    sub.sort_by(|a,b|b.1.cmp(&a.1));
+    let ans:usize = sub.iter().skip(k).map(|&(_,v)|v).fold(0,|y,x| y + x);
+    println!("{}",ans);
 }

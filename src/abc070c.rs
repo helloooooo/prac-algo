@@ -57,20 +57,20 @@ macro_rules! read_value {
 }
 use std::collections::HashMap;
 fn main() {
-    input!{
+    input! {
         n:usize,
         tn:[i64;n],
     }
-    let ans = tn.iter().fold(tn[0],|y,x| lcm(y,*x));
-    println!("{}",ans);
+    let ans = tn.iter().fold(tn[0], |y, x| lcm(y, *x));
+    println!("{}", ans);
 }
-fn gcd(a:i64,b:i64) -> i64{
+fn gcd(a: i64, b: i64) -> i64 {
     if b == 0 {
         a
     } else {
-        gcd(b, a%b)
+        gcd(b, a % b)
     }
 }
-fn lcm(a:i64,b:i64) -> i64{
-    a  / gcd(a, b) * b
+fn lcm(a: i64, b: i64) -> i64 {
+    a / gcd(a, b) * b
 }

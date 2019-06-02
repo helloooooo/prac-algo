@@ -55,24 +55,24 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::cmp::{max,min};
-fn main(){
-    input!{
+use std::cmp::{max, min};
+fn main() {
+    input! {
         n:i64,
         m:i64,
         mut an:[i64;n],
         mut bcm:[(i64,i64);m],
     }
     an.sort();
-    bcm.sort_by_key(|x|x.1);
+    bcm.sort_by_key(|x| x.1);
     bcm.reverse();
-    let mut sum:i64 = an.iter().sum();
+    let mut sum: i64 = an.iter().sum();
     // // let change_sum = bcm.iter().map(|x|x.0).sum();
     // println!("{:?}",bcm);
     let mut change_index = 0;
     // let mut min = an.iter().min().unwrap();
     // println!("{}",sum);
-    'outer: for &(mut b,c) in &bcm {
+    'outer: for &(mut b, c) in &bcm {
         if an[change_index] >= c {
             break;
         }
@@ -80,14 +80,14 @@ fn main(){
             if an[change_index] >= c {
                 break 'outer;
             }
-            sum += c-an[change_index];
+            sum += c - an[change_index];
             // println!("{}",sum);
             b -= 1;
-            change_index +=1;
+            change_index += 1;
             if change_index >= n as usize {
                 break 'outer;
             }
         }
     }
-    println!("{}",sum);
+    println!("{}", sum);
 }

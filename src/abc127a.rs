@@ -55,17 +55,17 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         a:usize,
         b:usize,
     }
-    let ans = if a  >= 13 {
+    let ans = if a >= 13 {
         b
     } else if a >= 6 && a <= 12 {
         b / 2
     } else {
         0
     };
-    println!("{}",ans);
+    println!("{}", ans);
 }

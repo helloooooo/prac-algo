@@ -56,22 +56,18 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashSet;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:i64,
         an:[i64;n],
     }
     let mut set = HashSet::new();
-    for a in an.iter().filter(|&x| x < &3200){
-        set.insert(a/400);
+    for a in an.iter().filter(|&x| x < &3200) {
+        set.insert(a / 400);
     }
     let count = set.iter().count();
     let over = an.iter().filter(|&&x| x >= 3200).count();
     let max = count + over;
-    let min = if count == 0 {
-        1
-    } else {
-        count
-    };
-    println!("{} {}",min,max);
+    let min = if count == 0 { 1 } else { count };
+    println!("{} {}", min, max);
 }

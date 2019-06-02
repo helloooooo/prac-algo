@@ -72,20 +72,20 @@ impl<T: Ord> Ord for Rev<T> {
     }
 }
 // use std::cmp::Reverse;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         mut spn:[(String,i64);n],
     }
     let sub = spn.clone();
-    let mut ans:Vec<_> = spn.iter().enumerate().collect();
+    let mut ans: Vec<_> = spn.iter().enumerate().collect();
     // ans.sort_by(|a,b|(;
-    ans.sort_by_key(|x|Rev((x.1).1));
+    ans.sort_by_key(|x| Rev((x.1).1));
     ans.sort_by_key(|&x| &(x.1).0);
 
     // ans.reverse();
     // println!("{:?}",ans);
     for &ref x in &ans {
-        println!("{}",x.0 + 1);
+        println!("{}", x.0 + 1);
     }
 }

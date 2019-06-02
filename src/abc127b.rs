@@ -55,8 +55,8 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main(){
-    input!{
+fn main() {
+    input! {
         r:usize,
         d: usize,
         x:usize,
@@ -64,6 +64,6 @@ fn main(){
     let mut before = x;
     for j in 0..10 {
         before = before * r - d;
-        println!("{}",before);
+        println!("{}", before);
     }
 }

@@ -27,11 +27,6 @@ macro_rules! input_inner {
         let $var = read_value!($next, $t);
         input_inner!{$next $($r)*}
     };
-
-    ($next:expr, mut $var:ident : $t:tt $($r:tt)*) => {
-        let mut $var = read_value!($next, $t);
-        input_inner!{$next $($r)*}
-    };
 }
 
 macro_rules! read_value {
@@ -55,11 +50,37 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn main() {
-    input! {
-        a:usize,
-        b:usize,
+fn main(){
+    input!{
+        n:usize,
+        a:usize1,
+        b:usize1,
+        c:usize1,
+        d:usize1,
+        s:chars,
     }
-    let ans = (a * 3 + b) / 2;
-    println!("{}", ans);
+    let mut ans = true;
+    if !reach(&s,a, c) || !reach(&s,b,d) {
+        println!("No");
+        return;
+    }
+    if c > d {
+        ans = false;
+        for j in b..d+1{
+            if s[j-1] == '.' && s[j] == '.' && s[j+1] == '.' {
+                ans = true;
+                break;
+            }
+        }
+    }
+    println!("{}",if ans {"Yes"} else {"No"});
+    fn reach(s:&Vec<char>,start:usize,goal:usize) -> bool {
+        let mut res = true;
+        for j in start..goal {
+            if s[j] == '#' && s[j + 1] == '#'{
+                res = false;
+            }
+        }
+        res
+    }
 }

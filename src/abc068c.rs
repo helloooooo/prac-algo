@@ -62,17 +62,17 @@ fn main() {
         m:usize,
         abm:[(usize,usize);m],
     }
-    let mut to_mid = vec![false;n];
-    let mut to_n = vec![false;n];
+    let mut to_mid = vec![false; n];
+    let mut to_n = vec![false; n];
     for &(a, b) in &abm {
         if b == n {
             to_n[a - 1] = true;
         } else if a == 1 {
-            to_mid[b-1] = true;
+            to_mid[b - 1] = true;
         }
     }
-    for j in 0..n{
-        if to_mid[j] && to_n[j]{
+    for j in 0..n {
+        if to_mid[j] && to_n[j] {
             println!("POSSIBLE");
             return;
         }

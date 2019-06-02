@@ -55,26 +55,26 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-const MOD:i64 = 1e9 as i64 + 7;
-fn main(){
-    input!{
+const MOD: i64 = 1e9 as i64 + 7;
+fn main() {
+    input! {
         n:i64,
         m:i64,
     }
-    let diff = (n-m).abs();
-    let mut  ans = if diff >= 2 {
+    let diff = (n - m).abs();
+    let mut ans = if diff >= 2 {
         0
     } else {
-        2 * (fact(n) * fact(m))  % MOD
+        2 * (fact(n) * fact(m)) % MOD
     };
     if diff == 1 {
         ans /= 2;
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }
-fn fact(n:i64) -> i64 {
-    if n == 1{
+fn fact(n: i64) -> i64 {
+    if n == 1 {
         return 1;
     }
-    (n * fact(n-1))% MOD
+    (n * fact(n - 1)) % MOD
 }

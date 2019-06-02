@@ -56,29 +56,35 @@ macro_rules! read_value {
     };
 }
 use std::collections::HashMap;
-fn main(){
-    input!{
+fn main() {
+    input! {
         n:usize,
         an:[i64;n],
     }
-    let mut target:Vec<_> = an.iter().fold(HashMap::new(),|mut map:HashMap<_,_>,x| {
-        let y = map.get(&x).map(|&i| i+1).unwrap_or(1);
-        map.insert(x,y);
-        map
-    })
-    .into_iter()
-    .flat_map(|(k,v)| {
-        if v >= 4 {
-            vec![k,k]
-        } else if v >= 2 {
-            vec![k]
-        } else {
-            vec![]
-        }
-    })
-    .collect();
+    let mut target: Vec<_> = an
+        .iter()
+        .fold(HashMap::new(), |mut map: HashMap<_, _>, x| {
+            let y = map.get(&x).map(|&i| i + 1).unwrap_or(1);
+            map.insert(x, y);
+            map
+        })
+        .into_iter()
+        .flat_map(|(k, v)| {
+            if v >= 4 {
+                vec![k, k]
+            } else if v >= 2 {
+                vec![k]
+            } else {
+                vec![]
+            }
+        })
+        .collect();
     target.sort();
     target.reverse();
-    let ans = if target.len() >= 2{ target[0] * target[1] } else { 0 };
-    println!("{}",ans);
+    let ans = if target.len() >= 2 {
+        target[0] * target[1]
+    } else {
+        0
+    };
+    println!("{}", ans);
 }

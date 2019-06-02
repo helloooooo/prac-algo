@@ -62,14 +62,16 @@ fn read<T: std::str::FromStr>() -> T {
 }
 
 fn read_vec<T: std::str::FromStr>() -> Vec<T> {
-    read::<String>().split_whitespace()
-        .map(|e| e.parse().ok().unwrap()).collect()
+    read::<String>()
+        .split_whitespace()
+        .map(|e| e.parse().ok().unwrap())
+        .collect()
 }
 
 fn read_vec2<T: std::str::FromStr>(n: u32) -> Vec<Vec<T>> {
     (0..n).map(|_| read_vec()).collect()
 }
-fn main(){
+fn main() {
     // let (n,m) = {
     //     let t =read_vec::<i64>();
     //     (t[0],t[1])
@@ -81,37 +83,37 @@ fn main(){
     //     v.push(t);
     // }
     // let pm = read_vec::<i64>();
-    input!{
+    input! {
         n: usize,
         m: usize,
         v: [[usize]; m],
         pm: [usize; m],
     }
-    let mut ans =0;
-    for bit in 0..(1<<n) {
-        let mut  line =vec![0;n as usize];
+    let mut ans = 0;
+    for bit in 0..(1 << n) {
+        let mut line = vec![0; n as usize];
         for j in 0..n {
-            if (bit&(1<<j) !=0 ){
+            if (bit & (1 << j) != 0) {
                 line[j as usize] = 1;
             }
         }
         let mut flag = true;
-        let mut index= 0;
-        for sn in &v{
-            let mut sum =0;
-            for s in sn{
-                if line[(*s-1) as usize] == 1 {
+        let mut index = 0;
+        for sn in &v {
+            let mut sum = 0;
+            for s in sn {
+                if line[(*s - 1) as usize] == 1 {
                     sum += 1;
                 }
             }
             if sum % 2 != pm[index] {
                 flag = false;
             }
-            index+=1;
+            index += 1;
         }
         if flag {
-            ans +=1;
+            ans += 1;
         }
     }
-    println!("{}",ans);
+    println!("{}", ans);
 }
