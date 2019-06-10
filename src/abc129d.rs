@@ -70,13 +70,13 @@ fn main(){
             if sn[j][k] == '#'{continue;}
             if done[k] {continue;}
             let mut c = 0;
-            while k+c+1<w {
-                if sn[j][k+c+1] == '#' {break};
+            while k+c<w {
+                if sn[j][k+c] == '#' {break};
                 c +=1;
             }
             for l in 0..c {
-                field[j][j+l] = c;
-                done[j+l] = true;
+                field[j][k+l] += c;
+                done[k+l] = true;
             }
         }
     }
@@ -86,15 +86,21 @@ fn main(){
             if sn[k][j] == '#'{continue;}
             if done[k] {continue;}
             let mut c = 0;
-            while k+c+1<h {
-                if sn[k+c+1][j] == '#' {break;}
+            while k+c< h {
+                if sn[k+c][j] == '#' {break};
                 c +=1;
             }
             for l in 0..c {
-                field[k+l][j] = c;
+                field[k+l][j] += c;
                 done[k+l] = true;
             }
         }
     }
-    println!("{:?}",field);
+    let mut ans = 0;
+    for j in 0..h {
+        for k in 0..w {
+            ans = max(ans,field[j][k]);
+        }
+    }
+    println!("{}",ans-1);
 }
