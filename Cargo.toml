@@ -782,3 +782,9 @@ name = "abc100c"
 name = "diverta2a"
 [[bin]]
 name = "diverta2b"
+[[bin]]
+name = "abc100-1c"
+[[bin]]
+name = "abc102c"
+[[bin]]
+name = "abc103-1c"
