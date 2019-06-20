@@ -59,22 +59,15 @@ use std::cmp::{max,min};
 
 fn main(){
     input!{
-        n:i64,
+        n:usize,
+        k:usize,
+        mut hn:[i64;n],
     }
-    let mut ans = 0;
-    let d = vec![3,5,7];
-    for &a in &d {
-        ans += recv(a,&n);
+    hn.sort();
+    let mut ans = std::i64::MAX;
+    for j in 0..(n-k+1){
+        let diff = hn[j+k-1] - hn[j];
+        ans = min(diff,ans);
     }
     println!("{}",ans);
 }
-fn recv(num:i64,n:&i64) -> i64 {
-    let v = vec![3,5,7];
-    if num > *n {return 0}
-    let mut ans = if v.iter().all(|&j| num.to_string().chars().filter(|&c| c == std::char::from_digit(j as u32 ,10).unwrap()).count() != 0) {1} else {0};
-    for &a in &v {
-        let x = num*10 + a;
-        ans +=  recv(x,n);
-    }
-    ans
-} 
