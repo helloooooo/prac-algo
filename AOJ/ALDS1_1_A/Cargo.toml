@@ -1,0 +1,10 @@
+[package]
+name = "ALDS1_1_A"
+version = "0.1.0"
+authors = ["helloooooo <yomicerisier@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+[[bin]]
+name ="insertion"
+path = "src/insertion.rs"
