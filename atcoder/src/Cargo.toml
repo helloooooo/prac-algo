@@ -1,0 +1,790 @@
+[package]
+name = "alogo"
+version = "0.1.0"
+authors = ["NaokiSatou <yomicerisier@gmail.com>"]
+
+[[bin]]
+name = "Ants"
+
+[[bin]]
+name = "recursion"
+
+[[bin]]
+name = "Partialsum"
+[[bin]]
+name = "Lake"
+[[bin]]
+name = "Maze"
+[[bin]]
+name = "coin"
+[[bin]]
+name = "abc50a"
+[[bin]]
+name = "abc50b"
+[[bin]]
+name = "abc50c"
+[[bin]]
+name = "abc47a"
+[[bin]]
+name = "abc47c"
+[[bin]]
+name = "abc57c"
+[[bin]]
+name = "abc51a"
+[[bin]]
+name = "abc51b"
+[[bin]]
+name = "abc51c"
+[[bin]]
+name = "abc91a"
+[[bin]]
+name = "abc91b"
+[[bin]]
+name = "abc91c"
+[[bin]]
+name = "abc60c"
+[[bin]]
+name = "abc61c"
+[[bin]]
+name = "abc63c"
+[[bin]]
+name = "abc64c"
+[[bin]]
+name = "abc65c"
+[[bin]]
+name = "abc66c"
+[[bin]]
+name = "abc67c"
+[[bin]]
+name = "abc68c"
+[[bin]]
+name = "abc69a"
+[[bin]]
+name = "abc69b"
+[[bin]]
+name = "abc69c"
+[[bin]]
+name = "abc70a"
+[[bin]]
+name = "abc70b"
+[[bin]]
+name = "abc70c"
+[[bin]]
+name = "abc71a"
+[[bin]]
+name = "abc71b"
+[[bin]]
+name = "abc71c"
+[[bin]]
+name = "abc72a"
+[[bin]]
+name = "abc72b"
+[[bin]]
+name = "abc73a"
+[[bin]]
+name = "abc73b"
+[[bin]]
+name = "abc73c"
+[[bin]]
+name = "abc77a"
+[[bin]]
+name = "abc77b"
+[[bin]]
+name = "abc77c"
+[[bin]]
+name = "test"
+[[bin]]
+name = "abc76a"
+[[bin]]
+name = "abc76b"
+[[bin]]
+name = "abc76c"
+[[bin]]
+name = "abc75a"
+[[bin]]
+name = "abc75b"
+[[bin]]
+name = "abc75c"
+[[bin]]
+name = "abc74a"
+[[bin]]
+name = "abc74b"
+[[bin]]
+name = "abc74c"
+[[bin]]
+name = "abc79a"
+[[bin]]
+name = "abc79b"
+[[bin]]
+name = "abc79c"
+[[bin]]
+name = "abc80a"
+[[bin]]
+name = "abc80b"
+[[bin]]
+name = "abc80c"
+[[bin]]
+name = "abc81a"
+[[bin]]
+name = "abc81b"
+[[bin]]
+name = "abc81c"
+[[bin]]
+name = "abc82a"
+[[bin]]
+name = "abc82b"
+[[bin]]
+name = "abc82c"
+[[bin]]
+name = "abc83a"
+[[bin]]
+name = "abc83b"
+[[bin]]
+name = "abc83c"
+[[bin]]
+name = "abc84a"
+[[bin]]
+name = "abc84b"
+[[bin]]
+name = "abc84c"
+[[bin]]
+name = "abc85a"
+[[bin]]
+name = "abc85b"
+[[bin]]
+name = "abc85c"
+[[bin]]
+name = "abc86a"
+[[bin]]
+name = "abc86b"
+[[bin]]
+name = "abc86c"
+[[bin]]
+name = "abc87a"
+[[bin]] 
+name = "abc87b"
+[[bin]]
+name = "abc87c"
+[[bin]]
+name = "abc88a"
+[[bin]]
+name = "abc88b"
+[[bin]]
+name = "abc88c"
+[[bin]]
+name = "abc89a"
+[[bin]]
+name = "abc89b"
+[[bin]]
+name = "abc89c"
+[[bin]]
+name = "abc90a"
+[[bin]]
+name = "abc90b"
+[[bin]]
+name = "abc90c"
+[[bin]]
+name = "abc068a"
+[[bin]]
+name = "abc068b"
+[[bin]]
+name = "abc067a"
+[[bin]]
+name = "abc067b"
+[[bin]]
+name = "abc66a"
+[[bin]]
+name = "abc66b"
+[[bin]]
+name = "abc065a"
+[[bin]]
+name = "abc065b"
+[[bin]]
+name = "abc103a"
+[[bin]]
+name = "abc103b"
+[[bin]]
+name = "abc103c"
+[[bin]]
+name = "abc064a"
+[[bin]]
+name = "abc064b"
+[[bin]]
+name = "abc064c"
+[[bin]]
+name = "abc063a"
+[[bin]]
+name = "abc063b"
+[[bin]]
+name = "abc062a"
+[[bin]]
+name = "abc062b"
+[[bin]]
+name = "abc062c"
+[[bin]]
+name = "abc062_sub"
+[[bin]]
+name = "abc061a"
+[[bin]]
+name = "abc061b"
+[[bin]]
+name = "abc060a"
+[[bin]]
+name = "abc060b"
+[[bin]]
+name = "abc059a"
+[[bin]]
+name = "abc059b"
+[[bin]]
+name = "abc059c"
+[[bin]]
+name = "abc058a"
+[[bin]]
+name = "abc058b"
+[[bin]]
+name = "abc057a"
+[[bin]]
+name = "abc057b"
+[[bin]]
+name = "abc056a"
+[[bin]]
+name = "abc056b"
+[[bin]]
+name = "abc054a"
+[[bin]]
+name = "abc054b"
+[[bin]]
+name = "abc053a"
+[[bin]]
+name = "abc053b"
+[[bin]]
+name = "abc053c"
+[[bin]]
+name = "abc104a"
+[[bin]]
+name = "abc104b"
+[[bin]]
+name = "abc104c"
+[[bin]]
+name = "abc049a"
+[[bin]]
+name = "abc049b"
+[[bin]]
+name = "abc049c"
+[[bin]]
+name = "abc048a"
+[[bin]]
+name = "abc048b"
+[[bin]]
+name = "abc048c"
+[[bin]]
+name = "abc105a"
+[[bin]]
+name = "abc105b"
+[[bin]]
+name = "abc105c"
+[[bin]]
+name = "abc046b"
+[[bin]]
+name = "abc046c"
+[[bin]]
+name = "abc106a"
+[[bin]]
+name = "abc106b"
+[[bin]]
+name = "abc106c"
+[[bin]]
+name = "abc106d"
+[[bin]]
+name = "abc045a"
+[[bin]]
+name = "abc045b"
+[[bin]]
+name = "abc044a"
+[[bin]]
+name = "abc044b"
+[[bin]]
+name = "abc043a"
+[[bin]]
+name = "abc043b"
+[[bin]]
+name = "abc043c"
+[[bin]]
+name = "abc43c"
+[[bin]]
+name = "abc042a"
+[[bin]]
+name = "abc042b"
+[[bin]]
+name = "abc042c"
+[[bin]]
+name = "abc041a"
+[[bin]]
+name = "abc041b"
+[[bin]]
+name = "abc041c"
+[[bin]]
+name = "abc107a"
+[[bin]]
+name = "abc107b"
+[[bin]]
+name = "abc107c"
+[[bin]]
+name = "abc040a"
+[[bin]]
+name = "abc040b"
+[[bin]]
+name = "abc040c"
+[[bin]]
+name = "abc039a"
+[[bin]]
+name = "abc039b"
+[[bin]]
+name = "abc039c"
+[[bin]]
+name = "abc037c"
+[[bin]]
+name = "abc037a"
+[[bin]]
+name = "abc037b"
+[[bin]]
+name = "abc036a"
+[[bin]]
+name = "abc036b"
+[[bin]]
+name = "abc108a"
+[[bin]]
+name = "abc108b"
+[[bin]]
+name = "abc108c"
+[[bin]]
+name = "abc035a"
+[[bin]]
+name = "abc036c"
+[[bin]]
+name = "abc034a"
+[[bin]]
+name = "abc034b"
+[[bin]]
+name = "abc034c"
+[[bin]]
+name = "abc030c"
+[[bin]]
+name = "arc095c"
+[[bin]]
+name = "abc109a"
+[[bin]]
+name = "abc109b"
+[[bin]]
+name = "abc109c"
+[[bin]]
+name = "abc109d"
+[dependencies]
+[[bin]]
+name = "abc110a"
+[[bin]]
+name = "abc110b"
+[[bin]]
+name = "abc110c"
+[[bin]]
+name = "abc111a"
+[[bin]]
+name = "abc111b"
+[[bin]]
+name = "abc111c"
+[[bin]]
+name = "abc112a"
+[[bin]]
+name = "abc112b"
+[[bin]]
+name = "abc112c"
+[[bin]]
+name = "agc028a"
+[[bin]]
+name = "ten1a"
+[[bin]]
+name = "ten1b"
+[[bin]]
+name = "ten1c"
+[[bin]]
+name = "abc113a"
+[[bin]]
+name = "abc113b"
+[[bin]]
+name = "abc113c"
+[[bin]]
+name = "ddcca"
+[[bin]]
+name = "ddccb"
+[[bin]]
+name = "abc114a"
+[[bin]]
+name = "abc114b"
+[[bin]]
+name = "abc114c"
+[[bin]]
+name = "abc115a"
+[[bin]]
+name = "abc115b"
+[[bin]]
+name = "abc115c"
+[[bin]]
+name = "abc115d"
+[[bin]]
+name = "agc029a"
+[[bin]]
+name = "cadiia"
+[[bin]]
+name = "cadiib"
+[[bin]]
+name = "cadiic"
+[[bin]]
+name = "aisinga"
+[[bin]]
+name = "aisingb"
+[[bin]]
+name = "keyensea"
+[[bin]]
+name = "keyenseb"
+[[bin]]
+name = "abc116a"
+[[bin]]
+name = "abc116b"
+[[bin]]
+name = "abc116c"
+[[bin]]
+name = "abc118a"
+[[bin]]
+name = "abc118b"
+[[bin]]
+name = "abc118c"
+[[bin]]
+name = "abc117a"
+[[bin]]
+name = "abc117b"
+[[bin]]
+name = "abc032a"
+[[bin]]
+name = "abc055b"
+[[bin]]
+name = "abc027a"
+[[bin]]
+name = "abc119a"
+[[bin]]
+name = "abc119b"
+[[bin]]
+name = "abc120a"
+[[bin]]
+name = "abc120b"
+[[bin]]
+name = "abc120c"
+[[bin]]
+name = "abc121a"
+[[bin]]
+name = "abc121b"
+[[bin]]
+name = "abc121c"
+[[bin]]
+name = "abc121d"
+[[bin]]
+name = "abc029a"
+[[bin]]
+name = "abc002d"
+[[bin]]
+name = "abc120d"
+[[bin]]
+name = "abc122a"
+[[bin]]
+name = "abc122b"
+[[bin]]
+name = "abc122c"
+[[bin]]
+name = "abc122d"
+[[bin]]
+name = "exaa"
+[[bin]]
+name = "exab"
+[[bin]]
+name = "exac"
+[[bin]]
+name = "abc123a"
+[[bin]]
+name = "abc123b"
+[[bin]]
+name = "abc123c"
+[[bin]]
+name = "abc123d"
+[[bin]]
+name = "abc052b"
+[[bin]]
+name = "abc028c"
+[[bin]]
+name = "abc047b"
+[[bin]]
+name = "abc035b"
+[[bin]]
+name = "abc033a"
+[[bin]]
+name = "abc033b"
+[[bin]]
+name = "abc032b"
+[[bin]]
+name = "abc031a"
+[[bin]]
+name = "abc031b"
+[[bin]]
+name = "abc030b"
+[[bin]]
+name = "abc029b"
+[[bin]]
+name = "abc28a"
+[[bin]]
+name = "abc124a"
+[[bin]]
+name = "abc124b"
+[[bin]]
+name = "abc124c"
+[[bin]]
+name = "abc124d"
+[[bin]]
+name = "abc028b"
+[[bin]]
+name = "abc027b"
+[[bin]]
+name = "abc026a"
+[[bin]]
+name = "abc026b"
+[[bin]]
+name = "abc025a"
+[[bin]]
+name = "abc025b"
+[[bin]]
+name = "abc024a"
+[[bin]]
+name = "abc024b"
+[[bin]]
+name = "abc023a"
+[[bin]]
+name = "abc023b"
+[[bin]]
+name = "abc022a"
+[[bin]]
+name = "abc021a"
+[[bin]]
+name = "tenka1a"
+[[bin]]
+name = "tenka1c"
+[[bin]]
+name = "abc022b"
+[[bin]]
+name = "abc021b"
+[[bin]]
+name = "abc020b"
+[[bin]]
+name = "abc019b"
+[[bin]]
+name = "abc018a"
+[[bin]]
+name = "abc018b"
+[[bin]]
+name = "abc017b"
+[[bin]]
+name = "abc015b"
+[[bin]]
+name = "abc014b"
+[[bin]]
+name = "abc013b"
+[[bin]]
+name = "abc011b"
+[[bin]]
+name = "abc125a"
+[[bin]]
+name = "abc125b"
+[[bin]]
+name = "abc125c"
+[[bin]]
+name = "abc125d"
+[[bin]]
+name = "abc010b"
+[[bin]]
+name = "abc009b"
+[[bin]]
+name = "abc008b"
+[[bin]]
+name = "abc007b"
+[[bin]]
+name = "abc006b"
+[[bin]]
+name = "abc005b"
+[[bin]]
+name = "abc004b"
+[[bin]]
+name = "abc003b"
+[[bin]]
+name = "abc002b"
+[[bin]]
+name = "abc001b"
+[[bin]]
+name = "abc002c"
+[[bin]]
+name = "abc003c"
+[[bin]]
+name = "abc004c"
+[[bin]]
+name = "abc005c"
+[[bin]]
+name = "abc006c"
+[[bin]]
+name = "abctest"
+[[bin]]
+name = "abc007c"
+[[bin]]
+name = "abc008c"
+[[bin]]
+name = "abc010c"
+[[bin]]
+name = "abc011c"
+[[bin]]
+name = "abc012c"
+[[bin]]
+name = "abc013c"
+[[bin]]
+name = "abc014c"
+[[bin]]
+name = "abc015c"
+[[bin]]
+name = "typicala"
+[[bin]]
+name = "typicala-rec"
+[[bin]]
+name = "abc015c-stack"
+[[bin]]
+name = "abc016c"
+[[bin]]
+name = "abc017c"
+[[bin]]
+name = "abc032c"
+[[bin]]
+name = "abc033c"
+[[bin]]
+name = "diverta1"
+[[bin]]
+name = "diverta2"
+[[bin]]
+name = "diverta3"
+[[bin]]
+name = "abc126a"
+[[bin]]
+name = "abc126b"
+[[bin]]
+name = "abc126c"
+[[bin]]
+name = "abc047c"
+[[bin]]
+name = "abc050c"
+[[bin]]
+name = "abc051c"
+[[bin]]
+name = "abc052c"
+[[bin]]
+name = "abc055c"
+[[bin]]
+name= "abc056c"
+[[bin]]
+name = "abc057c"
+[[bin]]
+name = "abc058c"
+[[bin]]
+name = "abc060c"
+[[bin]]
+name = "abc127a"
+[[bin]]
+name = "abc127b"
+[[bin]]
+name = "abc127c"
+[[bin]]
+name = "abc127d"
+[[bin]]
+name = "abc061c"
+[[bin]]
+name = "abc128a"
+[[bin]]
+name = "abc128b"
+[[bin]]
+name = "abc128c"
+[[bin]]
+name = "abc128d"
+[[bin]]
+name = "abc063c"
+[[bin]]
+name = "abc065c"
+[[bin]]
+name = "abc066c"
+[[bin]]
+name = "abc068c"
+[[bin]]
+name = "abc070c"
+[[bin]]
+name = "abc071c"
+[[bin]]
+name = "abc072c"
+[[bin]]
+name = "abc073c"
+[[bin]]
+name = "abc076c"
+[[bin]]
+name = "abc081c"
+[[bin]]
+name = "agc034a"
+[[bin]]
+name = "abc082c"
+[[bin]]
+name = "abc083c"
+[[bin]]
+name = "abc084c"
+[[bin]]
+name = "abc086c"
+[[bin]]
+name = "abc087c"
+[[bin]]
+name = "abc088c"
+[[bin]]
+name = "abc089c"
+[[bin]]
+name = "abc090c"
+[[bin]]
+name = "abc092c"
+[[bin]]
+name = "abc093c"
+[[bin]]
+name = "abc094c"
+[[bin]]
+name = "abc129a"
+[[bin]]
+name = "abc129b"
+[[bin]]
+name = "abc129c"
+[[bin]]
+name = "abc129d"
+[[bin]]
+name = "abc095c"
+[[bin]]
+name = "abc096c"
+[[bin]]
+name = "abc097c"
+[[bin]]
+name = "abc098c"
+[[bin]]
+name = "abc099c"
+[[bin]]
+name = "abc100c"
+[[bin]]
+name = "diverta2a"
+[[bin]]
+name = "diverta2b"
+[[bin]]
+name = "abc100-1c"
+[[bin]]
+name = "abc102c"
+[[bin]]
+name = "abc103-1c"
