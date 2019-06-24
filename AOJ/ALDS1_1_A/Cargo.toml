@@ -8,3 +8,9 @@ edition = "2018"
 [[bin]]
 name ="insertion"
 path = "src/insertion.rs"
+[[bin]]
+name ="gcd"
+path = "src/gcd.rs"
+[[bin]]
+name ="prime"
+path = "src/prime.rs"

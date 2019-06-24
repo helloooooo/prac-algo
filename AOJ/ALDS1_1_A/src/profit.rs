@@ -57,19 +57,15 @@ macro_rules! read_value {
 use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
-    
-}
-
-
-fn is_prime(x:i64) -> bool {
-    if x == 2 {return true;}
-    if x < 2 || x % 2 == 0 {return false;}
-    let mut j = 3;
-    while j <= (x as f64).sqrt() as i64 {
-        if x % j == 0 {
-            return false;
-        }
-        j += 2;
+    input!{
+        n:usize,
+        an:[i64;n],
     }
-    true
+    let mut minv = an[0];
+    let mut ans = std::i64::MIN;
+    for j in 1..n {
+        ans = max(ans,an[j]-minv);
+        minv = min(minv, an[j]);
+    }
+    println!("{}",ans);
 }

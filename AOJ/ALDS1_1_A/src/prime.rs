@@ -57,9 +57,18 @@ macro_rules! read_value {
 use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
-    
+    input!{
+        n:usize,
+        an:[i64;n],
+    }
+    let mut ans = 0;
+    for &x in &an {
+        if is_prime(x) {
+            ans += 1;
+        }
+    }
+    println!("{}",ans);
 }
-
 
 fn is_prime(x:i64) -> bool {
     if x == 2 {return true;}
@@ -72,4 +81,17 @@ fn is_prime(x:i64) -> bool {
         j += 2;
     }
     true
+}
+
+
+#[test]
+fn prime_test(){
+    let v = vec![2,3,4,5,6,7];
+    let mut ans = 0;
+    for &x in &v {
+        if is_prime(x) {
+            ans += 1;
+        }
+    }
+    assert_eq!(ans,4);
 }

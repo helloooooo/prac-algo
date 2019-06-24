@@ -57,19 +57,24 @@ macro_rules! read_value {
 use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
-    
+    input!{
+        x:usize,
+        y:usize,
+    }
+    let ans = gcd(x, y);
+    println!("{}",ans);
+}
+
+fn gcd(a:usize,b:usize) -> usize {
+    if b == 0 {
+        a
+    } else {
+        gcd(b,a%b)
+    }
 }
 
 
-fn is_prime(x:i64) -> bool {
-    if x == 2 {return true;}
-    if x < 2 || x % 2 == 0 {return false;}
-    let mut j = 3;
-    while j <= (x as f64).sqrt() as i64 {
-        if x % j == 0 {
-            return false;
-        }
-        j += 2;
-    }
-    true
+#[test]
+fn gcd_test(){
+    assert_eq!(gcd(147, 105),21);
 }
