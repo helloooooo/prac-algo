@@ -1,0 +1,13 @@
+[package]
+name = "ALDS1_2_A"
+version = "0.1.0"
+authors = ["helloooooo <yomicerisier@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+[[bin]]
+name = "buble"
+path = "src/buble.rs"
+[[bin]]
+name = "selection"
+path = "src/selection.rs"
