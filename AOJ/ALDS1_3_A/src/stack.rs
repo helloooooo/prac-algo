@@ -58,45 +58,40 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        n:usize,
-        an:[usize;n],
+        s:chars,
     }
-    shell_sort(&an, n);
+    let s:Vec<char> = s.iter().filter(|&c| *c != ' ').map(|&c| c).collect();
+    let ans = solve(&s);
+    print!("{}",ans);
 }
-fn insertion_sort(an:&mut Vec<usize>,g:usize) -> usize  {
-    let mut count = 0;
-    let n = an.len();
-    for j in g..n{
-        let mut l = j-g;
-        while 0 < l  && an[l-1] > an[l] {
-            an.swap(l-1,l);
-            l -= 1;
-            count += 1;
+
+
+fn solve(s:&Vec<char>) -> i64 {
+    let mut stack = vec![];
+    let s:Vec<char> = s.iter().filter(|&c| *c != ' ').map(|&c| c).collect();
+    let mut operator = vec!['+','*','-'];
+    for &c in s {
+        if operator.contains(&c) {
+            let right = stack.pop().unwrap();
+            let left = stack.pop().unwrap();
+            stack.push(calc(left,right,&c));
+        } else {
+            let value = c as i64 -48;
+            stack.push(value);
         }
     }
-    count
+    let res = stack.pop().unwrap();
+    res
 }
-fn shell_sort(an:&Vec<usize>,n:usize) {
-    let mut m = 0;
-    let mut g_v = vec![];
-    l
-    while h < n / 9{
-        h = h*3 + 1;
-    }
-    let mut v = an.clone();
-    let mut count = 0;
-    for &g in &g_v {
-        count = insertion_sort(&mut v,g);
-    }
-    println!("{}",g_v.len());
-    for j in 0..g_v.len()-1 {
-        print!("{} ",g_v[j]);
-    }
-    println!("{}",g_v[g_v.len()-1]);
-    println!("{}",count);
-    for &x in &v {
-        println!("{}",x);
-    }
+
+fn calc(left:i64,right:i64,ope:&char) -> i64 {
+    let res = match *ope {
+        '*' => left * right,
+        '+' => left + right,
+        '-' => left - right,
+        _ => unimplemented!(),
+    };
+    res
 }
 
 fn is_prime(x:i64) -> bool {
@@ -113,10 +108,20 @@ fn is_prime(x:i64) -> bool {
 }
 
 
+
 #[test]
-fn shell_test(){
-    let n = 5;
-    let an = vec![5,1,4,3,2];
-    shell_sort(&an, n);
-    assert!(true);
+fn stack_test_no1(){
+    let s = vec!['1','2','+','3','4','-','*'];
+    println!("{}",solve(&s));
+    assert_eq!(solve(&s),-3)
+}
+#[test]
+fn stack_test_no2(){
+    let s = vec!['1','2','+'];
+    assert_eq!(solve(&s),3)
+}
+#[test]
+fn stack_test_no3(){
+    let s = vec!['1',' ','1',' ','+'];
+    assert_eq!(solve(&s),2)
 }
