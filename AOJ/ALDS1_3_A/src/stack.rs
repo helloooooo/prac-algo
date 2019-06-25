@@ -54,13 +54,24 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
+fn read_vec<T: std::str::FromStr>() -> Vec<T> {
+    read::<String>()
+        .split_whitespace()
+        .map(|e| e.parse().ok().unwrap())
+        .collect()
+}
+fn read<T: std::str::FromStr>() -> T {
+    let mut s = String::new();
+    std::io::stdin().read_line(&mut s).ok();
+    s.trim().parse().ok().unwrap()
+}
 use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
-    input!{
-        s:chars,
-    }
+    let s:Vec<char> = read::<String>().chars().collect();
+    // println!("{:?}",s);
     let s:Vec<char> = s.iter().filter(|&c| *c != ' ').map(|&c| c).collect();
+    println!("{:?}",s);
     let ans = solve(&s);
     print!("{}",ans);
 }
@@ -70,7 +81,7 @@ fn solve(s:&Vec<char>) -> i64 {
     let mut stack = vec![];
     let s:Vec<char> = s.iter().filter(|&c| *c != ' ').map(|&c| c).collect();
     let mut operator = vec!['+','*','-'];
-    for &c in s {
+    for c in s {
         if operator.contains(&c) {
             let right = stack.pop().unwrap();
             let left = stack.pop().unwrap();
