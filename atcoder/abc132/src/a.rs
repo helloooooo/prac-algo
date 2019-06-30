@@ -54,59 +54,23 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-fn read_vec<T: std::str::FromStr>() -> Vec<T> {
-    read::<String>()
-        .split_whitespace()
-        .map(|e| e.parse().ok().unwrap())
-        .collect()
-}
-fn read<T: std::str::FromStr>() -> T {
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).ok();
-    s.trim().parse().ok().unwrap()
-}
 use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
-    let s = read_vec::<String>();
-    // println!("{:?}",s);
-    let ans = solve(& s);
-    print!("{}",ans);
-}
-
-
-fn solve(s:&Vec<String>) -> i64 {
-    let mut stack = vec![];
-    let mut operator = vec!["+".to_string(),"*".to_string(),"-".to_string()];
-    for c in s {
-        if operator.contains(&c) {
-            let right = stack.pop().unwrap();
-            let left = stack.pop().unwrap();
-            let res = match (&c as &str) {
-                "*" => left * right,
-                "+" => left + right,
-                "-" => left - right,
-                _ => unimplemented!(),
-            };
-            stack.push(res);
-        } else {
-            let value = c.parse::<i64>().unwrap();
-            stack.push(value);
-        }
+    input!{
+        s:chars,
     }
-    let res = stack.pop().unwrap();
-    res
+    let mut map = HashMap::new();
+    for &c in &s {
+        *map.entry(c).or_insert(0) += 1;
+    }
+    if map.iter().all(|(k,v)| v== &2) {
+        println!("Yes");
+    } else {
+        println!("No");
+    }
 }
 
-// fn calc(left:i64,right:i64,ope:&'static str) -> i64 {
-//     let res = match ope {
-//         "*" => left * right,
-//         "+" => left + right,
-//         "-" => left - right,
-//         _ => unimplemented!(),
-//     };
-//     res
-// }
 
 fn is_prime(x:i64) -> bool {
     if x == 2 {return true;}
@@ -119,23 +83,4 @@ fn is_prime(x:i64) -> bool {
         j += 2;
     }
     true
-}
-
-
-
-#[test]
-fn stack_test_no1(){
-    let s = vec!['1','2','+','3','4','-','*'];
-    println!("{}",solve(&s));
-    assert_eq!(solve(&s),-3)
-}
-#[test]
-fn stack_test_no2(){
-    let s = vec!['1','2','+'];
-    assert_eq!(solve(&s),3)
-}
-#[test]
-fn stack_test_no3(){
-    let s = vec!['1',' ','1',' ','+'];
-    assert_eq!(solve(&s),2)
 }

@@ -1,0 +1,19 @@
+[package]
+name = "abc132"
+version = "0.1.0"
+authors = ["helloooooo <yomicerisier@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+[[bin]]
+name="a"
+path="src/a.rs"
+[[bin]]
+name="b"
+path="src/b.rs"
+[[bin]]
+name="c"
+path="src/c.rs"
+[[bin]]
+name="d"
+path="src/d.rs"
