@@ -1,0 +1,10 @@
+[package]
+name = "arc004"
+version = "0.1.0"
+authors = ["helloooooo <yomicerisier@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+[[bin]]
+name = "d"
+path = "src/d.rs"
