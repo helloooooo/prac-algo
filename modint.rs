@@ -1,21 +1,21 @@
 pub mod modular {
-    const M: i64 = 1000000007;
+    const m: i64 = 1000000007;
  
-    #[derive(Debug, Clone, Copy, Default, PartialOrd, Ord, PartialEq, Eq)]
-    pub struct Mod(i64);
+    #[derive(debug, clone, copy, default, partialord, ord, partialeq, eq)]
+    pub struct mod(i64);
  
-    impl ::std::fmt::Display for Mod {
-        fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+    impl ::std::fmt::display for mod {
+        fn fmt(&self, f: &mut ::std::fmt::formatter) -> ::std::fmt::result {
             write!(f, "{}", self.0)
         }
     }
  
-    impl Mod {
-        pub fn new(v: i64) -> Mod {
-            Mod(v % M)
+    impl mod {
+        pub fn new(v: i64) -> mod {
+            mod(v % m)
         }
  
-        pub fn pow(self, mut r: i64) -> Mod {
+        pub fn pow(self, mut r: i64) -> mod {
             let mut k = self;
             let mut ret = 1.into();
  
@@ -30,72 +30,72 @@ pub mod modular {
             ret
         }
  
-        // This requires M is prime
-        pub fn recip(self) -> Mod {
-            self.pow(M - 2)
+        // this requires m is prime
+        pub fn recip(self) -> mod {
+            self.pow(m - 2)
         }
     }
  
     use std::ops::*;
  
-    impl<T: Into<Mod>> Add<T> for Mod {
-        type Output = Mod;
-        fn add(self, rhs: T) -> Self::Output {
-            Mod::new(self.0 + rhs.into().0)
+    impl<t: into<mod>> add<t> for mod {
+        type output = mod;
+        fn add(self, rhs: t) -> self::output {
+            mod::new(self.0 + rhs.into().0)
         }
     }
-    impl<T: Into<Mod>> AddAssign<T> for Mod {
-        fn add_assign(&mut self, rhs: T) {
+    impl<t: into<mod>> addassign<t> for mod {
+        fn add_assign(&mut self, rhs: t) {
             *self = *self + rhs;
         }
     }
  
-    impl<T: Into<Mod>> Sub<T> for Mod {
-        type Output = Mod;
-        fn sub(self, rhs: T) -> Self::Output {
-            Mod::new(self.0 - rhs.into().0 + M)
+    impl<t: into<mod>> sub<t> for mod {
+        type output = mod;
+        fn sub(self, rhs: t) -> self::output {
+            mod::new(self.0 - rhs.into().0 + m)
         }
     }
-    impl<T: Into<Mod>> SubAssign<T> for Mod {
-        fn sub_assign(&mut self, rhs: T) {
+    impl<t: into<mod>> subassign<t> for mod {
+        fn sub_assign(&mut self, rhs: t) {
             *self = *self - rhs;
         }
     }
  
-    impl<T: Into<Mod>> Mul<T> for Mod {
-        type Output = Mod;
-        fn mul(self, rhs: T) -> Self::Output {
-            Mod::new(self.0 * rhs.into().0)
+    impl<t: into<mod>> mul<t> for mod {
+        type output = mod;
+        fn mul(self, rhs: t) -> self::output {
+            mod::new(self.0 * rhs.into().0)
         }
     }
-    impl<T: Into<Mod>> MulAssign<T> for Mod {
-        fn mul_assign(&mut self, rhs: T) {
+    impl<t: into<mod>> mulassign<t> for mod {
+        fn mul_assign(&mut self, rhs: t) {
             *self = *self * rhs;
         }
     }
  
-    impl<T: Into<Mod>> Div<T> for Mod {
-        type Output = Mod;
-        fn div(self, rhs: T) -> Self::Output {
+    impl<t: into<mod>> div<t> for mod {
+        type output = mod;
+        fn div(self, rhs: t) -> self::output {
             self * rhs.into().recip()
         }
     }
-    impl<T: Into<Mod>> DivAssign<T> for Mod {
-        fn div_assign(&mut self, rhs: T) {
+    impl<t: into<mod>> divassign<t> for mod {
+        fn div_assign(&mut self, rhs: t) {
             *self = *self / rhs;
         }
     }
  
-    impl Neg for Mod {
-        type Output = Mod;
-        fn neg(self) -> Self::Output {
-            Mod(0) - self
+    impl neg for mod {
+        type output = mod;
+        fn neg(self) -> self::output {
+            mod(0) - self
         }
     }
  
-    impl<T: ::std::convert::Into<i64>> ::std::convert::From<T> for Mod {
-        fn from(v: T) -> Self {
-            Mod::new(v.into())
+    impl<t: ::std::convert::into<i64>> ::std::convert::from<t> for mod {
+        fn from(v: t) -> self {
+            mod::new(v.into())
         }
     }
 }
