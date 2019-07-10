@@ -54,27 +54,41 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-
 use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
         n:usize,
-        l:i64,
+        d:usize,
+        xn:[[i64;d];n],
     }
-    let mut ans = (std::i64::MAX);
-    let mut index = 0;
-    let v:Vec<_> = (0..n).map(|x| x as i64 + l ).collect();
-    let sum = v.iter().sum::<i64>();
-    for j in 0..n {
-        let dist = (sum-(sum-v[j])).abs();
-        if ans > dist {
-            index = j;
+    let mut ans = 0;
+    for i in 0..n {
+        for j in i+1..n{
+            let dist = xn[i].iter().zip(xn[j].iter())
+                .fold(0 ,|y,x| {
+                    let sub = x.0 - x.1;
+                    y + sub * sub
+                });
+            let sq = (dist as f64).sqrt() as i64;
+            if sq * sq == dist {
+                ans += 1;
+            }
         }
-        ans = min(ans,dist);
     }
-    // let min_v = ans.iter().map(|&x| x.abs()).min().unwrap();
+    println!("{}",ans);
+}
 
-    // println!("{:?}",ans);
-    println!("{}",sum-v[index]);
+
+fn is_prime(x:i64) -> bool {
+    if x == 2 {return true;}
+    if x < 2 || x % 2 == 0 {return false;}
+    let mut j = 3;
+    while j <= (x as f64).sqrt() as i64 {
+        if x % j == 0 {
+            return false;
+        }
+        j += 2;
+    }
+    true
 }
