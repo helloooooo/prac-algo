@@ -8,3 +8,7 @@ edition = "2018"
 [[bin]]
 name = "d"
 path = "src/d.rs"
+[[bin]]
+name = "a"
+path = "src/a.rs"
+
