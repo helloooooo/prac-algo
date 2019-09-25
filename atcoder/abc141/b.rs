@@ -58,18 +58,20 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        n:usize,
-        bn:[usize;n-1],
+        s:chars,
     }
-    let mut ans = bn[0];
-    for i in 1..n{
-        if i == (n-1){
-            ans += bn[i-1];
+    let odds = vec!['R','U','D'];
+    let evens = vec!['L','U','D'];
+    let mut flag = true;
+    for i in 0..s.len() {
+        if !flag {break;} 
+        if i % 2 == 0 {
+            flag = odds.contains(&s[i]);
         } else {
-            ans += min(bn[i-1],bn[i]);
+            flag = evens.contains(&s[i]);
         }
     }
-    println!("{}",ans);
+    println!("{}",if flag {"Yes"} else {"No"});
 }
 
 

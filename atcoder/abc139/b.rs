@@ -58,17 +58,15 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        n:usize,
-        an:[usize;n],
-        bn:[usize;n],
-        cn:[usize;n-1],
+        a:i64,
+        b:i64,
     }
     let mut ans = 0;
-    for i in 0..n {
-        if i !=0 && an[i-1]  == an[i]-1{
-            ans += cn[an[i]-2];
-        }
-        ans += bn[an[i]-1];
+    let mut i = 1;
+    while i < b {
+        i -= 1;
+        i += a;
+        ans += 1;
     }
     println!("{}",ans);
 }

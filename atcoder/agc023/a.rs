@@ -58,16 +58,28 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        a:i64,
-        b:i64,
+        n:usize,
+        an:[i64;n],
     }
-    let mut ans = 0;
-    let mut i = 1;
-    while i < b {
-        i -= 1;
-        i += a;
-        ans += 1;
+    let mut sum_v = vec![0];
+    for i in 0..n {
+        let sub = sum_v[i];
+        sum_v.push(an[i] + sub);
     }
+    let mut map = HashMap::new();
+    for &v in &sum_v {
+        *map.entry(v).or_insert(0) += 1;
+    }
+    let calc = |x:i64| {
+        if x == 2{
+            1
+        } else if x > 2 {
+            (x*(x-1))/2
+        } else {
+            0
+        }
+    };
+    let ans:i64 = map.into_iter().map(|(_,v)| calc(v)).sum();
     println!("{}",ans);
 }
 

@@ -58,9 +58,11 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        n:usize,
+        s:chars,
+        t:chars,
     }
-    println!("{}",n*n*n);
+    let ans = s.iter().zip(t.iter()).filter(|&(x,y)| x == y).count();
+    println!("{}",ans);
 }
 
 

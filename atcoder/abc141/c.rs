@@ -58,21 +58,22 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        n:usize,
-        xn:[usize;n],
+        n:i64,
+        k:i64,
+        q:i64,
+        aq:[i64;q],
     }
-    let mut ans = 0;
-    let mut cnt = 0;
-    for i in 1..n {
-        if xn[i-1] >= xn[i] {
-            cnt += 1;
-        } else {
-            ans = max(ans,cnt);
-            cnt = 0;
-        }
+    let mut map = HashMap::new();
+    for &a in &aq {
+        *map.entry(a).or_insert(0) += 1;
     }
-    ans = max(ans,cnt);
-    println!("{}",ans);
+    for i in 1..n+1 {
+        let ans = match map.get(&i) {
+            Some(v) => if (k+v-q) <= 0 {"No"} else {"Yes"},
+            None => if (k-q) <= 0 {"No"} else {"Yes"},
+        };
+        println!("{}",ans);
+    }
 }
 
 

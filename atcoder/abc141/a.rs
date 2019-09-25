@@ -58,17 +58,14 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        n:usize,
-        bn:[usize;n-1],
+        s:chars,
     }
-    let mut ans = bn[0];
-    for i in 1..n{
-        if i == (n-1){
-            ans += bn[i-1];
-        } else {
-            ans += min(bn[i-1],bn[i]);
-        }
-    }
+    let ans = match s[0] {
+        'S' => "Cloudy",
+        'C' => "Rainy",
+        'R' => "Sunny",
+        _ => unreachable!(),
+    };
     println!("{}",ans);
 }
 

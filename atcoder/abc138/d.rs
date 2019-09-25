@@ -57,11 +57,7 @@ macro_rules! read_value {
 use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
-    input!{
-        n:i64,
-    }
-    let ans = n * (2 * (n-1) + (n-1) * -1)/2;
-    println!("{}",ans);
+    
 }
 
 

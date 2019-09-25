@@ -58,15 +58,9 @@ use std::collections::HashMap;
 use std::cmp::{max,min};
 fn main(){
     input!{
-        s:chars,
+        n:usize,
     }
-    let ans = match s[0] {
-        'S' => "Cloudy",
-        'C' => "Rainy",
-        'R' => "Sunny",
-        _ => unreachable!(),
-    };
-    println!("{}",ans);
+    println!("{}",n*n*n);
 }
 
 

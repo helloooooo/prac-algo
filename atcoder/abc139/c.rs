@@ -59,16 +59,19 @@ use std::cmp::{max,min};
 fn main(){
     input!{
         n:usize,
-        bn:[usize;n-1],
+        xn:[usize;n],
     }
-    let mut ans = bn[0];
-    for i in 1..n{
-        if i == (n-1){
-            ans += bn[i-1];
+    let mut ans = 0;
+    let mut cnt = 0;
+    for i in 1..n {
+        if xn[i-1] >= xn[i] {
+            cnt += 1;
         } else {
-            ans += min(bn[i-1],bn[i]);
+            ans = max(ans,cnt);
+            cnt = 0;
         }
     }
+    ans = max(ans,cnt);
     println!("{}",ans);
 }
 

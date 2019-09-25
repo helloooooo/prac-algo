@@ -56,23 +56,24 @@ macro_rules! read_value {
 }
 use std::collections::HashMap;
 use std::cmp::{max,min};
-use std::collections::BinaryHeap;
 fn main(){
     input!{
         n:usize,
-        m:usize,
-        an:[usize;n],
+        k:usize,
+        s:chars,
     }
-    let mut heap = BinaryHeap::new();
-    for &a in &an {
-        heap.push(a);
+    let mut ans = 0;
+    for i in 0..n {
+        let count_up_flg = match s[i] {
+            'L' if i >= 1 => s[i-1] == 'L',
+            'R' if i + 1 < n => s[i+1] == 'R',
+            _ => false,
+        };
+        if count_up_flg {
+            ans += 1;
+        }
     }
-    for _ in 0..m {
-        let res = heap.pop().unwrap()/2;
-        heap.push(res);
-    }
-    let ans:usize = heap.into_iter().sum();
-    println!("{}",ans);
+    println!("{}",min(ans + k * 2, n-1));
 }
 
 
