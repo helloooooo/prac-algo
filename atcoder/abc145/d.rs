@@ -54,8 +54,28 @@ macro_rules! read_value {
         $next().parse::<$t>().expect("Parse error")
     };
 }
-use std::collections::{HashMap,HashSet};
+use std::collections::{HashMap, BinaryHeap};
 use std::cmp::{max,min};
+use modular::Mod;
+const MOVES: [(i64, i64); 2] = [(1, 2), (2, 1)];
+fn main(){
+    input!{
+        x:i64,
+        y:i64,
+    }
+    if (x+y) % 3 != 0 {println!("0"); return;}
+    let n = (-1*x)/3 + (2*y)/3;
+    let m =(-1*y)/3 + (2*x)/3;
+    if n < 0 || m < 0 {println!("0");return}; 
+    let mut fact = vec![Mod::new(1); 1000000];
+    for i in 1..fact.len() {
+        fact[i] = fact[i - 1] * Mod::new(i as _);
+    }
+    let combination = |n: usize, r: usize| -> Mod { fact[n] / (fact[r] * fact[n - r]) };
+    let ans = combination((n+m) as usize, n as usize);
+    println!("{}", ans);
+}
+
 
 fn is_prime(x:i64) -> bool {
     if x == 2 {return true;}
@@ -69,9 +89,6 @@ fn is_prime(x:i64) -> bool {
     }
     true
 }
-
-
-
 pub mod modular {
     const M: i64 = 1000000007;
 
@@ -172,52 +189,4 @@ pub mod modular {
             Mod::new(v.into())
         }
     }
-}
-
-type Pi = Vec<u32>;
-
-fn calc_k(pi:&Pi, i:u32, n:u32) -> u32 {
-
-    // pi(i) + 1 .. n
-    let g0: HashSet<u32> = (pi[i as usize - 1] + 1.. n + 2).collect();
-    // pi(1) .. pi(i-1)
-    let g1: HashSet<u32> = pi[0 .. (i - 1) as usize].to_vec().into_iter().collect();    
-
-    let diff = &g0 - &g1;
-    match diff.into_iter().min() {
-        Some(k) => k,
-        _ => 0
-    }   
-}
-
-fn enumlation(n: u32) -> Vec<Pi> {
-    let mut pi : Pi = (1..n+1).collect();
-    let mut i = n - 1;  
-    let mut result :  Vec<Vec<u32>> = Vec::new();
-    let mut k = calc_k(&pi, i , n);
-
-    result.push(pi.clone());
-
-    // k == n + 1, i == 1
-    while k != n + 1 || i != 1  {
-        if k <= n {
-            pi[i as usize - 1] = k;
-            if i == n {
-                result.push(pi.clone());
-            }
-            if i < n  {
-                pi[i as usize] = 0;
-                i = i + 1;
-            }
-        }
-        if k == n + 1 {
-            i = i - 1;
-        }
-        k = calc_k(&pi, i , n);
-    }    
-    result   
-}
-
-fn main(){
-    
 }
